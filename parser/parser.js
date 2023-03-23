@@ -413,7 +413,7 @@ function recursiveSkillTreeScan(connectionData, classData, className, rootNode, 
 						}
 						extraDescription = sanitizeNodeDescription(extraDescription);
 						if (extraDescription.length > 0) {
-							output += "\t\tdescription: `" + sanitizedDescription + "\n\n— Enchantment Effect —\n" + extraDescription + "`,\n";
+							output += "\t\tdescription: `" + sanitizedDescription + "\n\n— 附魔效果 —\n" + extraDescription + "`,\n";
 						} else {
 							output += "\t\tdescription: `" + sanitizedDescription + "`,\n";
 						}

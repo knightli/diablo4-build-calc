@@ -581,8 +581,8 @@ let nodeHistory = {
 	"Sorcerer": {
 		"Basic: 冰霜弹": 0,
 		"Basic: 强化冰霜弹": 1,
-		"Basic: Flickering 冰霜弹": 2,
-		"Basic: Glinting 冰霜弹": 3,
+		"Basic: 闪烁冰霜弹": 2,
+		"Basic: 闪耀冰霜弹": 3,
 		"Basic: Spark": 4,
 		"Basic: Enhanced Spark": 5,
 		"Basic: Flickering Spark": 6,

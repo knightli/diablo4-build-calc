@@ -2144,56 +2144,56 @@ let nodeValues = {
 			"强化冰霜弹": [
 				"15"
 			],
-			"Flickering 冰霜弹": [
+			"闪烁冰霜弹": [
 				"3"
 			],
-			"Glinting 冰霜弹": [
+			"闪耀冰霜弹": [
 				"4"
 			],
-			"Spark": [
+			"电花": [
 				"9",
 				"4",
 				"8"
 			],
-			"Enhanced Spark": [
+			"强化电花": [
 				"20",
 				"3",
 				"6",
 				"20"
 			],
-			"Flickering Spark": [
+			"闪烁电花": [
 				"3"
 			],
-			"Glinting Spark": [
+			"闪耀电花": [
 				"2",
 				"3",
 				"10"
 			],
-			"Arc Lash": [
+			"电弧鞭笞": [
 				"30",
 				"42",
 				"10",
 				"2"
 			],
-			"Glinting Arc Lash": [
+			"闪耀电弧鞭笞": [
 				"0.25"
 			],
-			"Flickering Arc Lash": [
+			"闪烁电弧鞭笞": [
 				"6",
 				"5",
 				"18"
 			],
-			"Fire Bolt": [
+			"火焰弹": [
 				"20",
 				"10",
 				"40",
 				"8"
 			],
-			"Glinting Fire Bolt": [
+			"闪耀火焰弹": [
 				"20",
 				"4"
 			],
-			"Flickering Fire Bolt": [
+			"闪烁火焰弹": [
 				"2"
 			],
 			"冰霜弹 — Enchantment": [

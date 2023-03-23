@@ -51,8 +51,8 @@ sorcererData["基本"] = {
 
 Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.
 
-— Enchantment Effect —
-Direct damage from Skills applies up to {#}% Chill.`,
+— 附魔效果 —
+来自技能的直接伤害会施加最多 {#} 的冻伤。`,
 		id: 0,
 		maxPoints: 5,
 		values: [ "30", "35", "15" ],
@@ -62,7 +62,7 @@ Direct damage from Skills applies up to {#}% Chill.`,
 	},
 	"强化冰霜弹": {
 		baseSkill: "冰霜弹",
-		connections: [ "冰霜弹", "Flickering 冰霜弹", "Glinting 冰霜弹" ],
+		connections: [ "冰霜弹", "闪烁冰霜弹", "闪耀冰霜弹" ],
 		description: `冰霜弹 击中冰冷的敌人有 {#}% 几率爆炸, 击中周围的敌人. 对冻结的敌人此几率提高为 100%
 
 Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.`,
@@ -72,10 +72,10 @@ Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.`,
 		x: -336.656,
 		y: -421.415
 	},
-	"Flickering 冰霜弹": {
+	"闪烁冰霜弹": {
 		baseSkill: "冰霜弹",
 		connections: [ "强化冰霜弹" ],
-		description: `冰霜弹 makes Frozen enemies Vulnerable for {#} seconds.
+		description: `冰霜弹会使冻结的敌人陷入易伤状态，持续 {#} 秒。
 
 Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.`,
 		id: 2,
@@ -84,10 +84,10 @@ Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.`,
 		x: -592.019,
 		y: -455.675
 	},
-	"Glinting 冰霜弹": {
+	"闪耀冰霜弹": {
 		baseSkill: "冰霜弹",
 		connections: [ "强化冰霜弹" ],
-		description: `冰霜弹 generates {#} Mana when hitting Chilled or Frozen enemies.
+		description: `冰霜弹命中冻伤或冻结的敌人时会生成 {#} 点法力。
 
 Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.`,
 		id: 3,
@@ -96,15 +96,15 @@ Tags: Basic, Frost, Chill, Damage, Cold, Crowd Control.`,
 		x: -263.99,
 		y: -545.8
 	},
-	"Spark": {
-		connections: [ "基本", "Enhanced Spark" ],
-		description: `Lucky Hit Chance: {#}%
-Launch a bolt of lightning that shocks an enemy {#} times, dealing {#}% damage each hit.
+	"电花": {
+		connections: [ "基本", "强化电花" ],
+		description: `幸运一击几率：{#}%
+发射一道闪电，震击一名敌人 {#} 次，每一击造成 {#} 点伤害。
 
 Tags: Basic, Shock, Damage, Lightning.
 
-— Enchantment Effect —
-Killing an enemy has a {#}% chance to form a Crackling Energy.`,
+— 附魔效果 —
+消灭敌人时有 {#}% 几率生成一个爆裂电花。`,
 		id: 4,
 		maxPoints: 5,
 		values: [ "9", "4", "8" ],
@@ -112,10 +112,10 @@ Killing an enemy has a {#}% chance to form a Crackling Energy.`,
 		x: -489.038,
 		y: -81.23
 	},
-	"Enhanced Spark": {
-		baseSkill: "Spark",
-		connections: [ "Spark", "Flickering Spark", "Glinting Spark" ],
-		description: `Each time Spark hits its primary target, it has a {#}% chance to hit up to {#} additional enemies, dealing {#}% damage. If there are no other enemies to hit, Spark instead deals x{#}% increased damage to its primary target.
+	"强化电花": {
+		baseSkill: "电花",
+		connections: [ "电花", "闪烁电花", "闪耀电花" ],
+		description: `每次电花命中其主要目标，都有 {#}% 几率额外命中最多 {#} 名敌人，造成 {#} 点伤害。如果没有其他可以命中的敌人，改为电花对其主要目标造成的伤害提高 {#}%
 
 Tags: Basic, Shock, Damage, Lightning.`,
 		id: 5,
@@ -124,10 +124,10 @@ Tags: Basic, Shock, Damage, Lightning.`,
 		x: -762.794,
 		y: -204.92
 	},
-	"Flickering Spark": {
-		baseSkill: "Spark",
-		connections: [ "Enhanced Spark" ],
-		description: `Each time Spark hits an enemy it has a {#}% chance to form a Crackling Energy.
+	"闪烁电花": {
+		baseSkill: "电花",
+		connections: [ "强化电花" ],
+		description: `电花每次命中敌人时，有 {#}% 几率生成一个爆裂电花。
 
 Tags: Basic, Shock, Damage, Lightning.`,
 		id: 6,
@@ -136,10 +136,10 @@ Tags: Basic, Shock, Damage, Lightning.`,
 		x: -782.894,
 		y: -342.245
 	},
-	"Glinting Spark": {
-		baseSkill: "Spark",
-		connections: [ "Enhanced Spark" ],
-		description: `Spark grants +{#}% increased Critical Strike Chance per cast for {#} seconds, up to +{#}%.
+	"闪耀电花": {
+		baseSkill: "电花",
+		connections: [ "强化电花" ],
+		description: `电花每次施放时，暴击几率提高 {#}% ，持续 {#} 秒，最多提高 {#}%
 
 Tags: Basic, Shock, Damage, Lightning.`,
 		id: 7,
@@ -148,15 +148,15 @@ Tags: Basic, Shock, Damage, Lightning.`,
 		x: -1028.789,
 		y: -207.505
 	},
-	"Arc Lash": {
-		connections: [ "基本", "Enhanced Arc Lash" ],
-		description: `Lucky Hit Chance: {#}%
-Unleash arcing lightning that deals {#}% damage to enemies in front of you. Every {#} times Arc Lash swipes, it Stuns all enemies hit for {#} seconds.
+	"电弧鞭笞": {
+		connections: [ "基本", "强化电弧鞭笞" ],
+		description: `幸运一击几率：{#}%
+施放弧形闪电，对你面前的敌人造成 {#} 点伤害。每第 {#} 次施放电弧鞭笞，击晕所有命中的敌人 {#} 秒。
 
 Tags: Basic, Shock, Damage, Lightning, Crowd Control.
 
-— Enchantment Effect —
-When you use a Cooldown, enemies around you are Stunned for {#} seconds.`,
+— 附魔效果 —
+当你使用有冷却时间的技能时，你周围的敌人会昏迷 {#}秒。`,
 		id: 8,
 		maxPoints: 5,
 		values: [ "30", "42", "10", "2" ],
@@ -164,10 +164,10 @@ When you use a Cooldown, enemies around you are Stunned for {#} seconds.`,
 		x: 487.781,
 		y: -80.27
 	},
-	"Enhanced Arc Lash": {
-		baseSkill: "Arc Lash",
-		connections: [ "Arc Lash", "Glinting Arc Lash", "Flickering Arc Lash" ],
-		description: `If Arc Lash's initial swipe Critically Strikes, it swipes an additional time.
+	"强化电弧鞭笞": {
+		baseSkill: "电弧鞭笞",
+		connections: [ "电弧鞭笞", "闪耀电弧鞭笞", "闪烁电弧鞭笞" ],
+		description: `如果电弧鞭笞的初始扫击造成暴击，则额外扫击一次。
 
 Tags: Basic, Shock, Damage, Lightning, Crowd Control.`,
 		id: 9,
@@ -175,10 +175,10 @@ Tags: Basic, Shock, Damage, Lightning, Crowd Control.`,
 		x: 765.421,
 		y: -208.87
 	},
-	"Glinting Arc Lash": {
-		baseSkill: "Arc Lash",
-		connections: [ "Enhanced Arc Lash" ],
-		description: `Hitting a Stunned enemy with Arc Lash reduces your Cooldowns by {#} seconds.
+	"闪耀电弧鞭笞": {
+		baseSkill: "电弧鞭笞",
+		connections: [ "强化电弧鞭笞" ],
+		description: `用电弧鞭笞命中昏迷的敌人会使你的冷却时间缩短 {#} 秒。
 
 Tags: Basic, Shock, Damage, Lightning, Crowd Control.`,
 		id: 10,
@@ -187,10 +187,10 @@ Tags: Basic, Shock, Damage, Lightning, Crowd Control.`,
 		x: 1040.126,
 		y: -209
 	},
-	"Flickering Arc Lash": {
-		baseSkill: "Arc Lash",
-		connections: [ "Enhanced Arc Lash" ],
-		description: `Gain +{#}% Movement Speed for {#} seconds per enemy hit with Arc Lash, up to +{#}%.
+	"闪烁电弧鞭笞": {
+		baseSkill: "电弧鞭笞",
+		connections: [ "强化电弧鞭笞" ],
+		description: `电弧鞭笞每命中一名敌人，移动速度提高 {#}%，持续 {#} 秒，最多提高 {#}%
 
 Tags: Basic, Shock, Damage, Lightning, Crowd Control.`,
 		id: 11,
@@ -199,26 +199,26 @@ Tags: Basic, Shock, Damage, Lightning, Crowd Control.`,
 		x: 759.211,
 		y: -351.28
 	},
-	"Fire Bolt": {
-		connections: [ "基本", "Enhanced Fire Bolt" ],
-		description: `Lucky Hit Chance: {#}%
-Hurl a flaming bolt, dealing {#}% damage and Burning for {#}% damage over {#} seconds.
+	"火焰弹": {
+		connections: [ "基本", "强化火焰弹" ],
+		description: `幸运一击几率：{#}%
+投掷一枚火焰弹，造成 {#} 点伤害，并使目标燃烧，在 {#} 秒内造成 {#} 点伤害。
 
 Tags: Basic, Pyromancy, Damage, Fire, Burn.
 
-— Enchantment Effect —
-Direct damage from Skills applies up to an additional {#}% Burning damage over {#} seconds.`,
+— 附魔效果 —
+来自技能的直接伤害会在 {#} 秒内额外施加最多 {#} 点燃烧伤害。`,
 		id: 12,
 		maxPoints: 5,
-		values: [ "20", "10", "40", "8" ],
-		extraValues: [ "23", "8" ],
+		values: [ "20", "10", "8", "40" ],
+		extraValues: [ "8", "23" ],
 		x: 202.516,
 		y: -251.18
 	},
-	"Enhanced Fire Bolt": {
-		baseSkill: "Fire Bolt",
-		connections: [ "Fire Bolt", "Glinting Fire Bolt", "Flickering Fire Bolt" ],
-		description: `Fire Bolt pierces through Burning enemies.
+	"强化火焰弹": {
+		baseSkill: "火焰弹",
+		connections: [ "火焰弹", "闪耀火焰弹", "闪烁火焰弹" ],
+		description: `火焰弹穿透燃烧的敌人
 
 Tags: Basic, Pyromancy, Damage, Fire, Burn.`,
 		id: 13,
@@ -226,10 +226,10 @@ Tags: Basic, Pyromancy, Damage, Fire, Burn.`,
 		x: 333.76,
 		y: -423.11
 	},
-	"Glinting Fire Bolt": {
-		baseSkill: "Fire Bolt",
-		connections: [ "Enhanced Fire Bolt" ],
-		description: `Critical Strikes with Fire Bolt increase the Burning damage you deal to the enemy by x{#}% for {#} seconds.
+	"闪耀火焰弹": {
+		baseSkill: "火焰弹",
+		connections: [ "强化火焰弹" ],
+		description: `火焰弹暴击会使你对敌人造成的燃烧伤害提高 {#}%，持续 {#} 秒。
 
 Tags: Basic, Pyromancy, Damage, Fire, Burn.`,
 		id: 14,
@@ -238,10 +238,10 @@ Tags: Basic, Pyromancy, Damage, Fire, Burn.`,
 		x: 586.526,
 		y: -457.72
 	},
-	"Flickering Fire Bolt": {
-		baseSkill: "Fire Bolt",
-		connections: [ "Enhanced Fire Bolt" ],
-		description: `Fire Bolt generates {#} Mana when hitting a Burning enemy.
+	"闪烁火焰弹": {
+		baseSkill: "火焰弹",
+		connections: [ "强化火焰弹" ],
+		description: `火焰弹命中燃烧的敌人时，会生成 {#} 点法力。
 
 Tags: Basic, Pyromancy, Damage, Fire, Burn.`,
 		id: 15,
@@ -261,7 +261,7 @@ Release {#} bolts of lightning that course along the ground in an erratic patter
 
 Tags: Core, Shock, Damage, Lightning, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 When you Stun an enemy, there's a {#}% chance to release {#} Charged Bolts from them.`,
 		id: 16,
 		maxPoints: 5,
@@ -314,7 +314,7 @@ Unleash an orb that Chills for {#}% and expels piercing shards, dealing a total 
 
 Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 Whenever you cast a Non-Basic Skill, you have a {#}% chance to launch a Frozen Orb at a Nearby enemy.`,
 		id: 20,
 		maxPoints: 5,
@@ -367,7 +367,7 @@ Channel a beam of fire, Burning enemies for {#}% damage per second. Damage per s
 
 Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 Every {#} seconds, a serpent spawns and Incinerates enemies for {#} seconds.`,
 		id: 24,
 		maxPoints: 5,
@@ -420,7 +420,7 @@ Hurl an exploding ball of fire, dealing {#}% damage to surrounding enemies.
 
 Tags: Core, Pyromancy, Damage, Fire, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 When you kill an enemy, they explode in a Fireball for {#}% of its damage.`,
 		id: 28,
 		maxPoints: 5,
@@ -473,7 +473,7 @@ Unleash a stream of lightning that deals {#}% damage and chains between Nearby e
 
 Tags: Core, Shock, Damage, Lightning, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 Chain Lightning forms automatically after spending {#} Mana.`,
 		id: 32,
 		maxPoints: 5,
@@ -526,7 +526,7 @@ Launch {#} shards that deal {#}% damage each. Deals x{#}% increased damage to Fr
 
 Tags: Core, Frost, Frozen, Damage, Cold, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 Ice Shards automatically conjure and fly towards Frozen enemies.`,
 		id: 36,
 		maxPoints: 5,
@@ -615,7 +615,7 @@ While Flame Shield is active, you are Immune.
 
 Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.
 
-— Enchantment Effect —
+— 附魔效果 —
 Flame Shield automatically activates when you take fatal damage. Can only happen once every {#} seconds.`,
 		id: 43,
 		maxPoints: 5,
@@ -669,7 +669,7 @@ Unleash a torrent of frost, Freezing enemies around you for {#} seconds.
 
 Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.
 
-— Enchantment Effect —
+— 附魔效果 —
 Lucky Hit: Your Conjuration Skills have a {#}% chance to unleash a Frost Nova when hitting enemies.`,
 		id: 47,
 		maxPoints: 5,
@@ -721,7 +721,7 @@ A Barrier of ice forms around you for {#} seconds, absorbing {#}% of your Base L
 
 Tags: Defensive, Frost, Barrier, Cooldown, Damage.
 
-— Enchantment Effect —
+— 附魔效果 —
 Upon getting hit, you have a {#}% chance to apply Ice Armor.`,
 		id: 51,
 		maxPoints: 5,
@@ -774,7 +774,7 @@ Transform into lightning, becoming Unstoppable and surging to the target locatio
 
 Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.
 
-— Enchantment Effect —
+— 附魔效果 —
 Evade is replaced with a short range Teleport on a {#} second Cooldown.`,
 		id: 55,
 		maxPoints: 5,
@@ -854,7 +854,7 @@ Maximum {#} active Hydras at a time.
 
 Tags: Conjuration, Pyromancy, Damage, Fire, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 After spending {#} Mana, a {#}-headed Hydra spawns for {#} seconds.`,
 		id: 61,
 		maxPoints: 5,
@@ -907,7 +907,7 @@ Conjure a pair of ice blades for {#} seconds that rapidly slash enemies for {#}%
 
 Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.
 
-— Enchantment Effect —
+— 附魔效果 —
 For every {#} seconds in Cooldowns you spend, you spawn an Ice Blades on a random enemy.`,
 		id: 65,
 		maxPoints: 5,
@@ -960,7 +960,7 @@ Conjure a spear of lightning that seeks out enemies for {#} seconds, dealing {#}
 
 Tags: Conjuration, Shock, Damage, Lightning, Cooldown.
 
-— Enchantment Effect —
+— 附魔效果 —
 Absorbing Crackling Energy has a {#}% chance to conjure a Lightning Spear.`,
 		id: 69,
 		maxPoints: 5,
@@ -1071,7 +1071,7 @@ Summon a meteor that strikes the target location, dealing {#}% damage and Burnin
 
 Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.
 
-— Enchantment Effect —
+— 附魔效果 —
 Lucky Hit: {#}% chance for a Meteor to fall on enemies.`,
 		id: 78,
 		maxPoints: 5,
@@ -1124,7 +1124,7 @@ Summon a frigid blizzard that deals {#}% damage and continually Chills enemies f
 
 Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.
 
-— Enchantment Effect —
+— 附魔效果 —
 Every {#} seconds, a Blizzard forms over you and follows you for {#} seconds.`,
 		id: 82,
 		maxPoints: 5,
@@ -1177,7 +1177,7 @@ Discharge a ball of lightning that slowly moves forward, continually zapping ene
 
 Tags: Mastery, Shock, Damage, Lightning, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 Lucky Hit: Critical Strikes have a {#}% chance to spawn a static Ball Lightning.`,
 		id: 86,
 		maxPoints: 5,
@@ -1329,7 +1329,7 @@ Create a wall of flames that Burns enemies for {#}% damage over {#} seconds.
 
 Tags: Mastery, Pyromancy, Damage, Burn, Mana.
 
-— Enchantment Effect —
+— 附魔效果 —
 Each time an enemy takes Burning damage, there's a {#}% chance to spawn 2 Firewalls underneath them for {#} seconds.`,
 		id: 99,
 		maxPoints: 5,

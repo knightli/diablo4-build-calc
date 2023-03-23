@@ -24445,7 +24445,7 @@
 						"Lightning"
 					],
 					"skill_desc": "Each time {c_important}Spark{/c} hits its primary target, it has a {c_number}[{SF_6} * 100|%|]{/c} chance to hit up to {c_number}{SF_7}{/c} additional enemies, dealing {c_number}{payload:PAYLOAD_FORK_1}{/c} damage. If there are no other enemies to hit, {c_important}Spark{/c} instead deals {c_number}[{SF_8} * 100|%x|]{/c} increased damage to its primary target.",
-					"skill_name": "Enhanced Spark"
+					"skill_name": "强化电花"
 				},
 				"req_points": 0,
 				"reward": {
@@ -24479,7 +24479,7 @@
 						"Crowd Control"
 					],
 					"skill_desc": "If {c_important}Arc Lash's{/c} initial swipe Critically Strikes, it swipes an additional time.",
-					"skill_name": "Enhanced Arc Lash"
+					"skill_name": "强化电弧鞭笞"
 				},
 				"req_points": 0,
 				"reward": {
@@ -26265,7 +26265,7 @@
 						"Lightning"
 					],
 					"skill_desc": "{if:ADVANCED_TOOLTIP}{c_label}Lucky Hit Chance: {/c}{c_resource}[{Combat Effect Chance}|%|]{/c}\n{/if}Launch a bolt of lightning that shocks an enemy {c_number}{SF_2}{/c} times, dealing {c_number}{payload:PAYLOAD_PROJECTILE}{/c} damage each hit.",
-					"skill_name": "Spark",
+					"skill_name": "电花",
 					"skill_rankup_desc": "{icon:bullet,1.2} Damage {icon:arrow,1.2} {c_number}{payload:PAYLOAD_PROJECTILE}{/c}"
 				},
 				"req_points": 0,
@@ -26392,7 +26392,7 @@
 						"Crowd Control"
 					],
 					"skill_desc": "{if:ADVANCED_TOOLTIP}{c_label}Lucky Hit Chance: {/c}{c_resource}[{Combat Effect Chance}|%|]{/c}\n{/if}Unleash arcing lightning that deals {c_number}{payload:DAMAGE}{/c} damage to enemies in front of you. Every {c_number}{SF_10}{/c} times {c_important}Arc Lash{/c} swipes, it Stuns all enemies hit for {c_number}{buffduration:STUN}{/c} seconds.",
-					"skill_name": "Arc Lash",
+					"skill_name": "电弧鞭笞",
 					"skill_rankup_desc": "{icon:bullet,1.2} Damage {icon:arrow,1.2} {c_number}{payload:DAMAGE}{/c}"
 				},
 				"req_points": 0,
@@ -27015,7 +27015,7 @@
 						"Crowd Control"
 					],
 					"skill_desc": "{c_important}冰霜弹{/c} makes {c_important}{u}Frozen{/u}{/c} enemies {c_important}{u}Vulnerable{/u}{/c} for {c_number}{SF_9}{/c} seconds.",
-					"skill_name": "Flickering 冰霜弹"
+					"skill_name": "闪烁冰霜弹"
 				},
 				"req_points": 0,
 				"reward": {
@@ -27275,7 +27275,7 @@
 						"Lightning"
 					],
 					"skill_desc": "Each time {c_important}Spark{/c} hits an enemy it has a {c_number}[{SF_14} * 100|%|]{/c} chance to form a {c_important}{u}Crackling Energy{/u}{/c}.",
-					"skill_name": "Flickering Spark"
+					"skill_name": "闪烁电花"
 				},
 				"req_points": 0,
 				"reward": {
@@ -27536,7 +27536,7 @@
 						"Lightning"
 					],
 					"skill_desc": "{c_important}Spark{/c} grants {c_number}[{SF_15}*100|%+|]{/c} increased Critical Strike Chance per cast for {c_number}{SF_16}{/c} seconds, up to {c_number}[{SF_17}*100|%+|]{/c}.",
-					"skill_name": "Glinting Spark"
+					"skill_name": "闪耀电花"
 				},
 				"req_points": 0,
 				"reward": {
@@ -27862,7 +27862,7 @@
 						"Crowd Control"
 					],
 					"skill_desc": "{c_important}冰霜弹{/c} generates {c_number}{SF_10}{/c} Mana when hitting {c_important}{u}Chilled{/u}{/c} or {c_important}{u}Frozen{/u}{/c} enemies.",
-					"skill_name": "Glinting 冰霜弹"
+					"skill_name": "闪耀冰霜弹"
 				},
 				"req_points": 0,
 				"reward": {

@@ -287,7 +287,7 @@ function recursiveSkillTreeScan(connectionData, classData, className, rootNode, 
 				if (className == "Sorcerer" && sorcererEnchants[rootNodeName] != undefined) {
 					const extraDescription = sorcererEnchants[rootNodeName][nodeData["SkillName"]];
 					if (extraDescription != undefined && extraDescription.length > 0) {
-						output += "\t\tdescription: `" + sanitizedDescription + "\n\n— Enchantment Effect —\n" + extraDescription + "`,\n";
+						output += "\t\tdescription: `" + sanitizedDescription + "\n\n— 附魔效果 —\n" + extraDescription + "`,\n";
 					} else {
 						output += "\t\tdescription: `" + sanitizedDescription + "`,\n";
 					}
