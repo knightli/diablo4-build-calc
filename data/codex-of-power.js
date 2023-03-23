@@ -1,13 +1,13 @@
 let codexData = {
 	"Slots": {
-		"Defensive": "Shield, Helmet, Chest, Pants, Amulet [+50%].",
+		"防御": "Shield, Helmet, Chest, Pants, Amulet [+50%].",
 		"Offensive": "1H Weapon, 2H Weapon [+100%], Off-Hand, Gloves, Amulet [+50%], Ring.",
 		"Resource": "Helmet, Amulet [+50%], Ring.",
 		"Utility": "Helmet, Chest, Boots, Gloves, Amulet [+50%].",
 		"Mobility": "Boots, Amulet [+50%]."
 	},
 	"General": {
-		"Defensive": {
+		"防御": {
 			"Aspect of the Deflecting Barrier": {
 				"power": "While you have a Barrier active, there is a 20% chance to ignore incoming direct damage from Distant enemies.",
 				"region": "Hawezar",
@@ -104,7 +104,7 @@ let codexData = {
 		}
 	},
 	"Barbarian": {
-		"Defensive": {
+		"防御": {
 			"Aspect of Bul-Kathos": {
 				"power": "Leap creates an Earthquake that deals # Physical damage over 4 seconds. While standing in Earthquakes, you gain 5% increased Damage Reduction.",
 				"region": "Hawezar",
@@ -219,7 +219,7 @@ let codexData = {
 		}
 	},
 	"Druid": {
-		"Defensive": {
+		"防御": {
 			"Aspect of Cyclonic Force": {
 				"power": "Cyclone Armor also provides Physical Damage Reduction. In addition, Cyclone Armor will also be applied to all Nearby Allies.",
 				"region": "Kehjistan",
@@ -336,7 +336,7 @@ let codexData = {
 		"Mobility": {}
 	},
 	"Necromancer": {
-		"Defensive": {
+		"防御": {
 			"Aspect of Grasping Veins": {
 				"power": "Enemies who are Stunned by Corpse Tendrils are also made Vulnerable for its duration. If they die while Stunned, they have a 15% chance to spawn a Blood Orb.",
 				"region": "Kehjistan",
@@ -450,7 +450,7 @@ let codexData = {
 		"Mobility": {}
 	},
 	"Rogue": {
-		"Defensive": {
+		"防御": {
 			"Cheat's Aspect": {
 				"power": "You take 15.0% less damage from Crowd Controlled enemies. Whenever a Crowd Controlled enemy deals direct damage to you, gain +15% Movement Speed for 2 seconds.",
 				"region": "Scosglen",
@@ -564,7 +564,7 @@ let codexData = {
 		"Mobility": {}
 	},
 	"Sorcerer": {
-		"Defensive": {
+		"防御": {
 			"Snowguard's Aspect": {
 				"power": "While within your own Blizzard, you take 10% less damage.",
 				"region": "Hawezar",

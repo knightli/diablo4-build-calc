@@ -16,96 +16,96 @@ const scaleRatio = 0.5;
 
 const rootNodeNames = {
 	"Barbarian": {
-		0: "Ultimate",
+		0: "终极技能",
 		1: "Weapon Mastery",
 		2: "Brawling",
-		3: "Defensive",
-		4: "Core",
-		5: "Basic",
+		3: "防御",
+		4: "核心",
+		5: "基本",
 		6: "Capstone"
 	},
 	"Druid": {
-		0: "Basic",
+		0: "基本",
 		1: "Spirit",
-		2: "Defensive",
+		2: "防御",
 		3: "Companion",
 		4: "Wrath",
-		5: "Ultimate",
+		5: "终极技能",
 		6: "Capstone"
 	},
 	"Necromancer": {
-		0: "Basic",
+		0: "基本",
 		1: "Capstone",
-		2: "Core",
+		2: "核心",
 		3: "Corruption",
 		4: "Summoning",
-		5: "Ultimate",
+		5: "终极技能",
 		6: "Macabre"
 	},
 	"Rogue": {
 		0: "Capstone",
 		1: "Imbuements",
 		2: "Agility",
-		3: "Core",
-		4: "Basic",
-		5: "Ultimate",
+		3: "核心",
+		4: "基本",
+		5: "终极技能",
 		6: "Subterfuge"
 	},
 	"Sorcerer": {
-		0: "Conjuration",
-		1: "Ultimate",
-		2: "Mastery",
-		3: "Basic",
+		0: "召唤魔法",
+		1: "终极技能",
+		2: "掌控",
+		3: "基本",
 		4: "Capstone",
-		5: "Defensive",
-		6: "Core"
+		5: "防御",
+		6: "核心"
 	},
 }
 
 const rootNodeNamesSorted = {
 	"Barbarian": {
-		0: "Basic",
-		1: "Core",
-		2: "Defensive",
+		0: "基本",
+		1: "核心",
+		2: "防御",
 		3: "Brawling",
 		4: "Weapon Mastery",
-		5: "Ultimate",
+		5: "终极技能",
 		6: "Capstone"
 	},
 	"Druid": {
-		0: "Basic",
+		0: "基本",
 		1: "Spirit",
-		2: "Defensive",
+		2: "防御",
 		3: "Companion",
 		4: "Wrath",
-		5: "Ultimate",
+		5: "终极技能",
 		6: "Capstone"
 	},
 	"Necromancer": {
-		0: "Basic",
-		1: "Core",
+		0: "基本",
+		1: "核心",
 		2: "Macabre",
 		3: "Corruption",
 		4: "Summoning",
-		5: "Ultimate",
+		5: "终极技能",
 		6: "Capstone",
 	},
 	"Rogue": {
-		0: "Basic",
-		1: "Core",
+		0: "基本",
+		1: "核心",
 		2: "Agility",
 		3: "Subterfuge",
 		4: "Imbuements",
-		5: "Ultimate",
+		5: "终极技能",
 		6: "Capstone",
 	},
 	"Sorcerer": {
-		0: "Basic",
-		1: "Core",
-		2: "Defensive",
-		3: "Conjuration",
-		4: "Mastery",
-		5: "Ultimate",
+		0: "基本",
+		1: "核心",
+		2: "防御",
+		3: "召唤魔法",
+		4: "掌控",
+		5: "终极技能",
 		6: "Capstone",
 	},
 }
@@ -268,7 +268,7 @@ function fixJSON(classData, curNode, rootNodeName) {
 		}
 		if (skillName != undefined) {
 			// ultimate skills don't have ranks
-			if (rootNodeName == "Ultimate" && /cooldown:/i.test(nodeData["power"]["skill_desc"]) && nodeData["reward"]["max_talent_ranks"] == 5) {
+			if (rootNodeName == "终极技能" && /cooldown:/i.test(nodeData["power"]["skill_desc"]) && nodeData["reward"]["max_talent_ranks"] == 5) {
 				$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "`; maxTalentRanks: " + nodeData["reward"]["max_talent_ranks"] + " -> 1.");
 				nodeData["reward"]["max_talent_ranks"] = 1;
 			} else {
@@ -423,7 +423,7 @@ function runParser(downloadMode) {
 			const skillTreeValues = Object.values(classData["Skill Tree"]).filter((el, id) => typeof el === "object");
 
 			const rootNodes = skillTreeValues.filter(curNode => curNode["root_node"]);
-			const originNode = rootNodes.find((curNode, curIndex) => rootNodeNames[className][curIndex] == "Basic");
+			const originNode = rootNodes.find((curNode, curIndex) => rootNodeNames[className][curIndex] == "基本");
 
 			let formattedData = "let " + classObjectName + " = {};\n\n";
 			formattedData += classObjectName + '["Trunk Data"] = {\n';

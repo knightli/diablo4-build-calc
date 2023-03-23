@@ -1,12 +1,12 @@
 let rogueData = {};
 
 rogueData["Trunk Data"] = {
-	"Basic": {
-		connections: [ "Core" ],
+	"基本": {
+		connections: [ "核心" ],
 		x: 0,
 		y: 0
 	},
-	"Core": {
+	"核心": {
 		connections: [ "Agility" ],
 		requiredPoints: 2,
 		x: -1198.861,
@@ -25,12 +25,12 @@ rogueData["Trunk Data"] = {
 		y: 2437.774
 	},
 	"Imbuements": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		requiredPoints: 16,
 		x: 513.93,
 		y: 3341.84
 	},
-	"Ultimate": {
+	"终极技能": {
 		connections: [ "Capstone" ],
 		requiredPoints: 23,
 		x: -1204.781,
@@ -43,9 +43,9 @@ rogueData["Trunk Data"] = {
 	},
 };
 
-rogueData["Basic"] = {
+rogueData["基本"] = {
 	"Blade Shift": {
-		connections: [ "Enhanced Blade Shift", "Basic" ],
+		connections: [ "Enhanced Blade Shift", "基本" ],
 		description: `Generate Combo Point: {#}
 Lucky Hit Chance: {#}%
 Quickly stab your victim for {#}% damage and shift, allowing you to move freely through enemies for {#} seconds.`,
@@ -86,7 +86,7 @@ Quickly stab your victim for {#}% damage and shift, allowing you to move freely 
 		y: -634.25
 	},
 	"Invigorating Strike": {
-		connections: [ "Enhanced Invigorating Strike", "Basic" ],
+		connections: [ "Enhanced Invigorating Strike", "基本" ],
 		description: `Generate Combo Point: {#}
 Lucky Hit Chance: {#}%
 Melee attack an enemy, dealing {#}% damage and increasing Energy Regeneration by x{#}% for {#} seconds.`,
@@ -127,7 +127,7 @@ Melee attack an enemy, dealing {#}% damage and increasing Energy Regeneration by
 		y: -375.21
 	},
 	"Puncture": {
-		connections: [ "Enhanced Puncture", "Basic" ],
+		connections: [ "Enhanced Puncture", "基本" ],
 		description: `Generate Combo Point: 1
 Lucky Hit Chance: {#}%
 Throw blades a short distance, dealing {#}% damage. Every {#}rd cast Slows enemies by {#}% for {#} seconds. Critical Strikes will always Slow.`,
@@ -168,7 +168,7 @@ Throw blades a short distance, dealing {#}% damage. Every {#}rd cast Slows enemi
 		y: -483.34
 	},
 	"Heartseeker": {
-		connections: [ "Enhanced Heartseeker", "Basic" ],
+		connections: [ "Enhanced Heartseeker", "基本" ],
 		description: `Generate Combo Point: {#}
 Lucky Hit Chance: {#}%
 Fire an arrow that seeks an enemy, dealing {#}% damage and increasing your Critical Strike Chance against them by +{#}% for {#} seconds, up to +{#}%.`,
@@ -209,7 +209,7 @@ Fire an arrow that seeks an enemy, dealing {#}% damage and increasing your Criti
 		y: 80.68
 	},
 	"Forceful Arrow": {
-		connections: [ "Enhanced Forceful Arrow", "Basic" ],
+		connections: [ "Enhanced Forceful Arrow", "基本" ],
 		description: `Generate Combo Point: {#}
 Lucky Hit Chance: {#}%
 Fire a powerful arrow at an enemy, dealing {#}% damage. Every 3rd cast makes the enemy Vulnerable for {#} seconds.`,
@@ -250,9 +250,9 @@ Fire a powerful arrow at an enemy, dealing {#}% damage. Every 3rd cast makes the
 	},
 };
 
-rogueData["Core"] = {
+rogueData["核心"] = {
 	"Twisting Blades": {
-		connections: [ "Enhanced Twisting Blades", "Core" ],
+		connections: [ "Enhanced Twisting Blades", "核心" ],
 		description: `Energy Cost: {#}
 Lucky Hit Chance: {#}%
 Impale an enemy with your blades, dealing {#}% damage and making them take x{#}% increased damage from you while impaled. After {#} seconds the blades return to you, piercing enemies for {#}% damage.
@@ -297,7 +297,7 @@ Combo Points increase damage and grant a Movement Speed bonus:
 		y: -465.235
 	},
 	"Flurry": {
-		connections: [ "Enhanced Flurry", "Core" ],
+		connections: [ "Enhanced Flurry", "核心" ],
 		description: `Energy Cost: {#}
 Lucky Hit Chance: {#}%
 Unleash a flurry of stabs and slashes, striking enemies in front of you {#} times and dealing a total of {#}% damage to each.
@@ -343,7 +343,7 @@ Combo Points increase damage and grant an Attack Speed bonus:
 		y: 462.11
 	},
 	"Penetrating Shot": {
-		connections: [ "Enhanced Penetrating Shot", "Core" ],
+		connections: [ "Enhanced Penetrating Shot", "核心" ],
 		description: `Energy Cost: {#}
 Lucky Hit Chance: {#}%
 Fire an arrow that pierces through all enemies in a line, dealing {#}% damage.
@@ -389,7 +389,7 @@ Combo Points increase damage and improve Lucky Hit Chance:
 		y: 602.47
 	},
 	"Rapid Fire": {
-		connections: [ "Enhanced Rapid Fire", "Core" ],
+		connections: [ "Enhanced Rapid Fire", "核心" ],
 		description: `Energy Cost: {#}
 Lucky Hit Chance: {#}%
 Rapidly fire {#} arrows, each dealing {#}% damage.
@@ -435,7 +435,7 @@ Combo Points increase damage and arrows fired:
 		y: -134.515
 	},
 	"Barrage": {
-		connections: [ "Enhanced Barrage", "Core" ],
+		connections: [ "Enhanced Barrage", "核心" ],
 		description: `Energy Cost: {#}
 Lucky Hit Chance: {#}%
 Unleash a barrage of {#} arrows that expands outwards, each dealing {#}% damage. Each arrow has a {#}% chance to ricochet off an enemy up to {#} time. Ricochets deal {#}% of the arrow's Base damage.
@@ -480,7 +480,7 @@ Combo Points increase damage and arrows fired:
 		y: -614.96
 	},
 	"Sturdy": {
-		connections: [ "Core", "Siphoning Strikes" ],
+		connections: [ "核心", "Siphoning Strikes" ],
 		description: `You gain {#}% Close Damage Reduction.`,
 		id: 40,
 		maxPoints: 3,
@@ -498,7 +498,7 @@ Combo Points increase damage and arrows fired:
 		y: 2.815
 	},
 	"Stutter Step": {
-		connections: [ "Core" ],
+		connections: [ "核心" ],
 		description: `Critically Striking an enemy grants +{#}% Movement Speed for {#} seconds.`,
 		id: 42,
 		maxPoints: 3,
@@ -1100,9 +1100,9 @@ Imbue your weapons with frigid energies. Your next {#} Imbueable Skills deal Col
 	},
 };
 
-rogueData["Ultimate"] = {
+rogueData["终极技能"] = {
 	"Innervation": {
-		connections: [ "Ultimate", "Alchemist's Fortune", "Second Wind" ],
+		connections: [ "终极技能", "Alchemist's Fortune", "Second Wind" ],
 		description: `Lucky Hit: Up to a {#}% chance to gain {#} Energy.`,
 		id: 101,
 		maxPoints: 3,
@@ -1129,7 +1129,7 @@ rogueData["Ultimate"] = {
 		y: -521.42
 	},
 	"Shadow Clone": {
-		connections: [ "Prime Shadow Clone", "Ultimate" ],
+		connections: [ "Prime Shadow Clone", "终极技能" ],
 		description: `Cooldown: {#} seconds
 Your shadow mimicks your actions for {#} seconds.
 The shadow deals {#}% of your damage.`,
@@ -1159,7 +1159,7 @@ The shadow deals {#}% of your damage.`,
 		y: -623.95
 	},
 	"Aftermath": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		description: `After using an Ultimate Skill, restore {#} Energy.`,
 		id: 107,
 		maxPoints: 3,
@@ -1168,7 +1168,7 @@ The shadow deals {#}% of your damage.`,
 		y: 187.49
 	},
 	"Death Trap": {
-		connections: [ "Prime Death Trap", "Ultimate" ],
+		connections: [ "Prime Death Trap", "终极技能" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Place a trap that arms after {#} seconds. It activates when an enemy moves within range, dealing a total of {#}% damage to each enemy in the area.`,
@@ -1198,7 +1198,7 @@ Place a trap that arms after {#} seconds. It activates when an enemy moves withi
 		y: 1.185
 	},
 	"Trap Mastery": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		description: `When Poison Trap or Death Trap activates, you gain +{#}% increased Critical Strike Chance against Vulnerable and Crowd Controlled enemies for {#} seconds.`,
 		id: 111,
 		maxPoints: 3,
@@ -1207,7 +1207,7 @@ Place a trap that arms after {#} seconds. It activates when an enemy moves withi
 		y: -182.505
 	},
 	"Rain of Arrows": {
-		connections: [ "Prime Rain of Arrows", "Ultimate" ],
+		connections: [ "Prime Rain of Arrows", "终极技能" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Arrows rain down over a large area {#} times, each wave dealing {#}% damage.`,
@@ -1238,7 +1238,7 @@ Arrows rain down over a large area {#} times, each wave dealing {#}% damage.`,
 		y: 646.1
 	},
 	"Adrenaline Rush": {
-		connections: [ "Impetus", "Haste", "Ultimate" ],
+		connections: [ "Impetus", "Haste", "终极技能" ],
 		description: `While moving, you gain x{#}% increased Energy Regeneration.`,
 		id: 115,
 		maxPoints: 3,

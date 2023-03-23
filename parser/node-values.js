@@ -1,6 +1,6 @@
 let nodeValues = {
 	"Barbarian": {
-		"Basic": {
+		"基本": {
 			"Bash": [
 				"10",
 				"50",
@@ -76,7 +76,7 @@ let nodeValues = {
 				"4"
 			]
 		},
-		"Core": {
+		"核心": {
 			"Hammer of the Ancients": [
 				"35",
 				"40",
@@ -168,7 +168,7 @@ let nodeValues = {
 				"{5/10/15}"
 			]
 		},
-		"Defensive": {
+		"防御": {
 			"Challenging Shout": [
 				"25",
 				"{40/45/50/55/60}",
@@ -423,7 +423,7 @@ let nodeValues = {
 				"{3/6/9}"
 			]
 		},
-		"Ultimate": {
+		"终极技能": {
 			"Call of the Ancients": [
 				"50",
 				"30",
@@ -526,7 +526,7 @@ let nodeValues = {
 		}
 	},
 	"Druid": {
-		"Basic": {
+		"基本": {
 			"Maul": [
 				"11",
 				"33",
@@ -710,7 +710,7 @@ let nodeValues = {
 				"3"
 			]
 		},
-		"Defensive": {
+		"防御": {
 			"Earthen Bulwark": [
 				"16.0",
 				"50",
@@ -968,7 +968,7 @@ let nodeValues = {
 				""
 			]
 		},
-		"Ultimate": {
+		"终极技能": {
 			"Grizzly Rage": [
 				"60.0",
 				"10",
@@ -1147,7 +1147,7 @@ let nodeValues = {
 		}
 	},
 	"Necromancer": {
-		"Basic": {
+		"基本": {
 			"Decompose": [
 				"7",
 				"40",
@@ -1163,7 +1163,7 @@ let nodeValues = {
 			"Initiate's Decompose": [
 				"30"
 			],
-			"Reap": [
+			"收割": [
 				"4",
 				"17",
 				"12",
@@ -1221,7 +1221,7 @@ let nodeValues = {
 				""
 			]
 		},
-		"Core": {
+		"核心": {
 			"Blight": [
 				"25",
 				"40",
@@ -1515,7 +1515,7 @@ let nodeValues = {
 				""
 			]
 		},
-		"Ultimate": {
+		"终极技能": {
 			"Bonded in Essence": [
 				"{15/30/45}",
 				""
@@ -1594,7 +1594,7 @@ let nodeValues = {
 		}
 	},
 	"Rogue": {
-		"Basic": {
+		"基本": {
 			"Blade Shift": [
 				"1",
 				"35",
@@ -1681,7 +1681,7 @@ let nodeValues = {
 				"1.5"
 			]
 		},
-		"Core": {
+		"核心": {
 			"Twisting Blades": [
 				"30",
 				"35",
@@ -2041,7 +2041,7 @@ let nodeValues = {
 				"2"
 			]
 		},
-		"Ultimate": {
+		"终极技能": {
 			"Innervation": [
 				"{10/20/30}",
 				"8"
@@ -2135,19 +2135,19 @@ let nodeValues = {
 		}
 	},
 	"Sorcerer": {
-		"Basic": {
-			"Frost Bolt": [
+		"基本": {
+			"冰霜弹": [
 				"30",
 				"35",
 				"15"
 			],
-			"Enhanced Frost Bolt": [
+			"强化冰霜弹": [
 				"15"
 			],
-			"Flickering Frost Bolt": [
+			"Flickering 冰霜弹": [
 				"3"
 			],
-			"Glinting Frost Bolt": [
+			"Glinting 冰霜弹": [
 				"4"
 			],
 			"Spark": [
@@ -2196,7 +2196,7 @@ let nodeValues = {
 			"Flickering Fire Bolt": [
 				"2"
 			],
-			"Frost Bolt — Enchantment": [
+			"冰霜弹 — Enchantment": [
 				"30"
 			],
 			"Spark — Enchantment": [
@@ -2210,7 +2210,7 @@ let nodeValues = {
 				"8"
 			]
 		},
-		"Core": {
+		"核心": {
 			"Charged Bolts": [
 				"40",
 				"25",
@@ -2339,7 +2339,7 @@ let nodeValues = {
 				"100"
 			]
 		},
-		"Defensive": {
+		"防御": {
 			"Flame Shield": [
 				"20",
 				"50",
@@ -2427,7 +2427,7 @@ let nodeValues = {
 				"17.0"
 			]
 		},
-		"Conjuration": {
+		"召唤魔法": {
 			"Hydra": [
 				"20",
 				"77",
@@ -2512,7 +2512,7 @@ let nodeValues = {
 				"100"
 			]
 		},
-		"Mastery": {
+		"掌控": {
 			"Meteor": [
 				"40",
 				"40",
@@ -2622,7 +2622,7 @@ let nodeValues = {
 				"3"
 			]
 		},
-		"Ultimate": {
+		"终极技能": {
 			"Inferno": [
 				"45",
 				"38",

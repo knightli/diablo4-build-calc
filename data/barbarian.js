@@ -1,18 +1,18 @@
 let barbarianData = {};
 
 barbarianData["Trunk Data"] = {
-	"Basic": {
-		connections: [ "Core" ],
+	"基本": {
+		connections: [ "核心" ],
 		x: 0,
 		y: 0
 	},
-	"Core": {
-		connections: [ "Defensive" ],
+	"核心": {
+		connections: [ "防御" ],
 		requiredPoints: 2,
 		x: -1195.793,
 		y: 608.605
 	},
-	"Defensive": {
+	"防御": {
 		connections: [ "Brawling" ],
 		requiredPoints: 6,
 		x: 513.061,
@@ -25,12 +25,12 @@ barbarianData["Trunk Data"] = {
 		y: 2431.825
 	},
 	"Weapon Mastery": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		requiredPoints: 16,
 		x: 508.717,
 		y: 3341.88
 	},
-	"Ultimate": {
+	"终极技能": {
 		connections: [ "Capstone" ],
 		requiredPoints: 23,
 		x: -1201.379,
@@ -43,9 +43,9 @@ barbarianData["Trunk Data"] = {
 	},
 };
 
-barbarianData["Basic"] = {
+barbarianData["基本"] = {
 	"Bash": {
-		connections: [ "Basic", "Enhanced Bash" ],
+		connections: [ "基本", "Enhanced Bash" ],
 		description: `Generate Fury: {#}
 Lucky Hit Chance: {#}%
 Bash the enemy with your weapon, dealing {#}% damage. After bashing enemies {#} times, your next Bash will Stun for {#} seconds, this increases to {#} seconds if using a Two-Handed weapon.`,
@@ -86,7 +86,7 @@ Bash the enemy with your weapon, dealing {#}% damage. After bashing enemies {#} 
 		y: -548.215
 	},
 	"Lunging Strike": {
-		connections: [ "Basic", "Enhanced Lunging Strike" ],
+		connections: [ "基本", "Enhanced Lunging Strike" ],
 		description: `Generate Fury: {#}
 Lucky Hit Chance: {#}%
 Lunge forward and strike an enemy for {#}% damage.`,
@@ -127,7 +127,7 @@ Lunge forward and strike an enemy for {#}% damage.`,
 		y: -339.18
 	},
 	"Frenzy": {
-		connections: [ "Basic", "Enhanced Frenzy" ],
+		connections: [ "基本", "Enhanced Frenzy" ],
 		description: `Generate Fury: {#}
 Lucky Hit Chance: {#}%
 Unleash a rapid flurry of blows, dealing {#}% damage with each pair of hits.
@@ -170,7 +170,7 @@ If Frenzy hits an enemy, its Attack Speed is increased by +{#}% for {#} seconds,
 		y: -549.04
 	},
 	"Flay": {
-		connections: [ "Basic", "Enhanced Flay" ],
+		connections: [ "基本", "Enhanced Flay" ],
 		description: `Generate Fury: {#}
 Lucky Hit Chance: {#}%
 Flay the enemy, dealing {#}% damage and inflicting {#}% Bleeding damage over {#} seconds.`,
@@ -212,9 +212,9 @@ Flay the enemy, dealing {#}% damage and inflicting {#}% Bleeding damage over {#}
 	},
 };
 
-barbarianData["Core"] = {
+barbarianData["核心"] = {
 	"Hammer of the Ancients": {
-		connections: [ "Core", "Enhanced Hammer of the Ancients" ],
+		connections: [ "核心", "Enhanced Hammer of the Ancients" ],
 		description: `Fury Cost: {#}
 Lucky Hit Chance: {#}%
 Slam your hammer down with the fury of the Ancients, dealing {#}% damage to a concentrated area.`,
@@ -255,7 +255,7 @@ Slam your hammer down with the fury of the Ancients, dealing {#}% damage to a co
 		y: -553.505
 	},
 	"Upheaval": {
-		connections: [ "Core", "Enhanced Upheaval" ],
+		connections: [ "核心", "Enhanced Upheaval" ],
 		description: `Fury Cost: {#}
 Lucky Hit Chance: {#}%
 Tear into the ground with your weapon and fling debris forward, dealing {#}% damage.`,
@@ -296,7 +296,7 @@ Tear into the ground with your weapon and fling debris forward, dealing {#}% dam
 		y: 367.49
 	},
 	"Double Swing": {
-		connections: [ "Core", "Enhanced Double Swing" ],
+		connections: [ "核心", "Enhanced Double Swing" ],
 		description: `Fury Cost: {#}
 Lucky Hit Chance: {#}%
 Sweep your weapons from opposite directions, dealing {#}% damage with each weapon. Enemies caught in the center are damaged by both.`,
@@ -337,7 +337,7 @@ Sweep your weapons from opposite directions, dealing {#}% damage with each weapo
 		y: 639.185
 	},
 	"Pressure Point": {
-		connections: [ "Core" ],
+		connections: [ "核心" ],
 		description: `Lucky Hit: Your Core skills have up to a {#}% chance to make enemies Vulnerable for 2 seconds.`,
 		id: 28,
 		maxPoints: 3,
@@ -346,7 +346,7 @@ Sweep your weapons from opposite directions, dealing {#}% damage with each weapo
 		y: -96.25
 	},
 	"Rend": {
-		connections: [ "Core", "Enhanced Rend" ],
+		connections: [ "核心", "Enhanced Rend" ],
 		description: `Fury Cost: {#}
 Lucky Hit Chance: {#}%
 Cleave enemies in front of you, dealing {#}% damage and inflicting {#}% Bleeding damage over {#} seconds.`,
@@ -387,7 +387,7 @@ Cleave enemies in front of you, dealing {#}% damage and inflicting {#}% Bleeding
 		y: 83.49
 	},
 	"Whirlwind": {
-		connections: [ "Core", "Enhanced Whirlwind" ],
+		connections: [ "核心", "Enhanced Whirlwind" ],
 		description: `Fury Cost: {#} per second
 Lucky Hit Chance: {#}%
 Rapidly attack surrounding enemies for {#}% damage.`,
@@ -428,7 +428,7 @@ Rapidly attack surrounding enemies for {#}% damage.`,
 		y: -636.49
 	},
 	"Endless Fury": {
-		connections: [ "Core" ],
+		connections: [ "核心" ],
 		description: `Basic Skills generate x{#}% more Fury when using Two-Handed weapons.`,
 		id: 37,
 		maxPoints: 3,
@@ -438,9 +438,9 @@ Rapidly attack surrounding enemies for {#}% damage.`,
 	},
 };
 
-barbarianData["Defensive"] = {
+barbarianData["防御"] = {
 	"Challenging Shout": {
-		connections: [ "Defensive", "Enhanced Challenging Shout" ],
+		connections: [ "防御", "Enhanced Challenging Shout" ],
 		description: `Cooldown: {#} seconds
 Taunt Nearby enemies and gain {#}% Damage Reduction for {#} seconds.`,
 		id: 38,
@@ -480,7 +480,7 @@ Taunt Nearby enemies and gain {#}% Damage Reduction for {#} seconds.`,
 		y: 631.547
 	},
 	"Iron Skin": {
-		connections: [ "Defensive", "Enhanced Iron Skin" ],
+		connections: [ "防御", "Enhanced Iron Skin" ],
 		description: `Cooldown: {#} seconds
 Steel yourself, gaining a Barrier that absorbs {#}% of your missing Life for {#} seconds.`,
 		id: 42,
@@ -520,7 +520,7 @@ Steel yourself, gaining a Barrier that absorbs {#}% of your missing Life for {#}
 		y: 176.81
 	},
 	"Outburst": {
-		connections: [ "Defensive", "Tough as Nails" ],
+		connections: [ "防御", "Tough as Nails" ],
 		description: `Gain {#} Thorns. Also gain {#} Thorns for each {#} bonus Maximum Life you have.`,
 		id: 46,
 		maxPoints: 3,
@@ -538,7 +538,7 @@ Steel yourself, gaining a Barrier that absorbs {#}% of your missing Life for {#}
 		y: 445.865
 	},
 	"Ground Stomp": {
-		connections: [ "Defensive", "Enhanced Ground Stomp" ],
+		connections: [ "防御", "Enhanced Ground Stomp" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Smash the ground, dealing {#}% damage and Stunning surrounding enemies for {#} seconds.`,
@@ -579,7 +579,7 @@ Smash the ground, dealing {#}% damage and Stunning surrounding enemies for {#} s
 		y: -644.43
 	},
 	"Rallying Cry": {
-		connections: [ "Defensive", "Enhanced Rallying Cry" ],
+		connections: [ "防御", "Enhanced Rallying Cry" ],
 		description: `Cooldown: {#} seconds
 Bellow a rallying cry, increasing your Movement Speed by +{#}% and Resource Generation by x{#}% for {#} seconds, and Nearby allies for {#} seconds.`,
 		id: 52,
@@ -618,7 +618,7 @@ Bellow a rallying cry, increasing your Movement Speed by +{#}% and Resource Gene
 		y: -301.6
 	},
 	"Imposing Presence": {
-		connections: [ "Defensive", "Martial Vigor" ],
+		connections: [ "防御", "Martial Vigor" ],
 		description: `Gain x{#}% additional Maximum Life.`,
 		id: 56,
 		maxPoints: 3,
@@ -1090,9 +1090,9 @@ Skewer enemies in front of you, dealing {#}% damage, then rip your weapon out, d
 	},
 };
 
-barbarianData["Ultimate"] = {
+barbarianData["终极技能"] = {
 	"Call of the Ancients": {
-		connections: [ "Ultimate", "Prime Call of the Ancients" ],
+		connections: [ "终极技能", "Prime Call of the Ancients" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Call upon 3 Ancients to aid you in battle for {#} seconds.
@@ -1129,7 +1129,7 @@ Madawc: {#}% chance to Stun enemies for {#} seconds when using his Upheaval.`,
 		y: -644.245
 	},
 	"Iron Maelstrom": {
-		connections: [ "Ultimate", "Prime Iron Maelstrom" ],
+		connections: [ "终极技能", "Prime Iron Maelstrom" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Activate three times to attach chains to each of your weapons and perform an attack:
@@ -1163,7 +1163,7 @@ Activate three times to attach chains to each of your weapons and perform an att
 		y: -2.685
 	},
 	"Duelist": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		description: `Attack Speed is increased by +{#}% while using One-Handed weapons.`,
 		id: 109,
 		maxPoints: 3,
@@ -1172,7 +1172,7 @@ Activate three times to attach chains to each of your weapons and perform an att
 		y: -207.635
 	},
 	"Wrath of the Berserker": {
-		connections: [ "Ultimate", "Prime Wrath of the Berserker" ],
+		connections: [ "终极技能", "Prime Wrath of the Berserker" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Gain Berserking and Unstoppable for {#} seconds.  For the next {#} seconds, dealing direct damage with Basic Skills grants Berserking for {#} seconds.`,
@@ -1203,7 +1203,7 @@ Gain Berserking and Unstoppable for {#} seconds.  For the next {#} seconds, deal
 		y: 647.065
 	},
 	"Tempered Fury": {
-		connections: [ "Ultimate", "Invigorating Fury", "Furious Impulse" ],
+		connections: [ "终极技能", "Invigorating Fury", "Furious Impulse" ],
 		description: `Increase your Maximum Fury by {#}.`,
 		id: 113,
 		maxPoints: 3,
@@ -1230,7 +1230,7 @@ Gain Berserking and Unstoppable for {#} seconds.  For the next {#} seconds, deal
 		y: 233.415
 	},
 	"Wallop": {
-		connections: [ "Ultimate", "Brute Force", "Concussion" ],
+		connections: [ "终极技能", "Brute Force", "Concussion" ],
 		description: `Your Skills using Bludgeoning weapons deal x{#}% increased damage if the enemy is Stunned or Vulnerable.`,
 		id: 116,
 		maxPoints: 3,
@@ -1248,7 +1248,7 @@ Gain Berserking and Unstoppable for {#} seconds.  For the next {#} seconds, deal
 		y: -7.82
 	},
 	"Heavy Handed": {
-		connections: [ "Ultimate", "Brute Force" ],
+		connections: [ "终极技能", "Brute Force" ],
 		description: `While using Two-Handed weapons you deal x{#}% increased Critical Strike Damage.`,
 		id: 118,
 		maxPoints: 3,

@@ -1,18 +1,18 @@
 let druidData = {};
 
 druidData["Trunk Data"] = {
-	"Basic": {
+	"基本": {
 		connections: [ "Spirit" ],
 		x: 0,
 		y: 0
 	},
 	"Spirit": {
-		connections: [ "Defensive" ],
+		connections: [ "防御" ],
 		requiredPoints: 2,
 		x: -1196.614,
 		y: 616.14
 	},
-	"Defensive": {
+	"防御": {
 		connections: [ "Companion" ],
 		requiredPoints: 6,
 		x: 506.001,
@@ -25,12 +25,12 @@ druidData["Trunk Data"] = {
 		y: 2443.636
 	},
 	"Wrath": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		requiredPoints: 16,
 		x: 505.396,
 		y: 3340.8
 	},
-	"Ultimate": {
+	"终极技能": {
 		connections: [ "Capstone" ],
 		requiredPoints: 23,
 		x: -1204.559,
@@ -47,9 +47,9 @@ druidData["Trunk Data"] = {
 	},
 };
 
-druidData["Basic"] = {
+druidData["基本"] = {
 	"Earth Spike": {
-		connections: [ "Basic", "Enhanced Earth Spike" ],
+		connections: [ "基本", "Enhanced Earth Spike" ],
 		description: `Cooldown: {#} seconds
 Generate Spirit: {#}
 Lucky Hit Chance: {#}%
@@ -90,7 +90,7 @@ Sunder the earth, impaling the first enemy hit for {#}% damage.`,
 		y: -208.475
 	},
 	"Maul": {
-		connections: [ "Basic", "Enhanced Maul" ],
+		connections: [ "基本", "Enhanced Maul" ],
 		description: `Generate Spirit: {#}
 Lucky Hit Chance: {#}%
 Shapeshift into a Werebear and maul enemies in front of you, dealing {#}% damage.`,
@@ -131,7 +131,7 @@ Shapeshift into a Werebear and maul enemies in front of you, dealing {#}% damage
 		y: 279.665
 	},
 	"Wind Shear": {
-		connections: [ "Basic", "Enhanced Wind Shear" ],
+		connections: [ "基本", "Enhanced Wind Shear" ],
 		description: `Generate Spirit: {#}
 Lucky Hit Chance: {#}%
 Conjure a piercing blade of wind, dealing {#}% damage.`,
@@ -172,7 +172,7 @@ Conjure a piercing blade of wind, dealing {#}% damage.`,
 		y: -552.75
 	},
 	"Storm Strike": {
-		connections: [ "Basic", "Enhanced Storm Strike" ],
+		connections: [ "基本", "Enhanced Storm Strike" ],
 		description: `Generate Spirit: {#}
 Lucky Hit Chance: {#}%
 Electricity gathers around your weapon, dealing {#}% damage to your target and chaining to up to {#} surrounding enemies, dealing {#}% less damage each time it chains.
@@ -215,7 +215,7 @@ You gain {#}% Damage Reduction for {#} seconds after dealing damage with Storm S
 		y: -381.855
 	},
 	"Claw": {
-		connections: [ "Basic", "Enhanced Claw" ],
+		connections: [ "基本", "Enhanced Claw" ],
 		description: `Generate Spirit: {#}
 Lucky Hit Chance: {#}%
 Shapeshift into a Werewolf and claw at an enemy for {#}% damage.`,
@@ -524,9 +524,9 @@ This bonus persists for {#} seconds after leaving Werewolf form.`,
 	},
 };
 
-druidData["Defensive"] = {
+druidData["防御"] = {
 	"Earthen Bulwark": {
-		connections: [ "Defensive", "Enhanced Earthen Bulwark" ],
+		connections: [ "防御", "Enhanced Earthen Bulwark" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Rocks surround you for {#} seconds, granting a Barrier that absorbs {#}% of your Base Life ({#}) in damage.`,
@@ -566,7 +566,7 @@ Rocks surround you for {#} seconds, granting a Barrier that absorbs {#}% of your
 		y: -637.145
 	},
 	"Debilitating Roar": {
-		connections: [ "Defensive", "Enhanced Debilitating Roar" ],
+		connections: [ "防御", "Enhanced Debilitating Roar" ],
 		description: `Cooldown: {#} seconds
 Shapeshift into a Werebear and bellow a mighty roar, reducing Nearby enemies' damage dealt by {#}% for {#} seconds.`,
 		id: 47,
@@ -606,7 +606,7 @@ Shapeshift into a Werebear and bellow a mighty roar, reducing Nearby enemies' da
 		y: 633.023
 	},
 	"Ancestral Fortitude": {
-		connections: [ "Defensive", "Vigilance" ],
+		connections: [ "防御", "Vigilance" ],
 		description: `Increase your Non-Physical Resistances by {#}%.`,
 		id: 51,
 		maxPoints: 3,
@@ -624,7 +624,7 @@ Shapeshift into a Werebear and bellow a mighty roar, reducing Nearby enemies' da
 		y: 0.39
 	},
 	"Blood Howl": {
-		connections: [ "Defensive", "Enhanced Blood Howl" ],
+		connections: [ "防御", "Enhanced Blood Howl" ],
 		description: `Cooldown: {#} seconds
 Shapeshift into a Werewolf and howl furiously, Healing you for {#}% of your Maximum Life ({#}).`,
 		id: 53,
@@ -664,7 +664,7 @@ Shapeshift into a Werewolf and howl furiously, Healing you for {#}% of your Maxi
 		y: 280.42
 	},
 	"Cyclone Armor": {
-		connections: [ "Defensive", "Enhanced Cyclone Armor" ],
+		connections: [ "防御", "Enhanced Cyclone Armor" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Passive: Powerful winds surround you, granting {#}% Non-Physical Damage Reduction.
@@ -1158,9 +1158,9 @@ Infected enemies spread Rabies to other surrounding targets.`,
 	},
 };
 
-druidData["Ultimate"] = {
+druidData["终极技能"] = {
 	"Grizzly Rage": {
-		connections: [ "Ultimate", "Prime Grizzly Rage" ],
+		connections: [ "终极技能", "Prime Grizzly Rage" ],
 		description: `Cooldown: {#} seconds
 Shapeshift into  Dire Werebear for {#} seconds gaining x{#}% bonus damage and {#}% Damage Reduction. Damage bonus is increased by {#}% each second while in this form.
 
@@ -1191,7 +1191,7 @@ Kills extend the duration by {#} second up to {#} additional seconds.`,
 		y: 641.92
 	},
 	"Petrify": {
-		connections: [ "Ultimate", "Prime Petrify" ],
+		connections: [ "终极技能", "Prime Petrify" ],
 		description: `Cooldown: {#} seconds
 Encase all Nearby enemies in stone, Stunning them for {#} seconds. You deal x{#}% increased Critical Strike Damage to enemies affected by Petrify.
 
@@ -1223,7 +1223,7 @@ Against Bosses, the Critical Strike Damage bonus is increased to x{#}% and its d
 		y: -605.175
 	},
 	"Defensive Posture": {
-		connections: [ "Ultimate", "Thick Hide", "Nature's Resolve" ],
+		connections: [ "终极技能", "Thick Hide", "Nature's Resolve" ],
 		description: `Increases the amount of Fortify you gain from all sources by +{#}%.`,
 		id: 113,
 		maxPoints: 3,
@@ -1259,7 +1259,7 @@ Against Bosses, the Critical Strike Damage bonus is increased to x{#}% and its d
 		y: 91.16
 	},
 	"Quickshift": {
-		connections: [ "Ultimate", "Natural Fortitude", "Heightened Senses" ],
+		connections: [ "终极技能", "Natural Fortitude", "Heightened Senses" ],
 		description: `When a Shapeshifting Skill transforms you into a different form, it deals x{#}% increased damage.`,
 		id: 117,
 		maxPoints: 3,
@@ -1286,7 +1286,7 @@ Against Bosses, the Critical Strike Damage bonus is increased to x{#}% and its d
 		y: 423.295
 	},
 	"Lacerate": {
-		connections: [ "Ultimate", "Prime Lacerate" ],
+		connections: [ "终极技能", "Prime Lacerate" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Shapeshift into a Werewolf, become Immune and quickly dash {#} times between enemies in the area dealing up to {#}% damage.`,
@@ -1317,7 +1317,7 @@ Shapeshift into a Werewolf, become Immune and quickly dash {#} times between ene
 		y: 290.655
 	},
 	"Cataclysm": {
-		connections: [ "Ultimate", "Prime Cataclysm" ],
+		connections: [ "终极技能", "Prime Cataclysm" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 A massive storm follows you for {#} seconds. Tornadoes Knock Back enemies, and lightning strikes wildly dealing {#}% damage.`,
@@ -1347,7 +1347,7 @@ A massive storm follows you for {#} seconds. Tornadoes Knock Back enemies, and l
 		y: -253.34
 	},
 	"Defiance": {
-		connections: [ "Ultimate", "Circle of Life", "Natural Disaster" ],
+		connections: [ "终极技能", "Circle of Life", "Natural Disaster" ],
 		description: `Nature Magic Skills deal x{#}% increased damage to Elites.`,
 		id: 126,
 		maxPoints: 3,

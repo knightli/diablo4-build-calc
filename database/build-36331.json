@@ -18812,8 +18812,8 @@
 				"power": {
 					"power_mod_id": 0,
 					"power_name": "Sorcerer_FrostBolt",
-					"skill_desc": "Frost Bolt has a {c_number}[{SF_7} * 100|%|]{/c} chance to explode on {c_important}Chilled{/c} targets, hitting surrounding enemies. Chance increased to {c_number}100%{/c} against {c_important}Frozen{/c} targets.",
-					"skill_name": "Enhanced Frost Bolt"
+					"skill_desc": "冰霜弹 has a {c_number}[{SF_7} * 100|%|]{/c} chance to explode on {c_important}Chilled{/c} targets, hitting surrounding enemies. Chance increased to {c_number}100%{/c} against {c_important}Frozen{/c} targets.",
+					"skill_name": "强化冰霜弹"
 				},
 				"req_points": 0,
 				"reward": {
@@ -20572,7 +20572,7 @@
 				"power": {
 					"power_name": "Sorcerer_FrostBolt",
 					"skill_desc": "{if:ADVANCED_TOOLTIP}{c_label}Lucky Hit Chance: {/c}{c_resource}{Combat Effect Chance}%{/c}\n{/if}Throw a bolt of frost at an enemy, dealing {c_number}{payload:IMPACT}{/c} damage and {c_important}Chilling{/c} them for {c_number}{SF_4}%{/c}.",
-					"skill_name": "Frost Bolt",
+					"skill_name": "冰霜弹",
 					"skill_rankup_desc": "{icon:bullet,1.2} Damage {icon:arrow,1.2} {c_number}{payload:IMPACT}{/c}"
 				},
 				"req_points": 0,
@@ -20887,8 +20887,8 @@
 				"power": {
 					"power_mod_id": 2,
 					"power_name": "Sorcerer_FrostBolt",
-					"skill_desc": "Frost Bolt makes {c_important}Frozen{/c} enemies {c_important}Vulnerable{/c} for {c_number}{SF_9}{/c} seconds.",
-					"skill_name": "Flickering Frost Bolt"
+					"skill_desc": "冰霜弹 makes {c_important}Frozen{/c} enemies {c_important}Vulnerable{/c} for {c_number}{SF_9}{/c} seconds.",
+					"skill_name": "Flickering 冰霜弹"
 				},
 				"req_points": 0,
 				"reward": {
@@ -21537,8 +21537,8 @@
 				"power": {
 					"power_mod_id": 3,
 					"power_name": "Sorcerer_FrostBolt",
-					"skill_desc": "Frost Bolt generates {c_number}{SF_10}{/c} Mana when hitting {c_important}Chilled{/c} or {c_important}Frozen{/c} enemies.",
-					"skill_name": "Glinting Frost Bolt"
+					"skill_desc": "冰霜弹 generates {c_number}{SF_10}{/c} Mana when hitting {c_important}Chilled{/c} or {c_important}Frozen{/c} enemies.",
+					"skill_name": "Glinting 冰霜弹"
 				},
 				"req_points": 0,
 				"reward": {

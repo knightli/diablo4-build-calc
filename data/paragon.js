@@ -17568,7 +17568,7 @@ let paragonData = {
 			}
 		}
 	},
-	"Sorcerer": {
+	"法师": {
 		"Board": {
 			"Start": [
 				[

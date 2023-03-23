@@ -1,12 +1,12 @@
 let necromancerData = {};
 
 necromancerData["Trunk Data"] = {
-	"Basic": {
-		connections: [ "Core" ],
+	"基本": {
+		connections: [ "核心" ],
 		x: 0,
 		y: 0
 	},
-	"Core": {
+	"核心": {
 		connections: [ "Macabre" ],
 		requiredPoints: 2,
 		x: -1193.775,
@@ -25,12 +25,12 @@ necromancerData["Trunk Data"] = {
 		y: 2438.479
 	},
 	"Summoning": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		requiredPoints: 16,
 		x: 507.125,
 		y: 3343.385
 	},
-	"Ultimate": {
+	"终极技能": {
 		connections: [ "Capstone" ],
 		requiredPoints: 23,
 		x: -1201.801,
@@ -47,9 +47,9 @@ necromancerData["Trunk Data"] = {
 	},
 };
 
-necromancerData["Basic"] = {
+necromancerData["基本"] = {
 	"Decompose": {
-		connections: [ "Enhanced Decompose", "Basic" ],
+		connections: [ "Enhanced Decompose", "基本" ],
 		description: `Generate Essence: {#} per second
 Lucky Hit Chance: {#}%
 Tear the flesh from an enemy, dealing {#}% damage per second and forming a usable Corpse with the flesh every {#} seconds.`,
@@ -89,11 +89,11 @@ Tear the flesh from an enemy, dealing {#}% damage per second and forming a usabl
 		x: -371.68,
 		y: -569.72
 	},
-	"Reap": {
-		connections: [ "Enhanced Reap", "Basic" ],
-		description: `Generate Essence: {#} per enemy hit
-Lucky Hit Chance: {#}%
-Sweep an ethereal scythe in front of you, dealing {#}% damage. Hitting an enemy with Reap increases your Damage Reduction by {#}% for {#} seconds.`,
+	"收割": {
+		connections: [ "Enhanced Reap", "基本" ],
+		description: `生成精魂：每命中一名敌人 {#} 点
+幸运一击几率：{#}%
+在你面前挥舞一把无形的镰刀，造成 {#} 点伤害。使用收割命中敌人会使你的伤害减免效果提高 {#}%，持续 {#} 秒。`,
 		id: 4,
 		maxPoints: 5,
 		values: [ "4", "17", "12", "15", "2" ],
@@ -101,8 +101,8 @@ Sweep an ethereal scythe in front of you, dealing {#}% damage. Hitting an enemy 
 		y: -99.975
 	},
 	"Enhanced Reap": {
-		baseSkill: "Reap",
-		connections: [ "Reap", "Initiate's Reap", "Acolyte's Reap" ],
+		baseSkill: "收割",
+		connections: [ "收割", "Initiate's Reap", "Acolyte's Reap" ],
 		description: `If an enemy hit by Reap dies within {#} seconds, you gain +{#}% Attack Speed for {#} seconds.`,
 		id: 5,
 		maxPoints: 1,
@@ -111,7 +111,7 @@ Sweep an ethereal scythe in front of you, dealing {#}% damage. Hitting an enemy 
 		y: -161.91
 	},
 	"Initiate's Reap": {
-		baseSkill: "Reap",
+		baseSkill: "收割",
 		connections: [ "Enhanced Reap" ],
 		description: `Reap instantly kills targets below {#}% Life.
 
@@ -123,7 +123,7 @@ This does not work on bosses or players.`,
 		y: -287.89
 	},
 	"Acolyte's Reap": {
-		baseSkill: "Reap",
+		baseSkill: "收割",
 		connections: [ "Enhanced Reap" ],
 		description: `Reap forms a Corpse under the first enemy hit. Can only occur every {#} seconds.`,
 		id: 7,
@@ -133,7 +133,7 @@ This does not work on bosses or players.`,
 		y: -107.4
 	},
 	"Hemorrhage": {
-		connections: [ "Enhanced Hemorrhage", "Basic" ],
+		connections: [ "Enhanced Hemorrhage", "基本" ],
 		description: `Generate Essence: {#}
 Lucky Hit Chance: {#}%
 Burst an enemy's blood, dealing {#}% damage. Hemorrhage has a {#}% chance to form a Blood Orb.`,
@@ -174,7 +174,7 @@ Burst an enemy's blood, dealing {#}% damage. Hemorrhage has a {#}% chance to for
 		y: -569.91
 	},
 	"Bone Splinters": {
-		connections: [ "Enhanced Bone Splinters", "Basic" ],
+		connections: [ "Enhanced Bone Splinters", "基本" ],
 		description: `Generate Essence: {#}
 Lucky Hit Chance: {#}%
 Fire 3 bone splinters, dealing {#}% damage each. Each subsequent time an enemy is hit by the same cast of Bone Splinters, you gain {#} Essence.`,
@@ -216,9 +216,9 @@ Fire 3 bone splinters, dealing {#}% damage each. Each subsequent time an enemy i
 	},
 };
 
-necromancerData["Core"] = {
+necromancerData["核心"] = {
 	"Blight": {
-		connections: [ "Enhanced Blight", "Core" ],
+		connections: [ "Enhanced Blight", "核心" ],
 		description: `Essence Cost: {#}
 Lucky Hit Chance: {#}%
 Unleash concentrated blight that deals {#}% damage and leaves behind a defiled area, dealing {#}% damage over {#} seconds.`,
@@ -259,7 +259,7 @@ Unleash concentrated blight that deals {#}% damage and leaves behind a defiled a
 		y: 103.745
 	},
 	"Sever": {
-		connections: [ "Enhanced Sever", "Core" ],
+		connections: [ "Enhanced Sever", "核心" ],
 		description: `Essence Cost: {#}
 Lucky Hit Chance: {#}%
 A specter of you charges forward and attacks with its scythe for {#}% damage then returns to you and attacks again for {#}% damage.`,
@@ -300,7 +300,7 @@ A specter of you charges forward and attacks with its scythe for {#}% damage the
 		y: 590.745
 	},
 	"Blood Surge": {
-		connections: [ "Enhanced Blood Surge", "Core" ],
+		connections: [ "Enhanced Blood Surge", "核心" ],
 		description: `Essence Cost: {#}
 Lucky Hit Chance: {#}%
 Draw blood from enemies, dealing {#}% damage, and expel a blood nova, dealing {#}% damage. Blood Surge's nova damage is increased by x{#}% per enemy drained, up to x{#}%.`,
@@ -340,7 +340,7 @@ Draw blood from enemies, dealing {#}% damage, and expel a blood nova, dealing {#
 		y: -160.385
 	},
 	"Blood Lance": {
-		connections: [ "Enhanced Blood Lance", "Core" ],
+		connections: [ "Enhanced Blood Lance", "核心" ],
 		description: `Essence Cost: {#}
 Lucky Hit Chance: {#}%
 Throw a blood lance that lingers in an enemy for {#} seconds, dealing {#}% damage to the enemy and all other lanced enemies.`,
@@ -381,7 +381,7 @@ Throw a blood lance that lingers in an enemy for {#} seconds, dealing {#}% damag
 		y: -520.325
 	},
 	"Bone Spear": {
-		connections: [ "Enhanced Bone Spear", "Core" ],
+		connections: [ "Enhanced Bone Spear", "核心" ],
 		description: `Essence Cost: {#}
 Lucky Hit Chance: {#}%
 Conjure a bone spear from the ground, dealing {#}% damage and piercing through enemies.`,
@@ -422,7 +422,7 @@ Conjure a bone spear from the ground, dealing {#}% damage and piercing through e
 		y: -89.765
 	},
 	"Unliving Energy": {
-		connections: [ "Core", "Imperfectly Balanced" ],
+		connections: [ "核心", "Imperfectly Balanced" ],
 		description: `Your maximum Essence is increased by {#}.`,
 		id: 36,
 		maxPoints: 3,
@@ -440,7 +440,7 @@ Conjure a bone spear from the ground, dealing {#}% damage and piercing through e
 		y: -449.76
 	},
 	"Hewed Flesh": {
-		connections: [ "Core" ],
+		connections: [ "核心" ],
 		description: `Lucky Hit: Your damage has up to a {#}% chance to create a Corpse at the target's location.
 
 This chance is doubled against Bosses.`,
@@ -943,9 +943,9 @@ Consume all of your Essence to conjure a spirit of bone that seeks enemies. Upon
 	},
 };
 
-necromancerData["Ultimate"] = {
+necromancerData["终极技能"] = {
 	"Bonded in Essence": {
-		connections: [ "Death's Defense", "Ultimate" ],
+		connections: [ "Death's Defense", "终极技能" ],
 		description: `Every {#} seconds, your Skeletal Priest's Healing will Heal your skeletons for {#}% of their Maximum Life.`,
 		id: 89,
 		maxPoints: 3,
@@ -963,7 +963,7 @@ necromancerData["Ultimate"] = {
 		y: 328.78
 	},
 	"Inspiring Leader": {
-		connections: [ "Hellbent Commander", "Ultimate", "Death's Defense" ],
+		connections: [ "Hellbent Commander", "终极技能", "Death's Defense" ],
 		description: `After you have been Healthy for at least {#} seconds, you and your Minions gain +{#}% Attack Speed.`,
 		id: 129,
 		maxPoints: 3,
@@ -981,7 +981,7 @@ necromancerData["Ultimate"] = {
 		y: 208.305
 	},
 	"Army of the Dead": {
-		connections: [ "Prime Army of the Dead", "Ultimate" ],
+		connections: [ "Prime Army of the Dead", "终极技能" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Call forth the deep buried dead. Volatile Skeletons emerge over the next {#} seconds that explode when around enemies, dealing {#}% damage.`,
@@ -1011,7 +1011,7 @@ Call forth the deep buried dead. Volatile Skeletons emerge over the next {#} sec
 		y: -246.42
 	},
 	"Blood Wave": {
-		connections: [ "Prime Blood Wave", "Ultimate" ],
+		connections: [ "Prime Blood Wave", "终极技能" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 Conjure a tidal wave of blood that deals {#}% damage and Knocks Back enemies.`,
@@ -1041,7 +1041,7 @@ Conjure a tidal wave of blood that deals {#}% damage and Knocks Back enemies.`,
 		y: -506.98
 	},
 	"Stand Alone": {
-		connections: [ "Memento Mori", "Ultimate" ],
+		connections: [ "Memento Mori", "终极技能" ],
 		description: `Increases Damage Reduction by {#}%, reduced by {#}% for each active Minion.`,
 		id: 99,
 		maxPoints: 3,
@@ -1059,7 +1059,7 @@ Conjure a tidal wave of blood that deals {#}% damage and Knocks Back enemies.`,
 		y: 1.63
 	},
 	"Bone Storm": {
-		connections: [ "Prime Bone Storm", "Ultimate" ],
+		connections: [ "Prime Bone Storm", "终极技能" ],
 		description: `Cooldown: {#} seconds
 Lucky Hit Chance: {#}%
 A swirling storm of bones appears around you and your Golem, dealing {#}% to surrounding enemies over {#} seconds.`,
@@ -1090,7 +1090,7 @@ A swirling storm of bones appears around you and your Golem, dealing {#}% to sur
 		y: 507.51
 	},
 	"Golem Mastery": {
-		connections: [ "Ultimate" ],
+		connections: [ "终极技能" ],
 		description: `Increase the damage and Life of your Golem by x{#}%.`,
 		id: 104,
 		maxPoints: 3,
