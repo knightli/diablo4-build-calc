@@ -127,20 +127,12 @@ const MATCH_FOUND_TEXT = " match found for query: ";
 const MATCHES_FOUND_TEXT = " matches found for query: ";
 const REQUIRED_POINTS_DESC = "Spend {requiredPoints} additional skill points to unlock.";
 const ENCHANTMENT_EFFECT_DESC = "— Enchantment Effect —";
-const PHYSICAL = "Physical";
-const FIRE = "Fire";
-const LIGHTNING = "Lightning";
-const COLD = "Cold";
-const POISON = "Poison";
-const SHADOW = "Shadow";
-const UNKNOWN = "Unknown";
-const ANY_DAMAGE_TYPE = [PHYSICAL, FIRE, LIGHTNING, COLD, POISON, SHADOW];
-const COOLDOWN = "Cooldown";
+const COOLDOWN_PREFIX = "Cooldown: ";
 const ULTIMATE = "终极技能";
 const CAPSTONE = "Capstone";
 const PARAGON_BOARD = "Paragon Board";
 const CODEX_OF_POWER = "Codex of Power";
-const CODEX_OF_POWER_DESC = "This aspect type can be applied to: ";
+const CODEX_OF_POWER_DESC = "Legendary aspects of this type can be applied to: ";
 const SPIRIT_BOONS = "Spirit Boons";
 const SPIRIT_BOON_DESC = "Specializing in this spirit type will allow you to allocate two boons instead of only one.";
 const BOOK_OF_THE_DEAD = "Book of the Dead";
@@ -155,6 +147,15 @@ const COLOR_OVERRIDE = {
 	"Allocated": 0xFF0000
 };
 
+/*
+const NODE_CIRCLE_ACTIVE = PIXI.Texture.from("images/node_circle_active.png");
+const NODE_CIRCLE_INACTIVE = PIXI.Texture.from("images/node_circle_inactive.png");
+const NODE_DIAMOND_ACTIVE = PIXI.Texture.from("images/node_diamond_active.png");
+const NODE_DIAMOND_INACTIVE = PIXI.Texture.from("images/node_diamond_inactive.png");
+const NODE_SQUARE_ACTIVE = PIXI.Texture.from("images/node_square_active.png");
+const NODE_SQUARE_INACTIVE = PIXI.Texture.from("images/node_square_inactive.png");
+*/
+
 const pixiScalingFloor = 0.15;
 const pixiScalingCeiling = 1;
 const tooltipScalingFloor = 1;
@@ -162,13 +163,13 @@ const tooltipScalingCeiling = 1;
 
 const fontFamily = $("body").css("fontFamily");
 const fontFamilyOverride = fontFamily.includes("Homenaje") ? fontFamily : "Homenaje, " + fontFamily;
-const textColor = Number(rgba2hex($("body").css("color")));
-const backgroundColorHEX = rgba2hex($("#header").css("background-color"));
-const backgroundColor = backgroundColorHEX.length == 8 ? Number(backgroundColorHEX) : backgroundColorHEX >>> 8;
-const backgroundOpacity = backgroundColorHEX.length == 8 ? 1 : (backgroundColorHEX & 0xFF) / 255;
-const borderColorHEX = rgba2hex($("#header").css("border-color"));
-const borderColor = borderColorHEX.length == 8 ? Number(borderColorHEX) : borderColorHEX >>> 8;
-const borderOpacity = borderColorHEX.length == 8 ? 1 : (borderColorHEX & 0xFF) / 255;
+const textColor = 0xFFFFFF;//Number(rgba2hex($("body").css("color")));
+//const backgroundColorHEX = rgba2hex($("#header").css("background-color"));
+const backgroundColor = 0;//backgroundColorHEX.length == 8 ? Number(backgroundColorHEX) : backgroundColorHEX >>> 8;
+const backgroundOpacity = 0.8;//backgroundColorHEX.length == 8 ? 1 : (backgroundColorHEX & 0xFF) / 255;
+//const borderColorHEX = rgba2hex($("#header").css("border-color"));
+const borderColor = 0xFFFFFF;//borderColorHEX.length == 8 ? Number(borderColorHEX) : borderColorHEX >>> 8;
+const borderOpacity = 1;//borderColorHEX.length == 8 ? 1 : (borderColorHEX & 0xFF) / 255;
 const activeColorDefault = "ff0000";
 var activeConnectorColor = Number("0x" + (readCookie("activeConnectorColor").length > 0 ? readCookie("activeConnectorColor") : activeColorDefault));
 var activeNodeColor = Number("0x" + (readCookie("activeNodeColor").length > 0 ? readCookie("activeNodeColor") : activeColorDefault));
@@ -367,7 +368,7 @@ function handleColorButton(event) {
 		$("#extraInfo").text(COLOR_LINE_TEXT).removeClass("hidden");
 	}
 }
-const localVersion = "0.8.0.39517-2";
+const localVersion = "0.8.0.39657-3";
 var remoteVersion = "";
 var versionInterval = null;
 function handleVersionLabel(event) {
@@ -511,7 +512,9 @@ function handleSearchInput(event) {
 	let nodeMatch = pixiNodes.filter(pixiNode => {
 		if (newSearchText.length >= 3) {
 			// search `nodeHeader` for `newSearchText`
-			const nodeHeader = pixiNode.nodeName + (pixiNode.damageType != undefined && !ANY_DAMAGE_TYPE.some(damageType => pixiNode.nodeName.includes(damageType) || pixiNode.nodeDesc.includes(damageType)) ? ` (${pixiNode.damageType})` : "");
+			let nodeHeader = pixiNode.nodeName;
+			const itemType = pixiNode.nodeData.get("itemType");
+			if (itemType != undefined) nodeHeader += ` (${itemType})`;
 			if (nodeHeader.toLowerCase().includes(newSearchText)) {
 				pixiNode.nodeData.set("searchQueryMatch", true);
 				setNodeStyleThick(pixiNode, true);
@@ -807,11 +810,11 @@ function canAllocate(curNode) {
 			return [...pixiNode.nodeData.get("connections").values()].includes(curNode.groupName);
 		}) == undefined;
 	} else if (curNode.groupName == ULTIMATE) {
-		if (curNode.nodeData.get("description").includes(COOLDOWN)) {
+		if (curNode.nodeData.get("description").includes(COOLDOWN_PREFIX)) {
 			return pixiNodes.find(pixiNode => {
 				if (pixiNode.groupName != curNode.groupName || pixiNode == curNode) return false;
 				if ((pixiNode.nodeData.get("allocatedPoints") || 0) == 0) return false;
-				if (!pixiNode.nodeData.get("description").includes(COOLDOWN)) return false;
+				if (!pixiNode.nodeData.get("description").includes(COOLDOWN_PREFIX)) return false;
 				return [...pixiNode.nodeData.get("connections").values()].includes(curNode.groupName);
 			}) == undefined;
 		} else {
@@ -848,7 +851,30 @@ function updateNodePoints(curNode, newPoints) {
 		curNode.nodeData.set("allocatedPoints", newPoints);
 		if (maxPoints > 1) curNode.children[2].text = newPoints + "/" + maxPoints;
 
-		newPoints > 0 ? setNodeStyleThick(curNode) : setNodeStyleThin(curNode);
+		const shapeType = curNode.nodeData.get("shapeType");
+		if (newPoints == 0) {
+			if (curNode.children[0].children.length > 1) {
+				if (shapeType == "circle") {
+					curNode.children[0].children[1].texture = NODE_CIRCLE_INACTIVE;
+				} else if (shapeType == "diamond") {
+					curNode.children[0].children[1].texture = NODE_DIAMOND_INACTIVE;
+				} else {
+					curNode.children[0].children[1].texture = NODE_SQUARE_INACTIVE;
+				}
+			}
+			setNodeStyleThin(curNode);
+		} else {
+			if (curNode.children[0].children.length > 1) {
+				if (shapeType == "circle") {
+					curNode.children[0].children[1].texture = NODE_CIRCLE_ACTIVE;
+				} else if (shapeType == "diamond") {
+					curNode.children[0].children[1].texture = NODE_DIAMOND_ACTIVE;
+				} else {
+					curNode.children[0].children[1].texture = NODE_SQUARE_ACTIVE;
+				}
+			}
+			setNodeStyleThick(curNode);
+		}
 
 		const className = $(classString).val();
 		const classData = classMap.get(className);
@@ -1070,15 +1096,17 @@ function redrawAllNodes(idleMode = false) {
 	}
 }
 function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNodes.length, nodePosition = null) {
-	const scaleFactor = PIXI.settings.RESOLUTION >= 4 ? 1 : (newRenderScale >= 0.6 ? 4 : newRenderScale >= 0.5 ? 2 : 1) / PIXI.settings.RESOLUTION * newRenderScale;
+	const scaleFactor = PIXI.settings.RESOLUTION >= 2 ? 1 : (newRenderScale >= 0.45 ? 2 : 1) / PIXI.settings.RESOLUTION * newRenderScale;
 
 	let node = null;
 	if (pixiNodes.length > nodeIndex) {
 		node = pixiNodes[nodeIndex];
+
 		// skip node redraw if we already have the correct one displayed
 		if (node.scaleFactor == scaleFactor) return;
-		// destroy all existing node children if we need to replace them
-		while (node.children[0]) node.children[0].destroy(true);
+
+		// remove all existing node children
+		while (node.children[0]) node.removeChild(node.children[0]);
 	}
 
 	let x = nodePosition == null ? nodeData.get("x") : nodePosition.x;
@@ -1134,6 +1162,7 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 		fontWeight: useThickNodeStyle ? "bold" : "normal",
 		padding: 10
 	});
+	nodeText.eventMode = "auto";
 	nodeText.scale.set(1 / scaleFactor);
 	nodeText.anchor.set(0.5);
 
@@ -1148,6 +1177,7 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 			fontWeight: useThickNodeStyle ? "bold" : "normal",
 			padding: 10
 		});
+		nodeText2.eventMode = "auto";
 		nodeText2.scale.set(1 / scaleFactor);
 		nodeText2.anchor.set(0.5);
 		nodeText2.x = (_nodeWidth * shapeSize * circleFactor * diamondFactor - nodeText2.width) * 0.5 - 5;
@@ -1162,6 +1192,7 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 			fontWeight: useThickNodeStyle ? "bold" : "normal",
 			padding: 10
 		});
+		nodeText3.eventMode = "auto";
 		nodeText3.scale.set(1 / scaleFactor);
 		nodeText3.anchor.set(0.5);
 		nodeText3.x = (_nodeWidth * shapeSize * circleFactor * diamondFactor - nodeText3.width) * 0.5;
@@ -1176,6 +1207,7 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 			fontWeight: useThickNodeStyle ? "bold" : "normal",
 			padding: 10
 		});
+		nodeText4.eventMode = "auto";
 		nodeText4.scale.set(1 / scaleFactor);
 		nodeText4.anchor.set(0.5);
 		nodeText4.x = (nodeText4.width - _nodeWidth * shapeSize * circleFactor * diamondFactor) * 0.5 + 4;
@@ -1183,7 +1215,7 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 
 		plusContainer = new PIXI.Container();
 		plusContainer.cursor = "pointer";
-		plusContainer.interactive = true;
+		plusContainer.eventMode = "static";
 		plusContainer.addChild(nodeText3);
 		plusContainer
 			.on("click", () => handlePlusButton(node))
@@ -1191,25 +1223,15 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 
 		minusContainer = new PIXI.Container();
 		minusContainer.cursor = "pointer";
-		minusContainer.interactive = true;
+		minusContainer.eventMode = "static";
 		minusContainer.addChild(nodeText4);
 		minusContainer
 			.on("click", () => handleMinusButton(node))
 			.on("tap", () => handleMinusButton(node));
 	}
 
-	const nodeBackground = new PIXI.Graphics();
-	nodeBackground.beginFill(backgroundColor);
-	if (shapeType == "circle") {
-		nodeBackground.drawCircle(_nodeWidth * 0.5 * shapeSize, _nodeHeight * 0.5 * shapeSize, (_nodeWidth + _nodeHeight) * 0.5 * shapeSize);
-	} else {
-		nodeBackground.drawRect(0, 0, _nodeWidth * shapeSize, _nodeHeight * shapeSize);
-	}
-	nodeBackground.alpha = backgroundOpacity;
-	nodeBackground.pivot.x = _nodeWidth * 0.5 * shapeSize;
-	nodeBackground.pivot.y = _nodeHeight * 0.5 * shapeSize;
-
 	const nodeBorder = new PIXI.Graphics();
+	nodeBorder.eventMode = "auto";
 	nodeBorder.pivot.x = _nodeWidth * 0.5 * shapeSize;
 	nodeBorder.pivot.y = _nodeHeight * 0.5 * shapeSize;
 	if (([PARAGON_BOARD, CODEX_OF_POWER, SPIRIT_BOONS, BOOK_OF_THE_DEAD, undefined].includes(groupName) && requiredPoints == 0) || useThickNodeStyle) {
@@ -1245,6 +1267,41 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 		nodeBorder.lineTo(0, 0);
 	}
 
+	const nodeContainer = new PIXI.Container();
+	nodeContainer.eventMode = "static";
+
+	const nodeBackground = new PIXI.Graphics();
+	nodeBackground.eventMode = "auto";
+	nodeBackground.beginFill(backgroundColor);
+	if (shapeType == "circle") {
+		nodeBackground.drawCircle(_nodeWidth * 0.5 * shapeSize, _nodeHeight * 0.5 * shapeSize, (_nodeWidth + _nodeHeight) * 0.5 * shapeSize);
+	} else {
+		nodeBackground.drawRect(0, 0, _nodeWidth * shapeSize, _nodeHeight * shapeSize);
+	}
+	nodeBackground.alpha = backgroundOpacity;
+	nodeBackground.pivot.x = _nodeWidth * 0.5 * shapeSize;
+	nodeBackground.pivot.y = _nodeHeight * 0.5 * shapeSize;
+
+	nodeContainer.addChild(nodeBackground);
+
+	/*
+	if (groupName != undefined && ![PARAGON_BOARD, CODEX_OF_POWER, SPIRIT_BOONS, BOOK_OF_THE_DEAD].includes(groupName)) {
+		let nodeImage;
+		if (shapeType == "circle") {
+			//nodeImage = new PIXI.Sprite(allocatedPoints > 0 ? NODE_CIRCLE_ACTIVE : NODE_CIRCLE_INACTIVE);
+		} else if (shapeType == "diamond") {
+			nodeImage = new PIXI.Sprite(allocatedPoints > 0 ? NODE_DIAMOND_ACTIVE : NODE_DIAMOND_INACTIVE);
+		} else {
+			nodeImage = new PIXI.Sprite(allocatedPoints > 0 ? NODE_SQUARE_ACTIVE : NODE_SQUARE_INACTIVE);
+		}
+		nodeImage.eventMode = "auto";
+		if (nodeImage != undefined) {
+			nodeImage.anchor.set(0.5);
+			nodeContainer.addChild(nodeImage);
+		}
+	}
+	*/
+
 	if (shapeType == "diamond") {
 		nodeBackground.angle = 45;
 		nodeBorder.angle = 45;
@@ -1276,42 +1333,12 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 			.on("mouseout", onMouseOut)
 			.on("tap", onMouseOver);
 
-		if ([PARAGON_BOARD, CODEX_OF_POWER, SPIRIT_BOONS, BOOK_OF_THE_DEAD].includes(groupName) || maxPoints <= 1) {
-			if (maxPoints != 0) {
-				node.cursor = "pointer";
-				node.interactive = true;
-				node
-					.on("click", () => handleToggleButton(node))
-					.on("tap", () => handleToggleButton(node));
-			}
+		if (maxPoints == 1) {
+			node
+				.on("click", () => handleToggleButton(node))
+				.on("tap", () => handleToggleButton(node));
 		}
 
-		switch (nodeData.get("damageType")) {
-			case -1:
-			case undefined:
-				break;
-			case 0:
-				node.damageType = PHYSICAL;
-				break;
-			case 1:
-				node.damageType = FIRE;
-				break;
-			case 2:
-				node.damageType = LIGHTNING;
-				break;
-			case 3:
-				node.damageType = COLD;
-				break;
-			case 4:
-				node.damageType = POISON;
-				break;
-			case 5:
-				node.damageType = SHADOW;
-				break;
-			default:
-				node.damageType = UNKNOWN;
-				break;
-		}
 		node.nodeName = nodeName;
 		node.nodeData = nodeData;
 		node.groupName = groupName;
@@ -1349,16 +1376,20 @@ function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNod
 	}
 
 	node.cullable = true;
-	node.interactive = true;
+	node.eventMode = "static";
+	if (maxPoints == 1) {
+		node.cursor = "pointer";
+		nodeContainer.cursor = "pointer";
+	}
 	node.stale = false;
 	node.position.x = x;
 	node.position.y = y;
 	node.scaleFactor = scaleFactor;
 
 	if ([PARAGON_BOARD, CODEX_OF_POWER, SPIRIT_BOONS, BOOK_OF_THE_DEAD, undefined].includes(groupName) || maxPoints <= 1) {
-		node.addChild(nodeBackground, nodeText, nodeBorder);
+		node.addChild(nodeContainer, nodeText, nodeBorder);
 	} else {
-		node.addChild(nodeBackground, nodeText, nodeText2, plusContainer, minusContainer, nodeBorder);
+		node.addChild(nodeContainer, nodeText, nodeText2, plusContainer, minusContainer, nodeBorder);
 	}
 }
 function drawAllNodes() {
@@ -1611,7 +1642,9 @@ function drawAllNodes() {
 									.trim()
 								: nodeData;
 							const nodeDesc = nodeData in paragonData[classText]["Node"] && "description" in paragonData[classText]["Node"][nodeData]
-								? `${paragonData[classText]["Node"][nodeData]["description"]}\n` : "";
+								? `${paragonData[classText]["Node"][nodeData]["description"]}`
+								: nodeData in paragonData["Generic"]["Node"] && "description" in paragonData["Generic"]["Node"][nodeData]
+								? `${paragonData["Generic"]["Node"][nodeData]["description"]}` : "";
 							const nodeType = nodeData.includes("_Normal_") ? "Normal"
 								: nodeData.includes("_Magic_") ? "Magic"
 								: nodeData.includes("_Rare_") ? "Rare"
@@ -1622,7 +1655,7 @@ function drawAllNodes() {
 							const boardNode = new Map([
 								["allocatedPoints", 0],
 								["colorOverride", COLOR_OVERRIDE[nodeType]],
-								["description", `${nodeDesc}${nodeData}`],
+								["description", nodeDesc],
 								["id", `paragon-${unsortedIndex}-${xPosition}-${yPosition}`],
 								["maxPoints", 1],
 								["widthOverride", nodeWidth],
@@ -1641,8 +1674,24 @@ function drawAllNodes() {
 			$("#groupSelector").append(`<option value="${PARAGON_BOARD.replace(/\s/g, "").toLowerCase()}">${PARAGON_BOARD}</option>`);
 		}
 
-		const codexResult = getCodexData(["General", classText]);
-		if (Object.keys(codexResult).length > 0) {
+		const codexCategoryIds = {
+			"Offensive": 0,
+			"Defensive": 1,
+			"Utility": 2,
+			"Resource": 3,
+			"Mobility": 4,
+			"Other": 5,
+			"Unknown": 6
+		};
+		const unsortedCodex = getCodexData(["General", classText]);
+		const sortedCodex = Object.keys(unsortedCodex).sort((a, b) => {
+			return codexCategoryIds[a] - codexCategoryIds[b];
+		}).reduce((obj, key) => {
+			obj[key] = unsortedCodex[key];
+			return obj;
+		}, {});
+
+		if (Object.keys(sortedCodex).length > 0) {
 			const startX = -4000;
 			const startY = 0;
 			const nodeWidth = 400;
@@ -1663,14 +1712,16 @@ function drawAllNodes() {
 
 			drawNode(CODEX_OF_POWER, codexNode);
 
-			for (const [codexTypeName, codexType] of Object.entries(codexResult)) {
+			for (const [codexTypeName, codexType] of Object.entries(sortedCodex)) {
 				const numCodexPowers = Object.keys(codexType).length;
 				if (numCodexPowers > 0) {
 					codexY += nodeSpacingY;
 
+					let codexTypeDesc = codexData["Categories"][codexTypeName];
+					if (codexTypeName != "Other" && codexTypeName != "Unknown") codexTypeDesc = CODEX_OF_POWER_DESC + codexTypeDesc;
 					const codexTypeNode = new Map([
 						["allocatedPoints", 0],
-						["description", CODEX_OF_POWER_DESC + codexData["Slots"][codexTypeName]],
+						["description", codexTypeDesc],
 						["widthOverride", nodeSpacingX * 4 - 50],
 						["maxPoints", 0],
 						["shapeSize", 1],
@@ -1695,16 +1746,17 @@ function drawAllNodes() {
 							}
 						}
 
-						let powerDescription = codexPower.power;
+						let powerDescription = codexPower["description"];
 						let powerLocation = [];
-						if (codexPower.dungeon) powerLocation.push(codexPower.dungeon);
-						if (codexPower.region) powerLocation.push(codexPower.region);
+						if (codexPower.dungeon) powerLocation.push(codexPower["dungeon"]);
+						if (codexPower.region) powerLocation.push(codexPower["region"]);
 						if (powerLocation.length > 0) powerDescription += "\n\n— Location —\n" + powerLocation.join(" — ");
 
 						const codexPowerNode = new Map([
 							["allocatedPoints", 0],
 							["description", powerDescription],
 							["id", `codex-${codexPower.id}`],
+							["itemType", codexPower["type"]],
 							["maxPoints", 1],
 							["widthOverride", nodeWidth],
 							["shapeSize", 1],
@@ -1728,7 +1780,7 @@ function drawAllNodes() {
 function drawTooltip(curNode, forceDraw) {
 	const clampScale = stageScale < tooltipScalingFloor ? tooltipScalingFloor / stageScale : stageScale > tooltipScalingCeiling ? tooltipScalingCeiling / stageScale : 1;
 	const clampRenderScale = stageScale * clampScale;
-	const scaleFactor = PIXI.settings.RESOLUTION >= 4 ? 1 : (clampRenderScale >= 0.6 ? 4 : clampRenderScale >= 0.5 ? 2 : 1) / PIXI.settings.RESOLUTION * clampRenderScale;
+	const scaleFactor = PIXI.settings.RESOLUTION >= 2 ? 1 : (clampRenderScale >= 0.45 ? 2 : 1) / PIXI.settings.RESOLUTION * clampRenderScale;
 
 	// skip tooltip redraw if we already have the correct one displayed
 	if (!forceDraw && !debugMode && pixiTooltip.nodeIndex == curNode.nodeIndex && pixiTooltip.scaleFactor == scaleFactor) return;
@@ -1764,7 +1816,9 @@ function drawTooltip(curNode, forceDraw) {
 
 	if (curNode.displayName == curNode.nodeName && nodeDesc.length == 0) return;
 
-	const nodeHeader = curNode.nodeName + (curNode.damageType != undefined && !ANY_DAMAGE_TYPE.some(damageType => curNode.nodeName.includes(damageType) || curNode.nodeDesc.includes(damageType)) ? ` (${curNode.damageType})` : "");
+	let nodeHeader = curNode.nodeName;
+	const itemType = curNode.nodeData.get("itemType");
+	if (itemType != undefined) nodeHeader += ` (${itemType})`;
 	const tooltipText1 = new PIXI.Text(nodeHeader, {
 		align: "left",
 		breakWords: true,
@@ -1795,7 +1849,7 @@ function drawTooltip(curNode, forceDraw) {
 		tooltipText2.position.y = 20;
 	} else {
 		tooltipText2 = new PIXI.Text("", {
-			fontSize: 20
+			fontSize: 8
 		});
 	}
 
@@ -2002,8 +2056,7 @@ function drawBackground() {
 	pixiBackground.y = -maxCanvasHeight;
 	pixiBackground.width = maxCanvasWidth * 2;
 	pixiBackground.height = maxCanvasHeight * 2;
-	pixiBackground.interactive = true;
-	pixiBackground.renderable = false;
+	pixiBackground.eventMode = "static";
 	pixiBackground
 		.on("mousedown", onDragAllStart)
 		.on("touchstart", onDragAllStart)
