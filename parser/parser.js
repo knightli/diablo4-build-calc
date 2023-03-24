@@ -244,7 +244,7 @@ function fixJSON(classData, curNode, rootNodeName) {
 	// `Enhanced Charged Bolts` was incorrectly assigned the name `Enhanced Charged Bolt` in 36023.
 	} else if (skillName == "Enhanced Charged Bolt" && nodeData["id"] == 731) {
 		$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "` -> `Enhanced Charged Bolts`.");
-		nodeData["power"]["skill_name"] = "Enhanced Charged Bolts";
+		nodeData["power"]["skill_name"] = "强化电荷弹";
 	// `Wolf Pack` was renamed to `Wolves` in 36023, but its modifier nodes were not renamed at the same time.
 	} else if (skillName == "Wolf Pack" && nodeData["id"] == 459) {
 		$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "` -> `Wolves`.");

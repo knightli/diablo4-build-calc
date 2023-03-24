@@ -253,16 +253,16 @@ Tags: Basic, Pyromancy, Damage, Fire, Burn.`,
 };
 
 sorcererData["核心"] = {
-	"Charged Bolts": {
-		connections: [ "核心", "Enhanced Charged Bolts" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Release {#} bolts of lightning that course along the ground in an erratic pattern, dealing {#}% damage each.
+	"电荷弹": {
+		connections: [ "核心", "强化电荷弹" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+在地面上施放 {#} 枚轨迹不规则的闪电弹，每枚造成 {#} 点伤害。
 
 Tags: Core, Shock, Damage, Lightning, Mana.
 
 — 附魔效果 —
-When you Stun an enemy, there's a {#}% chance to release {#} Charged Bolts from them.`,
+当你击晕一名敌人时，有 {#}% 几率从其身上放出 {#} 枚电荷弹。`,
 		id: 16,
 		maxPoints: 5,
 		values: [ "40", "25", "5", "17" ],
@@ -270,10 +270,10 @@ When you Stun an enemy, there's a {#}% chance to release {#} Charged Bolts from 
 		x: 133.995,
 		y: 322.79
 	},
-	"Enhanced Charged Bolts": {
-		baseSkill: "Charged Bolts",
-		connections: [ "Charged Bolts", "Greater Charged Bolts", "Destructive Charged Bolts" ],
-		description: `Hitting an enemy at least {#} times with same cast of Charged Bolts releases a lightning nova, dealing {#}% damage to enemies around them.
+	"强化电荷弹": {
+		baseSkill: "电荷弹",
+		connections: [ "电荷弹", "强效电荷弹", "毁灭电荷弹" ],
+		description: `使用同一次技能施放的电荷弹命中一个敌人至少 {#} 次，会释放闪电新星，对附近的敌人造成 {#} 点伤害。
 
 Tags: Core, Shock, Damage, Lightning, Mana.`,
 		id: 17,
@@ -282,10 +282,10 @@ Tags: Core, Shock, Damage, Lightning, Mana.`,
 		x: 198.23,
 		y: 523.06
 	},
-	"Greater Charged Bolts": {
-		baseSkill: "Charged Bolts",
-		connections: [ "Enhanced Charged Bolts" ],
-		description: `Charged Bolts deals x{#}% increased damage to Stunned enemies.
+	"强效电荷弹": {
+		baseSkill: "电荷弹",
+		connections: [ "强化电荷弹" ],
+		description: `电荷弹对昏迷的敌人造成的伤害提高 {#}%
 
 Tags: Core, Shock, Damage, Lightning, Mana.`,
 		id: 18,
@@ -294,10 +294,10 @@ Tags: Core, Shock, Damage, Lightning, Mana.`,
 		x: 92.625,
 		y: 636.325
 	},
-	"Destructive Charged Bolts": {
-		baseSkill: "Charged Bolts",
-		connections: [ "Enhanced Charged Bolts" ],
-		description: `Hitting an enemy with Charged Bolts reduces their damage dealt by {#}% for {#} seconds.
+	"毁灭电荷弹": {
+		baseSkill: "电荷弹",
+		connections: [ "强化电荷弹" ],
+		description: `用电荷弹命中一名敌人会使其造成的伤害降低 {#}%，持续 {#} 秒。
 
 Tags: Core, Shock, Damage, Lightning, Mana.`,
 		id: 19,
@@ -306,16 +306,16 @@ Tags: Core, Shock, Damage, Lightning, Mana.`,
 		x: 384.92,
 		y: 599.82
 	},
-	"Frozen Orb": {
-		connections: [ "核心", "Enhanced Frozen Orb" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Unleash an orb that Chills for {#}% and expels piercing shards, dealing a total of {#}% damage. Upon expiration, Frozen Orb explodes, dealing {#}% damage and Chilling enemies for {#}%.
+	"冰霜球": {
+		connections: [ "核心", "强化冰霜球" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+施放一颗冰球，冻伤敌人 {#}，并放出尖锐碎片，造成总计 {#} 点伤害。冰霜球会在持续时间结束后爆炸，造成 {#} 点伤害，并冻伤敌人 {#}
 
 Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.
 
 — 附魔效果 —
-Whenever you cast a Non-Basic Skill, you have a {#}% chance to launch a Frozen Orb at a Nearby enemy.`,
+每当你施放非基础技能时，有 {#}% 几率向一名附近的敌人发射一颗冰霜球`,
 		id: 20,
 		maxPoints: 5,
 		values: [ "40", "20", "34", "32", "29", "9" ],
@@ -323,10 +323,10 @@ Whenever you cast a Non-Basic Skill, you have a {#}% chance to launch a Frozen O
 		x: -639.26,
 		y: -93.76
 	},
-	"Enhanced Frozen Orb": {
-		baseSkill: "Frozen Orb",
-		connections: [ "Destructive Frozen Orb", "Greater Frozen Orb", "Frozen Orb" ],
-		description: `When cast above {#} Mana, Frozen Orb's explosion damage is increased by x{#}%.
+	"强化冰霜球": {
+		baseSkill: "冰霜球",
+		connections: [ "毁灭冰霜球", "强效冰霜球", "冰霜球" ],
+		description: `法力大于 {#} 点时，施放的冰霜球爆炸伤害提高 {#}%
 
 Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.`,
 		id: 21,
@@ -335,10 +335,10 @@ Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.`,
 		x: -965.455,
 		y: -151.935
 	},
-	"Destructive Frozen Orb": {
-		baseSkill: "Frozen Orb",
-		connections: [ "Enhanced Frozen Orb" ],
-		description: `Frozen Orb's explosion restores {#} Mana when hitting a Frozen enemy.
+	"毁灭冰霜球": {
+		baseSkill: "冰霜球",
+		connections: [ "强化冰霜球" ],
+		description: `冰霜球爆炸命中一名冻结的敌人时恢复 {#} 点法力。
 
 Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.`,
 		id: 22,
@@ -347,10 +347,10 @@ Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.`,
 		x: -1219.085,
 		y: -125.825
 	},
-	"Greater Frozen Orb": {
-		baseSkill: "Frozen Orb",
-		connections: [ "Enhanced Frozen Orb" ],
-		description: `Frozen Orb's explosion has a {#}% chance to make all enemies hit Vulnerable for {#} seconds. Frozen Orb always makes Frozen enemies Vulnerable.
+	"强效冰霜球": {
+		baseSkill: "冰霜球",
+		connections: [ "强化冰霜球" ],
+		description: `冰霜球爆炸时有 {#}% 几率使命中的所有敌人陷入易伤状态，持续 {#} 秒。冰霜球总是会使冻结的敌人陷入易伤状态。
 
 Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.`,
 		id: 23,
@@ -359,16 +359,16 @@ Tags: Core, Frost, Chill, Damage, Cold, Crowd Control, Mana.`,
 		x: -1066.555,
 		y: -284.32
 	},
-	"Incinerate": {
-		connections: [ "核心", "Enhanced Incinerate" ],
-		description: `Mana Cost: {#} per second
-Lucky Hit Chance: {#}%
-Channel a beam of fire, Burning enemies for {#}% damage per second. Damage per second increases over {#} seconds, up to {#}.
+	"焚烧": {
+		connections: [ "核心", "强化焚烧" ],
+		description: `法力消耗：{#} 每秒
+幸运一击几率：{#}%
+引导一道火焰射线燃烧敌人，每秒造成 {#} 点伤害。在 {#} 秒内，伤害每秒都会提高，最多 {#}点。
 
 Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.
 
 — 附魔效果 —
-Every {#} seconds, a serpent spawns and Incinerates enemies for {#} seconds.`,
+每{c_number}{SF_0}{/c}秒，召唤一条蛇并{c_important}焚烧{/c}敌人，持续{c_number}{SF_1}{/c}秒`,
 		id: 24,
 		maxPoints: 5,
 		values: [ "20", "40", "36", "4", "49%" ],
@@ -376,10 +376,10 @@ Every {#} seconds, a serpent spawns and Incinerates enemies for {#} seconds.`,
 		x: 0.845,
 		y: -304.65
 	},
-	"Enhanced Incinerate": {
-		baseSkill: "Incinerate",
-		connections: [ "Incinerate", "Destructive Incinerate", "Greater Incinerate" ],
-		description: `While channeling Incinerate, you Burn enemies around you for {#}% of the damage per second.
+	"强化焚烧": {
+		baseSkill: "焚烧",
+		connections: [ "焚烧", "毁灭焚烧", "强效焚烧" ],
+		description: `在引导焚烧时，你会燃烧附近的敌人，每秒造成伤害，相当于焚烧的 {#}%
 
 Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.`,
 		id: 25,
@@ -388,10 +388,10 @@ Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.`,
 		x: -0.58,
 		y: -500.805
 	},
-	"Destructive Incinerate": {
-		baseSkill: "Incinerate",
-		connections: [ "Enhanced Incinerate" ],
-		description: `Enemies deal {#}% less damage while Burning from Incinerate.
+	"毁灭焚烧": {
+		baseSkill: "焚烧",
+		connections: [ "强化焚烧" ],
+		description: `敌人因焚烧而燃烧时，其造成的伤害降低 {#}%
 
 Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.`,
 		id: 26,
@@ -400,10 +400,10 @@ Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.`,
 		x: -137.58,
 		y: -608.375
 	},
-	"Greater Incinerate": {
-		baseSkill: "Incinerate",
-		connections: [ "Enhanced Incinerate" ],
-		description: `Every {#} seconds an enemy has been hit by Incinerate, they are Immobilized for {#} seconds.
+	"强效焚烧": {
+		baseSkill: "焚烧",
+		connections: [ "强化焚烧" ],
+		description: `每隔 {#} 秒，会有一名被焚烧命中的敌人被定身 {#} 秒。
 
 Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.`,
 		id: 27,
@@ -412,16 +412,16 @@ Tags: Core, Pyromancy, Channeled, Damage, Burn, Mana.`,
 		x: 144.77,
 		y: -607.315
 	},
-	"Fireball": {
-		connections: [ "核心", "Enhanced Fireball" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Hurl an exploding ball of fire, dealing {#}% damage to surrounding enemies.
+	"火球": {
+		connections: [ "核心", "强化火球" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+施放一团会爆炸的火焰，对周围的敌人造成 {#} 点伤害。
 
 Tags: Core, Pyromancy, Damage, Fire, Mana.
 
 — 附魔效果 —
-When you kill an enemy, they explode in a Fireball for {#}% of its damage.`,
+当你消灭一名敌人时会使其爆炸成火球，造成其伤害的 {#}%`,
 		id: 28,
 		maxPoints: 5,
 		values: [ "40", "33", "60" ],
@@ -429,10 +429,10 @@ When you kill an enemy, they explode in a Fireball for {#}% of its damage.`,
 		x: -363.79,
 		y: -251.52
 	},
-	"Enhanced Fireball": {
-		baseSkill: "Fireball",
-		connections: [ "Fireball", "Greater Fireball", "Destructive Fireball" ],
-		description: `Fireball's radius is increased based on distance traveled, up to {#}%.
+	"强化火球": {
+		baseSkill: "火球",
+		connections: [ "火球", "强效火球", "毁灭火球" ],
+		description: `火球的半径随行进距离扩大，最高可增加 {#}%
 
 Tags: Core, Pyromancy, Damage, Fire, Mana.`,
 		id: 29,
@@ -441,10 +441,10 @@ Tags: Core, Pyromancy, Damage, Fire, Mana.`,
 		x: -597.17,
 		y: -411.325
 	},
-	"Greater Fireball": {
-		baseSkill: "Fireball",
-		connections: [ "Enhanced Fireball" ],
-		description: `Fireball deals {#}% of the Burning damage you've applied to enemies as additional direct damage.
+	"强效火球": {
+		baseSkill: "火球",
+		connections: [ "强化火球" ],
+		description: `火球造成额外直接伤害，数值相当于你已对敌人施加的燃烧伤害的 {#}%
 
 Tags: Core, Pyromancy, Damage, Fire, Mana.`,
 		id: 30,
@@ -453,10 +453,10 @@ Tags: Core, Pyromancy, Damage, Fire, Mana.`,
 		x: -851.105,
 		y: -424.01
 	},
-	"Destructive Fireball": {
-		baseSkill: "Fireball",
-		connections: [ "Enhanced Fireball" ],
-		description: `Fireball's explosion's Critical Strike Damage is increased by +{#}%. Each enemy it hits increases this bonus by +{#}%, up to +{#}% total.
+	"毁灭火球": {
+		baseSkill: "火球",
+		connections: [ "强化火球" ],
+		description: `火球爆炸的暴击伤害提高 {#}% 。每命中一名敌人，该加成都会提高 {#}% ，总计提高最多 {#}%
 
 Tags: Core, Pyromancy, Damage, Fire, Mana.`,
 		id: 31,
@@ -465,16 +465,16 @@ Tags: Core, Pyromancy, Damage, Fire, Mana.`,
 		x: -599.05,
 		y: -541.025
 	},
-	"Chain Lightning": {
-		connections: [ "核心", "Enhanced Chain Lightning" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Unleash a stream of lightning that deals {#}% damage and chains between Nearby enemies and you up to {#} times, prioritizing enemies.
+	"连锁闪电": {
+		connections: [ "核心", "强化连锁闪电" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+施放一道闪电，造成 {#} 点伤害，并最多在你和附近敌人之间连锁弹跳 {#} 次，目标优先选择敌人。
 
 Tags: Core, Shock, Damage, Lightning, Mana.
 
 — 附魔效果 —
-Chain Lightning forms automatically after spending {#} Mana.`,
+消耗 {#} 点法力后自动施放连锁闪电`,
 		id: 32,
 		maxPoints: 5,
 		values: [ "35", "25", "42", "6" ],
@@ -482,10 +482,10 @@ Chain Lightning forms automatically after spending {#} Mana.`,
 		x: -205.425,
 		y: 323.95
 	},
-	"Enhanced Chain Lightning": {
-		baseSkill: "Chain Lightning",
-		connections: [ "Chain Lightning", "Greater Chain Lightning", "Destructive Chain Lightning" ],
-		description: `Chain Lightning gains a +{#}% increased Critical Strike Chance per bounce.
+	"强化连锁闪电": {
+		baseSkill: "连锁闪电",
+		connections: [ "连锁闪电", "强效连锁闪电", "毁灭连锁闪电" ],
+		description: `连锁闪电每次弹跳，暴击几率提高 {#}%
 
 Tags: Core, Shock, Damage, Lightning, Mana.`,
 		id: 33,
@@ -494,10 +494,10 @@ Tags: Core, Shock, Damage, Lightning, Mana.`,
 		x: -357.145,
 		y: 505.675
 	},
-	"Greater Chain Lightning": {
-		baseSkill: "Chain Lightning",
-		connections: [ "Enhanced Chain Lightning" ],
-		description: `If Chain Lightning bounces off of you, its next hit deals x{#}% increased damage.
+	"强效连锁闪电": {
+		baseSkill: "连锁闪电",
+		connections: [ "强化连锁闪电" ],
+		description: `如果连锁闪电从你身上跳走，其下一跳造成的伤害提高 {#}%
 
 Tags: Core, Shock, Damage, Lightning, Mana.`,
 		id: 34,
@@ -506,10 +506,10 @@ Tags: Core, Shock, Damage, Lightning, Mana.`,
 		x: -579.895,
 		y: 551.75
 	},
-	"Destructive Chain Lightning": {
-		baseSkill: "Chain Lightning",
-		connections: [ "Enhanced Chain Lightning" ],
-		description: `When Chain Lightning Critically Strikes, it has a {#}% chance to form a Crackling Energy.
+	"毁灭连锁闪电": {
+		baseSkill: "连锁闪电",
+		connections: [ "强化连锁闪电" ],
+		description: `连锁闪电暴击时，有 {#}% 几率生成一个爆裂电花。
 
 Tags: Core, Shock, Damage, Lightning, Mana.`,
 		id: 35,
@@ -518,26 +518,26 @@ Tags: Core, Shock, Damage, Lightning, Mana.`,
 		x: -298.86,
 		y: 634.625
 	},
-	"Ice Shards": {
-		connections: [ "核心", "Enhanced Ice Shards" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Launch {#} shards that deal {#}% damage each. Deals x{#}% increased damage to Frozen enemies.
+	"寒冰碎片": {
+		connections: [ "核心", "强化寒冰碎片" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+射出 {#} 枚冰片，每枚造成 {#} 点伤害。对冻结的敌人造成的伤害提高 {#}%
 
 Tags: Core, Frost, Frozen, Damage, Cold, Mana.
 
 — 附魔效果 —
-Ice Shards automatically conjure and fly towards Frozen enemies.`,
+自动召唤寒冰碎片，并使其飞向冻结的敌人。`,
 		id: 36,
 		maxPoints: 5,
 		values: [ "30", "25", "5", "25", "25" ],
 		x: -639.885,
 		y: 87.015
 	},
-	"Enhanced Ice Shards": {
-		baseSkill: "Ice Shards",
-		connections: [ "Ice Shards", "Greater Ice Shards", "Destructive Ice Shards" ],
-		description: `Ice Shards have a {#}% chance to ricochet to another enemy. Ice Shards always ricochet off of Frozen enemies.
+	"强化寒冰碎片": {
+		baseSkill: "寒冰碎片",
+		connections: [ "寒冰碎片", "强效寒冰碎片", "毁灭寒冰碎片" ],
+		description: `寒冰碎片有 {#}% 几率弹射向其他敌人。射向冻结敌人的寒冰碎片总是会弹射。
 
 Tags: Core, Frost, Frozen, Damage, Cold, Mana.`,
 		id: 37,
@@ -546,10 +546,10 @@ Tags: Core, Frost, Frozen, Damage, Cold, Mana.`,
 		x: -971.225,
 		y: 141.315
 	},
-	"Greater Ice Shards": {
-		baseSkill: "Ice Shards",
-		connections: [ "Enhanced Ice Shards" ],
-		description: `While you have a Barrier active, casts of Ice Shards treat enemies as if they were Frozen.
+	"强效寒冰碎片": {
+		baseSkill: "寒冰碎片",
+		connections: [ "强化寒冰碎片" ],
+		description: `当你有激活的屏障时，寒冰碎片可以将敌人视作冻结状态。
 
 Tags: Core, Frost, Frozen, Damage, Cold, Mana.`,
 		id: 38,
@@ -557,10 +557,10 @@ Tags: Core, Frost, Frozen, Damage, Cold, Mana.`,
 		x: -1226.59,
 		y: 115.585
 	},
-	"Destructive Ice Shards": {
-		baseSkill: "Ice Shards",
-		connections: [ "Enhanced Ice Shards" ],
-		description: `Hitting an enemy with {#} Ice Shards in a single cast makes them Vulnerable for {#} seconds.
+	"毁灭寒冰碎片": {
+		baseSkill: "寒冰碎片",
+		connections: [ "强化寒冰碎片" ],
+		description: `单次施法中用 {#} 枚寒冰碎片命中一名敌人，会使其陷入易伤状态，持续 {#} 秒。
 
 Tags: Core, Frost, Frozen, Damage, Cold, Mana.`,
 		id: 39,

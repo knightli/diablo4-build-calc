@@ -2211,20 +2211,20 @@ let nodeValues = {
 			]
 		},
 		"核心": {
-			"Charged Bolts": [
+			"电荷弹": [
 				"40",
 				"25",
 				"5",
 				"17"
 			],
-			"Greater Charged Bolts": [
+			"强效电荷弹": [
 				"25"
 			],
-			"Destructive Charged Bolts": [
+			"毁灭电荷弹": [
 				"20",
 				"3"
 			],
-			"Frozen Orb": [
+			"冰霜球": [
 				"40",
 				"20",
 				"34",
@@ -2232,76 +2232,76 @@ let nodeValues = {
 				"29",
 				"9"
 			],
-			"Enhanced Frozen Orb": [
+			"强化冰霜球": [
 				"50",
 				"30"
 			],
-			"Destructive Frozen Orb": [
+			"毁灭冰霜球": [
 				"5"
 			],
-			"Greater Frozen Orb": [
+			"强效冰霜球": [
 				"25",
 				"2"
 			],
-			"Incinerate": [
+			"焚烧": [
 				"20",
 				"40",
 				"36",
 				"4",
 				"49%"
 			],
-			"Enhanced Incinerate": [
+			"强化焚烧": [
 				"15"
 			],
-			"Destructive Incinerate": [
+			"毁灭焚烧": [
 				"20"
 			],
-			"Greater Incinerate": [
+			"强效焚烧": [
 				"4",
 				"1"
 			],
-			"Fireball": [
+			"火球": [
 				"40",
 				"33",
 				"60"
 			],
-			"Enhanced Fireball": [
+			"强化火球": [
 				"50"
 			],
-			"Greater Fireball": [
+			"强效火球": [
 				"10"
 			],
-			"Destructive Fireball": [
+			"毁灭火球": [
 				"10",
 				"5",
 				"25"
 			],
-			"Chain Lightning": [
+			"连锁闪电": [
 				"35",
 				"25",
 				"42",
 				"6"
 			],
-			"Enhanced Chain Lightning": [
+			"强化连锁闪电": [
 				"3"
 			],
-			"Greater Chain Lightning": [
+			"强效连锁闪电": [
 				"25"
 			],
-			"Destructive Chain Lightning": [
+			"毁灭连锁闪电": [
 				"25"
 			],
-			"Ice Shards": [
+			"寒冰碎片": [
 				"30",
 				"25",
 				"5",
 				"25",
 				"25"
 			],
-			"Enhanced Ice Shards": [
+			"强化寒冰碎片": [
 				"15"
 			],
-			"Destructive Ice Shards": [
+			"毁灭寒冰碎片": [
 				"5",
 				"2"
 			],
@@ -2317,7 +2317,7 @@ let nodeValues = {
 				"{1/2/3}",
 				"3"
 			],
-			"Enhanced Charged Bolts": [
+			"强化电荷弹": [
 				"3",
 				"15"
 			],
