@@ -608,18 +608,18 @@ Tags: Resistance, Non-Physical.`,
 };
 
 sorcererData["防御"] = {
-	"Flame Shield": {
-		connections: [ "防御", "Enhanced Flame Shield" ],
-		description: `Cooldown: {#} seconds
-Lucky Hit Chance: {#}%
-Engulf yourself in flames for {#} seconds, Burning surrounding enemies for {#}% damage per second.
+	"火盾": {
+		connections: [ "防御", "强化火盾" ],
+		description: `冷却时间：{#} 秒
+幸运一击几率：{#}%
+用火焰笼罩你的身体，持续 {#} 秒，同时燃烧周围的敌人，每秒造成 {#} 点伤害。
 
-While Flame Shield is active, you are Immune.
+在火盾激活时，你获得免疫
 
 Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.
 
 — 附魔效果 —
-Flame Shield automatically activates when you take fatal damage. Can only happen once every {#} seconds.`,
+火盾会在受到致命伤害时自动激活。每 {#} 秒只能触发一次。`,
 		id: 43,
 		maxPoints: 5,
 		values: [ "20", "50", "2", "23" ],
@@ -627,10 +627,10 @@ Flame Shield automatically activates when you take fatal damage. Can only happen
 		x: -1.14,
 		y: -278.29
 	},
-	"Enhanced Flame Shield": {
-		baseSkill: "Flame Shield",
-		connections: [ "Flame Shield", "Mystical Flame Shield", "Shimmering Flame Shield" ],
-		description: `Flame Shield grants +{#}% Movement Speed while active.
+	"强化火盾": {
+		baseSkill: "火盾",
+		connections: [ "火盾", "神秘火盾", "微光火盾" ],
+		description: `火盾激活时，移动速度提高 {#}%
 
 Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.`,
 		id: 44,
@@ -639,10 +639,10 @@ Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.`,
 		x: -4.89,
 		y: -490.29
 	},
-	"Mystical Flame Shield": {
-		baseSkill: "Flame Shield",
-		connections: [ "Enhanced Flame Shield" ],
-		description: `You gain {#}% Mana Cost Reduction while Flame Shield is active.
+	"神秘火盾": {
+		baseSkill: "火盾",
+		connections: [ "强化火盾" ],
+		description: `火盾激活时，你获得 {#}% 法力消耗减免。
 
 Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.`,
 		id: 45,
@@ -651,10 +651,10 @@ Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.`,
 		x: -157.438,
 		y: -605.77
 	},
-	"Shimmering Flame Shield": {
-		baseSkill: "Flame Shield",
-		connections: [ "Enhanced Flame Shield" ],
-		description: `Flame Shield Heals you for {#}% of your missing Life.
+	"微光火盾": {
+		baseSkill: "火盾",
+		connections: [ "强化火盾" ],
+		description: `火盾会为你恢复已损失生命的 {#}%
 
 Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.`,
 		id: 46,
@@ -663,28 +663,28 @@ Tags: Defensive, Pyromancy, Immune, Damage, Burn, Cooldown.`,
 		x: 151.31,
 		y: -608.105
 	},
-	"Frost Nova": {
-		connections: [ "防御", "Enhanced Frost Nova" ],
-		description: `Cooldown: {#} seconds
-Charges: {#}
-Charge Cooldown: {#} seconds
-Unleash a torrent of frost, Freezing enemies around you for {#} seconds.
+	"冰霜新星": {
+		connections: [ "防御", "强化冰霜新星" ],
+		description: `冷却时间：{#} 秒
+使用次数：{#}
+充能冷却时间：{#} 秒
+释放一股冰霜洪流，冻结周围的敌人，持续 {#} 秒。
 
 Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.
 
 — 附魔效果 —
-Lucky Hit: Your Conjuration Skills have a {#}% chance to unleash a Frost Nova when hitting enemies.`,
+幸运一击：你的召唤魔法技能在命中敌人时有 {#}% 几率释放一次冰霜新星。`,
 		id: 47,
 		maxPoints: 5,
-		values: [ "15", "", "", "2" ],
+		values: [ "15", "{{SF_2}}", "{{Recharge Time}}", "2" ],
 		extraValues: [ "30" ],
 		x: 7.87,
 		y: 296.675
 	},
-	"Enhanced Frost Nova": {
-		baseSkill: "Frost Nova",
-		connections: [ "Frost Nova", "Mystical Frost Nova", "Shimmering Frost Nova" ],
-		description: `Killing enemies Frozen by Frost Nova reduces its Cooldown by {#} seconds, up to {#} seconds per cast.
+	"强化冰霜新星": {
+		baseSkill: "冰霜新星",
+		connections: [ "冰霜新星", "神秘冰霜新星", "微光冰霜新星" ],
+		description: `消灭被冰霜新星冻结的敌人会使其冷却时间缩短 {#} 秒，每次施放最多缩短 {#} 秒。
 
 Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.`,
 		id: 48,
@@ -693,10 +693,10 @@ Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.`,
 		x: 9.55,
 		y: 507.05
 	},
-	"Mystical Frost Nova": {
-		baseSkill: "Frost Nova",
-		connections: [ "Enhanced Frost Nova" ],
-		description: `Frost Nova makes enemies Vulnerable for {#} seconds, increased to {#} seconds against Bosses.
+	"神秘冰霜新星": {
+		baseSkill: "冰霜新星",
+		connections: [ "强化冰霜新星" ],
+		description: `冰霜新星会使敌人陷入易伤状态，持续 {#} 秒。对首领提高至 {#} 秒。
 
 Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.`,
 		id: 49,
@@ -705,10 +705,10 @@ Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.`,
 		x: -144.443,
 		y: 623.882
 	},
-	"Shimmering Frost Nova": {
-		baseSkill: "Frost Nova",
-		connections: [ "Enhanced Frost Nova" ],
-		description: `Frost Nova generates {#} Mana per enemy hit.
+	"微光冰霜新星": {
+		baseSkill: "冰霜新星",
+		connections: [ "强化冰霜新星" ],
+		description: `冰霜新星每命中一名敌人，都会生成 {#} 点法力。
 
 Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.`,
 		id: 50,
@@ -717,15 +717,15 @@ Tags: Defensive, Frost, Frozen, Crowd Control, Cooldown.`,
 		x: 165.83,
 		y: 624.487
 	},
-	"Ice Armor": {
-		connections: [ "防御", "Enhanced Ice Armor" ],
-		description: `Cooldown: {#} seconds
-A Barrier of ice forms around you for {#} seconds, absorbing {#}% of your Base Life ({#}) in damage. While Ice Armor is active, {#}% of your damage dealt is added to its Barrier.
+	"寒冰甲": {
+		connections: [ "防御", "强化寒冰甲" ],
+		description: `冷却时间：{#} 秒
+在你周围形成一个由寒冰形成的屏障，持续 {#} 秒，吸收相当于你基础生命 {#}% ({#}) 的伤害。寒冰甲激活时，你造成伤害的 {#}% 会被添加到屏障当中。
 
 Tags: Defensive, Frost, Barrier, Cooldown, Damage.
 
 — 附魔效果 —
-Upon getting hit, you have a {#}% chance to apply Ice Armor.`,
+被命中时，你有 {#}% 的几率施加寒冰甲。`,
 		id: 51,
 		maxPoints: 5,
 		values: [ "20", "6", "30", "", "10" ],
@@ -733,10 +733,10 @@ Upon getting hit, you have a {#}% chance to apply Ice Armor.`,
 		x: 421.865,
 		y: 200.98
 	},
-	"Enhanced Ice Armor": {
-		baseSkill: "Ice Armor",
-		connections: [ "Ice Armor", "Shimmering Ice Armor", "Mystical Ice Armor" ],
-		description: `While Ice Armor is active, your Mana Regeneration is increased by x{#}%.
+	"强化寒冰甲": {
+		baseSkill: "寒冰甲",
+		connections: [ "寒冰甲", "微光寒冰甲", "神秘寒冰甲" ],
+		description: `寒冰甲激活时，你的法力回复速度提高 {#}%
 
 Tags: Defensive, Frost, Barrier, Cooldown, Damage.`,
 		id: 52,
@@ -745,10 +745,10 @@ Tags: Defensive, Frost, Barrier, Cooldown, Damage.`,
 		x: 707.875,
 		y: 325.705
 	},
-	"Shimmering Ice Armor": {
-		baseSkill: "Ice Armor",
-		connections: [ "Enhanced Ice Armor" ],
-		description: `Enemies that hit you while Ice Armor is active have a {#}% chance to become Frozen for {#} seconds.
+	"微光寒冰甲": {
+		baseSkill: "寒冰甲",
+		connections: [ "强化寒冰甲" ],
+		description: `寒冰甲激活时，攻击你的敌人有 {#}% 几率被冻结 {#} 秒。
 
 Tags: Defensive, Frost, Barrier, Cooldown, Damage.`,
 		id: 53,
@@ -757,10 +757,10 @@ Tags: Defensive, Frost, Barrier, Cooldown, Damage.`,
 		x: 787.605,
 		y: 459.825
 	},
-	"Mystical Ice Armor": {
-		baseSkill: "Ice Armor",
-		connections: [ "Enhanced Ice Armor" ],
-		description: `Damage against Vulnerable enemies contributes {#}% more to Ice Armor's Barrier.
+	"神秘寒冰甲": {
+		baseSkill: "寒冰甲",
+		connections: [ "强化寒冰甲" ],
+		description: `对易伤状态的敌人造成的伤害会额外为寒冰甲提供 {#}% 的屏障。
 
 Tags: Defensive, Frost, Barrier, Cooldown, Damage.`,
 		id: 54,
@@ -769,16 +769,16 @@ Tags: Defensive, Frost, Barrier, Cooldown, Damage.`,
 		x: 979.38,
 		y: 318.55
 	},
-	"Teleport": {
-		connections: [ "防御", "Enhanced Teleport" ],
-		description: `Cooldown: {#} seconds
-Lucky Hit Chance: {#}%
-Transform into lightning, becoming Unstoppable and surging to the target location, dealing {#}% damage around you upon arrival.
+	"传送术": {
+		connections: [ "防御", "强化传送术" ],
+		description: `冷却时间：{#} 秒
+幸运一击几率：{#}%
+化身闪电，不可阻挡，涌向目标位置并在抵达时对附近造成 {#} 点伤害
 
 Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.
 
 — 附魔效果 —
-Evade is replaced with a short range Teleport on a {#} second Cooldown.`,
+闪避被短距离传送术取代，拥有 {#} 秒的冷却时间。`,
 		id: 55,
 		maxPoints: 5,
 		values: [ "11", "40", "25" ],
@@ -786,10 +786,10 @@ Evade is replaced with a short range Teleport on a {#} second Cooldown.`,
 		x: 422.375,
 		y: -202.015
 	},
-	"Enhanced Teleport": {
-		baseSkill: "Teleport",
-		connections: [ "Teleport", "Mystical Teleport", "Shimmering Teleport" ],
-		description: `Teleport's Cooldown is decreased by {#} seconds per enemy hit, up to {#} seconds.
+	"强化传送术": {
+		baseSkill: "传送术",
+		connections: [ "传送术", "神秘传送术", "微光传送术" ],
+		description: `传送术每命中一名敌人，其冷却时间就会缩短 {#} 秒，最多缩短 {#} 秒。
 
 Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.`,
 		id: 56,
@@ -798,10 +798,10 @@ Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.`,
 		x: 707.335,
 		y: -346.205
 	},
-	"Mystical Teleport": {
-		baseSkill: "Teleport",
-		connections: [ "Enhanced Teleport" ],
-		description: `For {#} seconds after Teleporting, Crackling Energy hits {#} additional enemies.
+	"神秘传送术": {
+		baseSkill: "传送术",
+		connections: [ "强化传送术" ],
+		description: `使用传送术后的 {#} 秒内，爆裂电花额外命中 {#} 名敌人。
 
 Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.`,
 		id: 57,
@@ -810,10 +810,10 @@ Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.`,
 		x: 742.975,
 		y: -485.9
 	},
-	"Shimmering Teleport": {
-		baseSkill: "Teleport",
-		connections: [ "Enhanced Teleport" ],
-		description: `After Teleporting, you gain {#}% Damage Reduction for {#} seconds.
+	"微光传送术": {
+		baseSkill: "传送术",
+		connections: [ "强化传送术" ],
+		description: `传送后，你获得 {#}% 的伤害减免，持续 {#} 秒。
 
 Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.`,
 		id: 58,
@@ -822,9 +822,10 @@ Tags: Defensive, Shock, Damage, Lightning, Cooldown, Unstoppable.`,
 		x: 967.73,
 		y: -351.155
 	},
-	"Elemental Attunement": {
+	"元素调和": {
+		power_id: "Power_Sorcerer_Talent_Elemental_T2_N2",
 		connections: [ "防御" ],
-		description: `Lucky Hit: Critical Strikes have a {#}% chance to reset the Cooldown of one of your Defensive Skills. Can only happen once every {#} seconds.
+		description: `幸运一击：暴击有 {#}% 几率重置你的一个防御技能的冷却时间。该效果每 {#} 秒只能触发一次。
 
 Tags: Defensive, Lucky Hit, Critical Strikes, Cooldown.`,
 		id: 59,
@@ -833,9 +834,10 @@ Tags: Defensive, Lucky Hit, Critical Strikes, Cooldown.`,
 		x: -615.154,
 		y: 1.335
 	},
-	"Glass Cannon": {
+	"玻璃大炮": {
+		power_id: "Power_Sorcerer_Talent_Elemental_T2_N1",
 		connections: [ "防御" ],
-		description: `You deal x{#}% increased damage, but take x{#}% more damage.
+		description: `你造成的伤害提高 {#}%，但受到的伤害提高 {#}%
 
 Tags: Damage.`,
 		id: 60,

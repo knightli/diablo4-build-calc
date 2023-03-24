@@ -2340,77 +2340,77 @@ let nodeValues = {
 			]
 		},
 		"防御": {
-			"Flame Shield": [
+			"火盾": [
 				"20",
 				"50",
 				"2",
 				"23"
 			],
-			"Enhanced Flame Shield": [
+			"强化火盾": [
 				"25"
 			],
-			"Mystical Flame Shield": [
+			"神秘火盾": [
 				"25"
 			],
-			"Shimmering Flame Shield": [
+			"微光火盾": [
 				"50"
 			],
-			"Frost Nova": [
+			"冰霜新星": [
 				"15",
 				"",
 				"",
 				"2"
 			],
-			"Enhanced Frost Nova": [
+			"强化冰霜新星": [
 				"2",
 				"6"
 			],
-			"Mystical Frost Nova": [
+			"神秘冰霜新星": [
 				"4",
 				"8"
 			],
-			"Shimmering Frost Nova": [
+			"微光冰霜新星": [
 				"4"
 			],
-			"Ice Armor": [
+			"寒冰甲": [
 				"20",
 				"6",
 				"30",
 				"",
 				"10"
 			],
-			"Enhanced Ice Armor": [
+			"强化寒冰甲": [
 				"25"
 			],
-			"Shimmering Ice Armor": [
+			"微光寒冰甲": [
 				"15",
 				"3"
 			],
-			"Mystical Ice Armor": [
+			"神秘寒冰甲": [
 				"100"
 			],
-			"Teleport": [
+			"传送术": [
 				"11",
 				"40",
 				"25"
 			],
-			"Enhanced Teleport": [
+			"强化传送术": [
 				"0.5",
 				"3"
 			],
-			"Mystical Teleport": [
+			"神秘传送术": [
 				"4",
 				"2"
 			],
-			"Shimmering Teleport": [
+			"微光传送术": [
 				"30",
 				"5"
 			],
-			"Elemental Attunement": [
+			"元素调和": [
 				"{5/10/15}",
 				"10"
 			],
-			"Glass Cannon": [
+			"玻璃大炮": [
 				"{6/12/18}",
 				"{3/6/9}"
 			],
