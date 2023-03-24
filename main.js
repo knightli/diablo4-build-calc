@@ -113,7 +113,6 @@ const maxCanvasHeight = 65535;
 const nodeWidth = 100;
 const nodeHeight = 100;
 const tooltipWidth = 540;
-const tooltipHeight = 200;
 
 // evil magic variables that probably need to be replaced later to support multiple languages
 const COLOR_HOVER_HTML = "Click to customize connector and node colors.<br>Custom color choices will persist across sessions.";
@@ -159,8 +158,6 @@ const NODE_SQUARE_INACTIVE = PIXI.Texture.from("images/node_square_inactive.png"
 
 const pixiScalingFloor = 0.15;
 const pixiScalingCeiling = 1;
-const tooltipScalingFloor = 1;
-const tooltipScalingCeiling = 1;
 
 const fontFamily = $("body").css("fontFamily");
 const fontFamilyOverride = fontFamily.includes("Homenaje") ? fontFamily : "Homenaje, " + fontFamily;
@@ -211,7 +208,8 @@ var frameTimer = Date.now();
 var oldWidth = 0;
 var oldHeight = 0;
 
-PIXI.settings.RESOLUTION = devicePixelRatio;
+PIXI.settings.RENDER_OPTIONS.resolution = devicePixelRatio;
+PIXI.settings.RENDER_OPTIONS.autoDensity = true;
 PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
 // construct pixiJS custom application
@@ -219,8 +217,6 @@ const pixiJS = (() => {
 	try {
 		return {
 			"renderer": new PIXI.Renderer({
-				antialias: false,
-				autoDensity: true,
 				backgroundAlpha: 0,
 				height: minCanvasHeight,
 				width: minCanvasWidth
@@ -395,7 +391,7 @@ function handleIntervalEvent() {
 	newRenderScale = Math.min(pixiJS.stage.scale.x, 1);
 	if (newRenderScale != curRenderScale) {
 		// skip `redrawAllNodes` on high pixel density devices
-		if (PIXI.settings.RESOLUTION < 4) {
+		if (devicePixelRatio < 2) {
 			redrawAllNodes(false);
 			if (pixiTooltip.children.length > 0) drawTooltip(pixiNodes[pixiTooltip.nodeIndex]);
 		}
@@ -408,7 +404,7 @@ function handleIntervalEvent() {
 		frameTimer = null;
 		[pixiJS.ticker.minFPS, pixiJS.ticker.maxFPS] = [1, 1];
 		// skip `redrawAllNodes` on high pixel density devices
-		if (PIXI.settings.RESOLUTION < 4) redrawAllNodes(true);
+		if (devicePixelRatio < 2) redrawAllNodes(true);
 	}
 }
 function handleCanvasEvent(event) {
@@ -463,7 +459,6 @@ function handleCanvasEvent(event) {
 				* initialScale / initialTouchDistance;
 		}
 		if (stageScale >= pixiScalingFloor && stageScale <= pixiScalingCeiling) {
-			if (pixiTooltip.children.length > 0) drawTooltip(pixiNodes[pixiTooltip.nodeIndex]);
 			if (event.type == "wheel") {
 				pixiJS.stage.pivot.x = Math.round(event.clientX / pixiJS.stage.scale.x + pixiJS.stage.pivot.x - event.clientX / stageScale);
 				pixiJS.stage.pivot.y = Math.round(event.clientY / pixiJS.stage.scale.y + pixiJS.stage.pivot.y - event.clientY / stageScale);
@@ -474,6 +469,7 @@ function handleCanvasEvent(event) {
 				pixiJS.stage.pivot.y = Math.round(averageY / pixiJS.stage.scale.y + pixiJS.stage.pivot.y - averageY / stageScale);
 			}
 			pixiJS.stage.scale.set(stageScale);
+			if (pixiTooltip.children.length > 0) drawTooltip(pixiNodes[pixiTooltip.nodeIndex]);
 		} else {
 			stageScale = pixiJS.stage.scale.x;
 		}
@@ -1097,7 +1093,7 @@ function redrawAllNodes(idleMode = false) {
 	}
 }
 function drawNode(nodeName, nodeData, groupName, branchData, nodeIndex = pixiNodes.length, nodePosition = null) {
-	const scaleFactor = PIXI.settings.RESOLUTION >= 2 ? 1 : (newRenderScale >= 0.45 ? 2 : 1) / PIXI.settings.RESOLUTION * newRenderScale;
+	const scaleFactor = devicePixelRatio >= 2 ? 1 : (newRenderScale >= 0.45 ? 2 : 1) / devicePixelRatio * newRenderScale;
 
 	let node = null;
 	if (pixiNodes.length > nodeIndex) {
@@ -1789,9 +1785,9 @@ function drawAllNodes() {
 	}
 }
 function drawTooltip(curNode, forceDraw) {
-	const clampScale = stageScale < tooltipScalingFloor ? tooltipScalingFloor / stageScale : stageScale > tooltipScalingCeiling ? tooltipScalingCeiling / stageScale : 1;
-	const clampRenderScale = stageScale * clampScale;
-	const scaleFactor = PIXI.settings.RESOLUTION >= 2 ? 1 : (clampRenderScale >= 0.45 ? 2 : 1) / PIXI.settings.RESOLUTION * clampRenderScale;
+	const clampRenderScale = Math.min(1, (window.innerWidth - 40) / tooltipWidth);
+	const clampScale = clampRenderScale / stageScale;
+	const scaleFactor = devicePixelRatio >= 2 ? 1 : (clampRenderScale >= 0.45 ? 2 : 1) / devicePixelRatio * clampRenderScale;
 
 	// skip tooltip redraw if we already have the correct one displayed
 	if (!forceDraw && !debugMode && pixiTooltip.nodeIndex == curNode.nodeIndex && pixiTooltip.scaleFactor == scaleFactor) return;
@@ -2192,6 +2188,8 @@ function resizeCanvas() {
 		[oldWidth, oldHeight] = [newWidth, newHeight];
 
 		resetFrameTimer();
+
+		if (pixiTooltip.children.length > 0) drawTooltip(pixiNodes[pixiTooltip.nodeIndex]);
 
 		const optimalClampText = window.innerWidth < 450 ? SMALL_CLAMP_TEXT : clampMode ? DISABLE_CLAMP_TEXT : ENABLE_CLAMP_TEXT;
 		if ($("#clampButton").text() != optimalClampText) $("#clampButton").text(optimalClampText);
