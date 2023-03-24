@@ -1835,7 +1835,7 @@ function drawTooltip(curNode, forceDraw) {
 		breakWords: true,
 		fill: textColor,
 		fontFamily: fontFamily,
-		fontSize: 32 * scaleFactor,
+		fontSize: 28 * scaleFactor,
 		fontVariant: "small-caps",
 		fontWeight: "bold",
 		padding: 10
@@ -1846,11 +1846,11 @@ function drawTooltip(curNode, forceDraw) {
 	let tooltipText2;
 	if (nodeDesc.length > 0) {
 		tooltipText2 = new PIXI.Text("\n" + nodeDesc, {
-			align: "center",
+			align: "left",
 			breakWords: true,
 			fill: textColor,
 			fontFamily: fontFamily,
-			fontSize: 32 * scaleFactor,
+			fontSize: 24 * scaleFactor,
 			padding: 10,
 			wordWrap: true,
 			wordWrapWidth: tooltipWidth * scaleFactor
