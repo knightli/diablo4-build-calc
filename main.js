@@ -132,7 +132,8 @@ const ULTIMATE = "终极技能";
 const CAPSTONE = "Capstone";
 const PARAGON_BOARD = "Paragon Board";
 const CODEX_OF_POWER = "Codex of Power";
-const CODEX_OF_POWER_DESC = "Legendary aspects of this type can be applied to: ";
+const CODEX_OF_POWER_DESC_BEFORE = "Legendary aspects in this category can be applied to: ";
+const CODEX_OF_POWER_DESC_AFTER = "Unique items are only listed here for convenience, and cannot have their powers extracted.";
 const SPIRIT_BOONS = "Spirit Boons";
 const SPIRIT_BOON_DESC = "Specializing in this spirit type will allow you to allocate two boons instead of only one.";
 const BOOK_OF_THE_DEAD = "Book of the Dead";
@@ -368,7 +369,7 @@ function handleColorButton(event) {
 		$("#extraInfo").text(COLOR_LINE_TEXT).removeClass("hidden");
 	}
 }
-const localVersion = "0.8.0.39657-3";
+const localVersion = "0.8.1.39812-1";
 var remoteVersion = "";
 var versionInterval = null;
 function handleVersionLabel(event) {
@@ -1674,24 +1675,24 @@ function drawAllNodes() {
 			$("#groupSelector").append(`<option value="${PARAGON_BOARD.replace(/\s/g, "").toLowerCase()}">${PARAGON_BOARD}</option>`);
 		}
 
-		const codexCategoryIds = {
-			"Offensive": 0,
-			"Defensive": 1,
-			"Utility": 2,
-			"Resource": 3,
-			"Mobility": 4,
-			"Other": 5,
-			"Unknown": 6
-		};
-		const unsortedCodex = getCodexData(["General", classText]);
-		const sortedCodex = Object.keys(unsortedCodex).sort((a, b) => {
-			return codexCategoryIds[a] - codexCategoryIds[b];
-		}).reduce((obj, key) => {
-			obj[key] = unsortedCodex[key];
-			return obj;
-		}, {});
+		const sortedCodexCategoryTypes = [
+			"Offensive",
+			"Defensive",
+			"Utility",
+			"Resource",
+			"Mobility",
+			"Other",
+			"Unknown"
+		];
 
-		if (Object.keys(sortedCodex).length > 0) {
+		const sortedCodexItemTypeIndex = {
+			"Legendary": 0,
+			"Unique": 1
+		};
+
+		const unsortedCodex = getCodexData(["Generic", classText]);
+
+		if (Object.keys(unsortedCodex).length > 0) {
 			const startX = -4000;
 			const startY = 0;
 			const nodeWidth = 400;
@@ -1712,16 +1713,19 @@ function drawAllNodes() {
 
 			drawNode(CODEX_OF_POWER, codexNode);
 
-			for (const [codexTypeName, codexType] of Object.entries(sortedCodex)) {
-				const numCodexPowers = Object.keys(codexType).length;
+			for (const codexCategoryName of sortedCodexCategoryTypes) {
+				const codexCategory = unsortedCodex[codexCategoryName];
+				if (codexCategory == undefined) continue;
+				const numCodexPowers = Object.keys(codexCategory).length;
 				if (numCodexPowers > 0) {
 					codexY += nodeSpacingY;
 
-					let codexTypeDesc = codexData["Categories"][codexTypeName];
-					if (codexTypeName != "Other" && codexTypeName != "Unknown") codexTypeDesc = CODEX_OF_POWER_DESC + codexTypeDesc;
-					const codexTypeNode = new Map([
+					let codexCategoryDesc = codexCategoryName == "Other" || codexCategoryName == "Unknown" ? "" : CODEX_OF_POWER_DESC_BEFORE;
+					if (codexData["Categories"][codexCategoryName] != undefined) codexCategoryDesc += codexData["Categories"][codexCategoryName];
+					codexCategoryDesc += codexCategoryDesc.length > 0 ? `\n\n${CODEX_OF_POWER_DESC_AFTER}` : CODEX_OF_POWER_DESC_AFTER;
+					const codexCategoryNode = new Map([
 						["allocatedPoints", 0],
-						["description", codexTypeDesc],
+						["description", codexCategoryDesc],
 						["widthOverride", nodeSpacingX * 4 - 50],
 						["maxPoints", 0],
 						["shapeSize", 1],
@@ -1730,10 +1734,17 @@ function drawAllNodes() {
 						["y", codexY]
 					]);
 
-					drawNode(codexTypeName, codexTypeNode, CODEX_OF_POWER);
+					drawNode(codexCategoryName, codexCategoryNode, CODEX_OF_POWER);
+
+					const sortedCodexPowers = Object.keys(codexCategory).sort((a, b) => {
+						const aValue = sortedCodexItemTypeIndex[codexCategory[a]["type"]];
+						const bValue = sortedCodexItemTypeIndex[codexCategory[b]["type"]];
+						return aValue == bValue ? a.localeCompare(b) : aValue - bValue;
+					});
 
 					let codexPowerIdx = 0;
-					for (const [codexPowerName, codexPower] of Object.entries(codexType)) {
+					for (const codexPowerName of sortedCodexPowers) {
+						const codexPower = codexCategory[codexPowerName];
 						if (codexPowerIdx % 4 == 0) {
 							codexX = startX - nodeSpacingX * 1.5;
 							if (codexPowerIdx + 4 > numCodexPowers) codexX += nodeSpacingX * (2 - (0.5 * (numCodexPowers % 4)));
@@ -2068,15 +2079,15 @@ function drawBackground() {
 		.on("touchmove", onDragAllMove);
 	pixiJS.stage.addChild(pixiBackground);
 }
-function getCodexData(desiredCategories = null, desiredTypes = null) {
+function getCodexData(desiredGroups = null, desiredTypes = null) {
 	let codexResult = {};
-	for (const [codexCategoryName, codexCategory] of Object.entries(codexData)) {
-		if (desiredCategories === null || desiredCategories.includes(codexCategoryName)) {
-			for (const [codexTypeName, codexType] of Object.entries(codexCategory)) {
-				if (desiredTypes === null || desiredTypes.includes(codexTypeName)) {
-					if (!codexResult[codexTypeName]) codexResult[codexTypeName] = {};
-					for (const [codexPowerName, codexPower] of Object.entries(codexType)) {
-						codexResult[codexTypeName][codexPowerName] = codexPower;
+	for (const [codexGroupName, codexGroup] of Object.entries(codexData)) {
+		if (desiredGroups === null || desiredGroups.includes(codexGroupName)) {
+			for (const [codexCategoryName, codexCategory] of Object.entries(codexGroup)) {
+				if (desiredTypes === null || desiredTypes.includes(codexCategoryName)) {
+					if (!codexResult[codexCategoryName]) codexResult[codexCategoryName] = {};
+					for (const [codexPowerName, codexPower] of Object.entries(codexCategory)) {
+						codexResult[codexCategoryName][codexPowerName] = codexPower;
 					}
 				}
 			}
