@@ -8711,7 +8711,7 @@ let paragonData = {
 				"description": "Tags: Nature Magic, Damage, Willpower."
 			},
 			"Druid_Rare_012": {
-				"name": "Devastation",
+				"name": "灭绝",
 				"description": "Tags: Nature Magic, Damage, Elite Monsters."
 			},
 			"Druid_Rare_013": {

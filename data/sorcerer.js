@@ -569,9 +569,10 @@ Tags: Core, Frost, Frozen, Damage, Cold, Mana.`,
 		x: -1085.695,
 		y: 260.63
 	},
-	"Devastation": {
-		connections: [ "核心", "Elemental Dominance" ],
-		description: `Your Maximum Mana is increased by {#}.
+	"灭绝": {
+		power_id: "Power_Sorcerer_Talent_Elemental_T1_N2",
+		connections: [ "核心", "元素统御" ],
+		description: `你的法力上限提高 {#} 点。
 
 Tags: Mana.`,
 		id: 40,
@@ -580,20 +581,22 @@ Tags: Mana.`,
 		x: -520.555,
 		y: 252.33
 	},
-	"Elemental Dominance": {
-		connections: [ "Devastation" ],
-		description: `Your Core Skills deal x{#}% increased damage when cast above {#} Mana.
+	"元素统御": {
+		power_id: "Power_Sorcerer_Talent_Elemental_T2_N3",
+		connections: [ "灭绝" ],
+		description: `法力大于 {#} 点时，你施放的核心技能伤害提高 {#}%
 
 Tags: Mana, Damage, Core.`,
 		id: 41,
 		maxPoints: 3,
-		values: [ "{4/8/12}", "50" ],
+		values: [ "50", "{4/8/12}"],
 		x: -856.385,
 		y: 406.375
 	},
-	"Potent Warding": {
+	"强效咒护": {
+		power_id: "Power_Sorcerer_Talent_Elemental_T1_N1",
 		connections: [ "核心" ],
-		description: `After casting a Non-Basic Skill, you gain {#}% Resistance to all elements and {#}% additional Resistance to that Skill's element for {#} seconds.
+		description: `施放一个非基础技能后，你获得 {#}% 全元素抗性和 {#}% 的该技能对应的元素抗性，持续 {#} 秒。
 
 Tags: Resistance, Non-Physical.`,
 		id: 42,

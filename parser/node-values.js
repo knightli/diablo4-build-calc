@@ -2305,14 +2305,14 @@ let nodeValues = {
 				"5",
 				"2"
 			],
-			"Devastation": [
+			"灭绝": [
 				"{3/6/9}"
 			],
-			"Elemental Dominance": [
+			"元素统御": [
 				"{4/8/12}",
 				"50"
 			],
-			"Potent Warding": [
+			"强效咒护": [
 				"{2/4/6}",
 				"{1/2/3}",
 				"3"
