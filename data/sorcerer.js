@@ -1397,23 +1397,23 @@ Tags: Mastery, Pyromancy, Damage, Burn, Mana.`,
 };
 
 sorcererData["终极技能"] = {
-	"Inferno": {
-		connections: [ "终极技能", "Prime Inferno" ],
-		description: `Cooldown: {#} seconds
-Lucky Hit Chance: {#}%
-Summon a fiery serpent that continually constricts the target area, Burning enemies for {#}% damage over {#} seconds.
+	"炼狱烈焰": {
+		connections: [ "终极技能", "至尊炼狱烈焰" ],
+		description: `冷却时间：{#}
+幸运一击几率：{#}%
+召唤一条不断向目标区域收紧的火蛇，在 {#} 秒内燃烧敌人，造成 {#} 点伤害。
 
 Tags: Ultimate, Pyromancy, Damage, Burn, Cooldown.`,
 		id: 103,
 		maxPoints: 1,
-		values: [ "45", "38", "295", "8" ],
+		values: [ "45", "38", "8", "295" ],
 		x: -526.72,
 		y: -71.235
 	},
-	"Prime Inferno": {
-		baseSkill: "Inferno",
-		connections: [ "Inferno", "Supreme Inferno" ],
-		description: `Inferno repeatedly Pulls enemies to its center.
+	"至尊炼狱烈焰": {
+		baseSkill: "炼狱烈焰",
+		connections: [ "炼狱烈焰", "至极炼狱烈焰" ],
+		description: `炼狱烈焰会不断将敌人牵引向其中心
 
 Tags: Ultimate, Pyromancy, Damage, Burn, Cooldown.`,
 		id: 104,
@@ -1421,10 +1421,10 @@ Tags: Ultimate, Pyromancy, Damage, Burn, Cooldown.`,
 		x: -866.555,
 		y: -183.635
 	},
-	"Supreme Inferno": {
-		baseSkill: "Inferno",
-		connections: [ "Prime Inferno" ],
-		description: `While Inferno is active, your Pyromancy Skills cost no Mana.
+	"至极炼狱烈焰": {
+		baseSkill: "炼狱烈焰",
+		connections: [ "至尊炼狱烈焰" ],
+		description: `炼狱烈焰激活期间，你的爆焰技能不消耗法力。
 
 Tags: Ultimate, Pyromancy, Damage, Burn, Cooldown.`,
 		id: 105,
@@ -1432,22 +1432,22 @@ Tags: Ultimate, Pyromancy, Damage, Burn, Cooldown.`,
 		x: -1163.615,
 		y: -183.18
 	},
-	"Unstable Currents": {
-		connections: [ "Prime Unstable Currents", "终极技能" ],
-		description: `Cooldown: {#} seconds
-Lightning surges within you for {#} seconds. Whenever you cast a Shock Skill, a random Core, Conjuration, or Mastery Shock Skill is also cast.
+	"不稳电流": {
+		connections: [ "至尊不稳电流", "终极技能" ],
+		description: `冷却时间：{#} 秒
+闪电在你体内涌动，持续 {#} 秒。每当你施放电冲技能时，也会随机施放一个核心、召唤魔法或精通电冲技能。
 
 Tags: Ultimate, Shock, Damage, Lightning, Cooldown.`,
 		id: 106,
 		maxPoints: 1,
-		values: [ "70.0", "10" ],
+		values: [ "70", "10" ],
 		x: -347.8,
 		y: 279.81
 	},
-	"Prime Unstable Currents": {
-		baseSkill: "Unstable Currents",
-		connections: [ "Unstable Currents", "Supreme Unstable Currents" ],
-		description: `Unstable Currents increases your Attack Speed by +{#}% while active.
+	"至尊不稳电流": {
+		baseSkill: "不稳电流",
+		connections: [ "不稳电流", "至极不稳电流" ],
+		description: `不稳电流激活时，你的攻击速度提高 {#}%
 
 Tags: Ultimate, Shock, Damage, Lightning, Cooldown.`,
 		id: 107,
@@ -1456,10 +1456,10 @@ Tags: Ultimate, Shock, Damage, Lightning, Cooldown.`,
 		x: -568.77,
 		y: 433.255
 	},
-	"Supreme Unstable Currents": {
-		baseSkill: "Unstable Currents",
-		connections: [ "Prime Unstable Currents" ],
-		description: `While Unstable Currents is active, Crackling Energy continually pulses and consumes no charges.
+	"至极不稳电流": {
+		baseSkill: "不稳电流",
+		connections: [ "至尊不稳电流" ],
+		description: `不稳电流激活时，爆裂电花持续脉冲而不消耗充能。
 
 Tags: Ultimate, Shock, Damage, Lightning, Cooldown.`,
 		id: 108,
@@ -1467,13 +1467,14 @@ Tags: Ultimate, Shock, Damage, Lightning, Cooldown.`,
 		x: -571.55,
 		y: 596.365
 	},
-	"Deep Freeze": {
-		connections: [ "Prime Deep Freeze", "终极技能" ],
-		description: `Cooldown: {#} seconds
-Lucky Hit Chance: {#}%
-Encase yourself in ice, becoming Immune for {#} seconds, continually dealing {#}% damage, and Chilling enemies for {#}%. When Deep Freeze expires, it deals an additional {#}% damage.
+	"深度冻结": {
+		connections: [ "至尊深度冻结", "终极技能" ],
+		description: `冷却时间：{#}
+幸运一击几率：{#}%
+用冰块包裹自己，获得免疫，持续 {#} 秒，持续造成 {#} 点伤害并冻伤敌人 {#}%
+深度冻结结束时，额外造成 {#} 点伤害。
 
-Casting Deep Freeze again ends the effect early.
+再次施放深度冻结会提前结束技能效果。
 
 Tags: Ultimate, Frost, Immune, Chill, Damage, Cold, Cooldown, Crowd Control, Damage Reduction.`,
 		id: 109,
@@ -1482,10 +1483,10 @@ Tags: Ultimate, Frost, Immune, Chill, Damage, Cold, Cooldown, Crowd Control, Dam
 		x: -377.345,
 		y: -274.565
 	},
-	"Prime Deep Freeze": {
-		baseSkill: "Deep Freeze",
-		connections: [ "Deep Freeze", "Supreme Deep Freeze" ],
-		description: `When Deep Freeze ends, gain {#}% of your Base Life ({#}) as a Barrier for {#} seconds for each enemy you Froze while it was active.
+	"至尊深度冻结": {
+		baseSkill: "深度冻结",
+		connections: [ "深度冻结", "至极深度冻结" ],
+		description: `深度冻结结束时，技能激活期间每冻结一个敌人，获得一层相当于你 {#}% 的基础生命({#})的屏障，持续 {#} 秒。
 
 Tags: Ultimate, Frost, Immune, Chill, Damage, Cold, Cooldown, Crowd Control, Damage Reduction.`,
 		id: 110,
@@ -1494,10 +1495,10 @@ Tags: Ultimate, Frost, Immune, Chill, Damage, Cold, Cooldown, Crowd Control, Dam
 		x: -592.28,
 		y: -430.76
 	},
-	"Supreme Deep Freeze": {
-		baseSkill: "Deep Freeze",
-		connections: [ "Prime Deep Freeze" ],
-		description: `When Deep Freeze ends, your Non-Ultimate Cooldowns are reduced by {#}%.
+	"至极深度冻结": {
+		baseSkill: "深度冻结",
+		connections: [ "至尊深度冻结" ],
+		description: `深度冻结结束时，你的非终极技能冷却时间缩短 {#}%
 
 Tags: Ultimate, Frost, Immune, Chill, Damage, Cold, Cooldown, Crowd Control, Damage Reduction.`,
 		id: 111,
@@ -1506,9 +1507,10 @@ Tags: Ultimate, Frost, Immune, Chill, Damage, Cold, Cooldown, Crowd Control, Dam
 		x: -590.745,
 		y: -581.04
 	},
-	"Permafrost": {
-		connections: [ "Hoarfrost", "终极技能", "Icy Touch" ],
-		description: `Frost Skills deal x{#}% increased damage to Elites.
+	"永冻之霜": {
+		power_id: "Power_Sorcerer_Talent_Cold_T2_N2",
+		connections: [ "寒霜之灾", "终极技能", "寒冰之触" ],
+		description: `冰霜技能对精英怪造成的伤害提高 {#}%
 
 Tags: Elite Monsters, Damage, Frost.`,
 		id: 113,
@@ -1517,9 +1519,10 @@ Tags: Elite Monsters, Damage, Frost.`,
 		x: -3.97,
 		y: -277.33
 	},
-	"Hoarfrost": {
-		connections: [ "Permafrost", "Frigid Breeze" ],
-		description: `You deal x{#}% increased damage to Chilled enemies, and x{#}% increased damage to Frozen enemies.
+	"寒霜之灾": {
+		power_id: "Power_Sorcerer_Talent_01",
+		connections: [ "永冻之霜", "凛冽寒风" ],
+		description: `你对冻伤的敌人造成的伤害提高 {#}%，对冻结的敌人造成的伤害提高 {#}%
 
 Tags: Chill, Frozen, Damage, Crowd Control.`,
 		id: 136,
@@ -1528,9 +1531,10 @@ Tags: Chill, Frozen, Damage, Crowd Control.`,
 		x: -195.39,
 		y: -421.43
 	},
-	"Frigid Breeze": {
-		connections: [ "Hoarfrost", "Icy Touch" ],
-		description: `Lucky Hit: Cold Damage against Vulnerable enemies has a {#}% chance to generate {#} Mana.
+	"凛冽寒风": {
+		power_id: "Power_Sorcerer_Talent_05",
+		connections: [ "寒霜之灾", "寒冰之触" ],
+		description: `幸运一击：对易伤敌人造成冰霜伤害有 {#}% 几率生成 {#} 点法力。
 
 Tags: Vulnerable, Cold, Lucky Hit, Mana.`,
 		id: 137,
@@ -1539,9 +1543,10 @@ Tags: Vulnerable, Cold, Lucky Hit, Mana.`,
 		x: -5.22,
 		y: -581.655
 	},
-	"Icy Touch": {
-		connections: [ "Permafrost", "Frigid Breeze" ],
-		description: `You deal x{#}% increased Cold Damage to Vulnerable enemies.
+	"寒冰之触": {
+		power_id: "Power_Sorcerer_Talent_Cold_T2_N3",
+		connections: [ "永冻之霜", "凛冽寒风" ],
+		description: `你对易伤敌人造成的冰霜伤害提高{#}%
 
 Tags: Vulnerable, Cold, Damage.`,
 		id: 115,
@@ -1550,9 +1555,10 @@ Tags: Vulnerable, Cold, Damage.`,
 		x: 180.41,
 		y: -421.81
 	},
-	"Coursing Currents": {
-		connections: [ "Electrocution", "Conduction", "终极技能" ],
-		description: `Hitting enemies with Shock Skills increases your Critical Strike Chance by +{#}%. Resets upon getting a Critical Strike.
+	"电流贯通": {
+		power_id: "Power_Sorcerer_Talent_Lightning_T1_N1",
+		connections: [ "电刑", "导电", "终极技能" ],
+		description: `电冲技能命中敌人会使你的暴击几率提高 {#}%，打出暴击会重置该加成。
 
 Tags: Critical Strikes, Shock.`,
 		id: 116,
@@ -1561,9 +1567,10 @@ Tags: Critical Strikes, Shock.`,
 		x: 2.03,
 		y: 287.38
 	},
-	"Electrocution": {
-		connections: [ "Coursing Currents", "Convulsions" ],
-		description: `Enemies deal {#}% less damage for {#} seconds after being Critically Struck by your Shock Skills.
+	"电刑": {
+		power_id: "Power_Sorcerer_Talent_Lightning_T2_N3",
+		connections: [ "电流贯通", "电击惊厥" ],
+		description: `敌人被你的电冲技能暴击后，其造成的伤害降低 {#}%，持续 {#} 秒。
 
 Tags: Critical Strikes, Damage Reduction, Shock.`,
 		id: 117,
@@ -1572,9 +1579,10 @@ Tags: Critical Strikes, Damage Reduction, Shock.`,
 		x: 201.78,
 		y: 435.59
 	},
-	"Convulsions": {
-		connections: [ "Conduction", "Electrocution" ],
-		description: `Lucky Hit: Shock Skills have a {#}% chance to Stun enemies for {#} seconds.
+	"电击惊厥": {
+		power_id: "Power_Sorcerer_Talent_Lightning_T2_N2",
+		connections: [ "导电", "电刑" ],
+		description: `幸运一击：电冲技能有 {#}% 几率击晕敌人 {#} 秒。
 
 Tags: Shock, Lucky Hit, Crowd Control.`,
 		id: 118,
@@ -1583,9 +1591,10 @@ Tags: Shock, Lucky Hit, Crowd Control.`,
 		x: 3.66,
 		y: 604.95
 	},
-	"Conduction": {
-		connections: [ "Coursing Currents", "Convulsions" ],
-		description: `Critical Strikes with Shock Skills increase your Movement Speed by +{#}% for {#} seconds.
+	"导电": {
+		power_id: "Power_Sorcerer_Talent_10",
+		connections: [ "电流贯通", "电击惊厥" ],
+		description: `电冲技能暴击会使你的移动速度提高 {#} %，持续 {#} 秒。
 
 Tags: Shock, Critical Strikes, Movement.`,
 		id: 119,
@@ -1594,9 +1603,10 @@ Tags: Shock, Critical Strikes, Movement.`,
 		x: -191.455,
 		y: 436.8
 	},
-	"Fiery Surge": {
-		connections: [ "Endless Pyre", "Soulfire", "终极技能" ],
-		description: `Killing a Burning enemy increases your Mana Regeneration by +{#}% for {#} seconds.
+	"烈焰汹涌": {
+		power_id: "Power_Sorcerer_Talent_04",
+		connections: [ "火葬不熄", "灵魂之火", "终极技能" ],
+		description: `消灭一名燃烧的敌人可以使你的法力回复速度提高 {#}%，持续 {#} 秒。
 
 Tags: Burn, Mana.`,
 		id: 123,
@@ -1605,20 +1615,22 @@ Tags: Burn, Mana.`,
 		x: -533.615,
 		y: 98.915
 	},
-	"Endless Pyre": {
-		connections: [ "Warmth", "Fiery Surge" ],
-		description: `You deal increased Burning damage to enemies for each second they remain Burning, up to x{#}% after {#} seconds.
+	"火葬不熄": {
+		power_id: "Power_Sorcerer_Talent_Fire_T2_N2",
+		connections: [ "急性高热", "烈焰汹涌" ],
+		description: `敌人每燃烧一秒，你对其造成的燃烧伤害都会提高，最多在 {#} 秒后提高 {#}%
 
 Tags: Burn, Damage.`,
 		id: 121,
 		maxPoints: 3,
-		values: [ "{5/10/15}", "5" ],
+		values: [ "5", "{5/10/15}"],
 		x: -863.88,
 		y: 204.975
 	},
-	"Warmth": {
-		connections: [ "Soulfire", "Endless Pyre" ],
-		description: `Every {#} second, you Heal for {#}% of your Maximum Life ({#}) for each Nearby Burning enemy. Healing increased to {#}% from Bosses.
+	"急性高热": {
+		power_id: "Power_Sorcerer_Talent_Fire_T2_N1",
+		connections: [ "灵魂之火", "火葬不熄" ],
+		description: `每隔 {#} 秒，附近每有一名燃烧的敌人，可以为你恢复生命上限的 {#}%({#}) 。敌人为首领时治疗效果提高至 {#}%
 
 Tags: Healing, Burn.`,
 		id: 138,
@@ -1627,9 +1639,10 @@ Tags: Healing, Burn.`,
 		x: -1162.135,
 		y: 102.405
 	},
-	"Soulfire": {
-		connections: [ "Warmth", "Fiery Surge" ],
-		description: `After standing still for {#} seconds, your Pyromancy Skills cost {#}% less Mana.
+	"灵魂之火": {
+		power_id: "Power_Sorcerer_Talent_Fire_T1_N1",
+		connections: [ "急性高热", "烈焰汹涌" ],
+		description: `站立不动 {#} 秒后，你的爆焰技能消耗的法力降低 {#}%
 
 Tags: Mana, Pyromancy.`,
 		id: 139,
@@ -1637,7 +1650,7 @@ Tags: Mana, Pyromancy.`,
 		values: [ "1.5", "{5/10/15}" ],
 		x: -868.11,
 		y: 2.82
-	},
+	}
 };
 
 sorcererData["Capstone"] = {

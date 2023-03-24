@@ -230,17 +230,17 @@ function fixJSON(classData, curNode, rootNodeName) {
 	}
 
 	// `Supreme Unstable Currents` was incorrectly assigned the duplicate name `Prime Unstable Currents` in 36023, causing a naming collision.
-	if (skillName == "Prime Unstable Currents" && nodeData["id"] == 619) {
+	if (skillName == "至尊不稳电流" && nodeData["id"] == 619) {
 		$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "` -> `Supreme Unstable Currents`.");
-		nodeData["power"]["skill_name"] = "Supreme Unstable Currents";
+		nodeData["power"]["skill_name"] = "至极不稳电流";
 	// `Prime Inferno` was incorrectly assigned the name `Upgrade 1` in 36023.
 	} else if (skillName == "Upgrade 1" && nodeData["id"] == 617) {
 		$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "` -> `Prime Inferno`.");
-		nodeData["power"]["skill_name"] = "Prime Inferno";
+		nodeData["power"]["skill_name"] = "至尊炼狱烈焰";
 	// `Supreme Inferno` was incorrectly assigned the name `Upgrade 2` in 36023.
 	} else if (skillName == "Upgrade 2" && nodeData["id"] == 620) {
 		$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "` -> `Supreme Inferno`.");
-		nodeData["power"]["skill_name"] = "Supreme Inferno";
+		nodeData["power"]["skill_name"] = "至极炼狱烈焰";
 	// `Enhanced Charged Bolts` was incorrectly assigned the name `Enhanced Charged Bolt` in 36023.
 	} else if (skillName == "Enhanced Charged Bolt" && nodeData["id"] == 731) {
 		$("#debugOutput").append("\nFixing nodeID " + nodeData["id"] + "; SkillName: `" + skillName + "` -> `Enhanced Charged Bolts`.");
