@@ -849,18 +849,19 @@ Tags: Damage.`,
 };
 
 sorcererData["召唤魔法"] = {
-	"Hydra": {
-		connections: [ "召唤魔法", "Enhanced Hydra" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Summon a {#}-headed hydra for {#} seconds. Each head spits fire at enemies, dealing {#}% damage.
+	"多头蛇": {
+		power_id: "Power_Sorcerer_Hydra",
+		connections: [ "召唤魔法", "强化多头蛇" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+召唤一只有 {#} 个头的多头蛇，持续 {#} 秒。每个头都会对敌人喷吐火焰，造成 {#} 点伤害。
 
-Maximum {#} active Hydras at a time.
+同一时间最多可激活 {#} 只多头蛇。
 
 Tags: Conjuration, Pyromancy, Damage, Fire, Mana.
 
 — 附魔效果 —
-After spending {#} Mana, a {#}-headed Hydra spawns for {#} seconds.`,
+消耗 {#} 点法力后，召唤一只拥有 {#} 个头的多头蛇，持续 {#} 秒。`,
 		id: 61,
 		maxPoints: 5,
 		values: [ "20", "77", "3", "12.0", "30", "1" ],
@@ -868,10 +869,10 @@ After spending {#} Mana, a {#}-headed Hydra spawns for {#} seconds.`,
 		x: 6.92,
 		y: -281.666
 	},
-	"Enhanced Hydra": {
-		baseSkill: "Hydra",
-		connections: [ "Hydra", "Invoked Hydra", "Summoned Hydra" ],
-		description: `While Healthy, your casts of Hydra gain {#} additional head.
+	"强化多头蛇": {
+		baseSkill: "多头蛇",
+		connections: [ "多头蛇", "祈法多头蛇", "召唤多头蛇" ],
+		description: `处于健康状态时，你的多头蛇额外获得 {#} 个头。
 
 Tags: Conjuration, Pyromancy, Damage, Fire, Mana.`,
 		id: 62,
@@ -880,10 +881,10 @@ Tags: Conjuration, Pyromancy, Damage, Fire, Mana.`,
 		x: 6.62,
 		y: -486.715
 	},
-	"Invoked Hydra": {
-		baseSkill: "Hydra",
-		connections: [ "Enhanced Hydra" ],
-		description: `After you Critically Strike, your Hydras gain +{#}% Critical Strike Chance for {#} seconds.
+	"祈法多头蛇": {
+		baseSkill: "多头蛇",
+		connections: [ "强化多头蛇" ],
+		description: `在你暴击后，你的多头蛇的暴击几率提高 {#}%，持续 {#} 秒。
 
 Tags: Conjuration, Pyromancy, Damage, Fire, Mana.`,
 		id: 63,
@@ -892,28 +893,28 @@ Tags: Conjuration, Pyromancy, Damage, Fire, Mana.`,
 		x: 158.38,
 		y: -596.294
 	},
-	"Summoned Hydra": {
-		baseSkill: "Hydra",
-		connections: [ "Enhanced Hydra" ],
-		description: `Hydra also Burns enemies for an additional {#}% of its Base damage dealt over {#} seconds.
+	"召唤多头蛇": {
+		baseSkill: "多头蛇",
+		connections: [ "强化多头蛇" ],
+		description: `多头蛇还会使敌人燃烧，在 {#} 秒内造成其基础伤害 {#}% 的额外伤害。
 
 Tags: Conjuration, Pyromancy, Damage, Fire, Mana.`,
 		id: 64,
 		maxPoints: 1,
-		values: [ "12", "6" ],
+		values: [ "6", "12" ],
 		x: -145.46,
 		y: -594.569
 	},
-	"Ice Blades": {
-		connections: [ "召唤魔法", "Enhanced Ice Blades" ],
-		description: `Cooldown: {#} seconds
-Lucky Hit Chance: {#}%
-Conjure a pair of ice blades for {#} seconds that rapidly slash enemies for {#}% damage and have a {#}% chance to make them Vulnerable for {#} seconds.
+	"冰刃": {
+		connections: [ "召唤魔法", "强化冰刃" ],
+		description: `冷却时间：{#} 秒
+幸运一击几率：{#}%
+召唤一对存在 {#} 秒的冰刃，迅速劈砍敌人，造成 {#} 点伤害并有 {#}% 几率使其陷入易伤状态，持续 {#} 秒。
 
 Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.
 
 — 附魔效果 —
-For every {#} seconds in Cooldowns you spend, you spawn an Ice Blades on a random enemy.`,
+每度过 {#} 秒的冷却时间，你就会对随机敌人召唤一把 {#} 冰刃。`,
 		id: 65,
 		maxPoints: 5,
 		values: [ "12", "71", "6.0", "31", "30", "2" ],
@@ -921,10 +922,10 @@ For every {#} seconds in Cooldowns you spend, you spawn an Ice Blades on a rando
 		x: -533.46,
 		y: -0.359
 	},
-	"Enhanced Ice Blades": {
-		baseSkill: "Ice Blades",
-		connections: [ "Ice Blades", "Summoned Ice Blades", "Invoked Ice Blades" ],
-		description: `Ice Blades's Cooldown is reduced by {#} second each time it hits a Vulnerable enemy.
+	"强化冰刃": {
+		baseSkill: "冰刃",
+		connections: [ "冰刃", "召唤冰刃", "祈法冰刃" ],
+		description: `冰刃每次命中一个易伤敌人，其冷却时间缩短 {#} 秒。
 
 Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.`,
 		id: 66,
@@ -933,10 +934,10 @@ Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.`,
 		x: -898.675,
 		y: -0.442
 	},
-	"Summoned Ice Blades": {
-		baseSkill: "Ice Blades",
-		connections: [ "Enhanced Ice Blades" ],
-		description: `{#}% of Enhanced Ice Blades's Cooldown reduction is applied to your other Skills.
+	"召唤冰刃": {
+		baseSkill: "冰刃",
+		connections: [ "强化冰刃" ],
+		description: `强化冰刃的 {#}% 的冷却时间缩减会应用到你的其他技能上。
 
 Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.`,
 		id: 67,
@@ -945,10 +946,10 @@ Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.`,
 		x: -1089.415,
 		y: 85.628
 	},
-	"Invoked Ice Blades": {
-		baseSkill: "Ice Blades",
-		connections: [ "Enhanced Ice Blades" ],
-		description: `Your Ice Blades gain +{#}% increased Attack Speed per active Ice Blades.
+	"祈法冰刃": {
+		baseSkill: "冰刃",
+		connections: [ "强化冰刃" ],
+		description: `每有一个激活的冰刃，你的冰刃的攻击速度就会提高 {#}%
 
 Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.`,
 		id: 68,
@@ -957,16 +958,16 @@ Tags: Conjuration, Frost, Vulnerable, Damage, Cold, Cooldown.`,
 		x: -1080.445,
 		y: -89.709
 	},
-	"Lightning Spear": {
-		connections: [ "召唤魔法", "Enhanced Lightning Spear" ],
-		description: `Cooldown: {#} seconds
-Lucky Hit Chance: {#}%
-Conjure a spear of lightning that seeks out enemies for {#} seconds, dealing {#}% damage per hit.
+	"闪电矛": {
+		connections: [ "召唤魔法", "强化闪电矛" ],
+		description: `冷却时间：{#} 秒
+幸运一击几率：{#}%
+召唤一支搜寻敌人的闪电矛，持续 {#} 秒，每次命中造成 {#} 点伤害。
 
 Tags: Conjuration, Shock, Damage, Lightning, Cooldown.
 
 — 附魔效果 —
-Absorbing Crackling Energy has a {#}% chance to conjure a Lightning Spear.`,
+吸收爆裂电花有 {#}% 的几率召唤一柄闪电矛。`,
 		id: 69,
 		maxPoints: 5,
 		values: [ "20", "35", "6.0", "15" ],
@@ -974,10 +975,10 @@ Absorbing Crackling Energy has a {#}% chance to conjure a Lightning Spear.`,
 		x: -413.195,
 		y: 220.974
 	},
-	"Enhanced Lightning Spear": {
-		baseSkill: "Lightning Spear",
-		connections: [ "Lightning Spear", "Summoned Lightning Spear", "Invoked Lightning Spear" ],
-		description: `After Critically Striking, Lightning Spear gains a +{#}% increased stacking Critical Strike Chance for its duration.
+	"强化闪电矛": {
+		baseSkill: "闪电矛",
+		connections: [ "闪电矛", "召唤闪电矛", "祈法闪电矛" ],
+		description: `造成暴击后，闪电矛在持续时间内叠加暴击的几率提高 {#}%
 
 Tags: Conjuration, Shock, Damage, Lightning, Cooldown.`,
 		id: 70,
@@ -986,10 +987,10 @@ Tags: Conjuration, Shock, Damage, Lightning, Cooldown.`,
 		x: -685.66,
 		y: 367.663
 	},
-	"Summoned Lightning Spear": {
-		baseSkill: "Lightning Spear",
-		connections: [ "Enhanced Lightning Spear" ],
-		description: `Collecting Crackling Energy increases the damage of your next Lightning Spear cast by x{#}%, up to x{#}%.
+	"召唤闪电矛": {
+		baseSkill: "闪电矛",
+		connections: [ "强化闪电矛" ],
+		description: `拾取爆裂电花会使你施放的下一个闪电矛造成的伤害提高 {#}%，最多提高 {#}%
 
 Tags: Conjuration, Shock, Damage, Lightning, Cooldown.`,
 		id: 71,
@@ -998,10 +999,10 @@ Tags: Conjuration, Shock, Damage, Lightning, Cooldown.`,
 		x: -931.92,
 		y: 378.401
 	},
-	"Invoked Lightning Spear": {
-		baseSkill: "Lightning Spear",
-		connections: [ "Enhanced Lightning Spear" ],
-		description: `Lightning Spear Stuns enemies for {#} seconds when Critically Striking.
+	"祈法闪电矛": {
+		baseSkill: "闪电矛",
+		connections: [ "强化闪电矛" ],
+		description: `闪电矛会在暴击时击晕敌人 {#} 秒。
 
 Tags: Conjuration, Shock, Damage, Lightning, Cooldown.`,
 		id: 72,
@@ -1010,9 +1011,10 @@ Tags: Conjuration, Shock, Damage, Lightning, Cooldown.`,
 		x: -732.94,
 		y: 495.95
 	},
-	"Conjuration Mastery": {
+	"召唤魔法精通": {
+		power_id: "Power_Sorcerer_Talent_02",
 		connections: [ "召唤魔法" ],
-		description: `You deal x{#}% increased damage for each active Conjuration.
+		description: `每有一个激活的召唤魔法，你造成的伤害提高 {#}%
 
 Tags: Lucky Hit, Conjuration.`,
 		id: 73,
@@ -1021,9 +1023,10 @@ Tags: Lucky Hit, Conjuration.`,
 		x: -1.85,
 		y: 301.34
 	},
-	"Precision Magic": {
+	"精准魔法": {
+		power_id: "Power_Sorcerer_Talent_03",
 		connections: [ "召唤魔法" ],
-		description: `Your Lucky Hit Chance is increased by +{#}%.
+		description: `你的幸运一击几率提高 {#}%
 
 Tags: Lucky Hit.`,
 		id: 74,
@@ -1032,9 +1035,10 @@ Tags: Lucky Hit.`,
 		x: -449.215,
 		y: -240.001
 	},
-	"Align the Elements": {
-		connections: [ "Mana Shield", "召唤魔法", "Protection" ],
-		description: `You gain {#}% Damage Reduction against Elites for each second you haven't taken damage from one, up to {#}%.
+	"元素协调": {
+		power_id: "Power_Sorcerer_Talent_Elemental_T1_N3",
+		connections: [ "法力护盾", "召唤魔法", "魔法防护" ],
+		description: `当你对战精英怪且未受到其伤害时，每秒获得 {#}% 伤害减免，最多获得 {#}%
 
 Tags: Damage Reduction, Elite Monsters.`,
 		id: 75,
@@ -1043,9 +1047,10 @@ Tags: Damage Reduction, Elite Monsters.`,
 		x: 532.58,
 		y: 0.059
 	},
-	"Mana Shield": {
-		connections: [ "Align the Elements" ],
-		description: `Every time you spend {#} Mana, you gain {#}% Damage Reduction for {#} seconds.
+	"法力护盾": {
+		power_id: "Power_Sorcerer_Talent_06",
+		connections: [ "元素协调" ],
+		description: `你每消耗 {#} 点法力，就会获得 {#}% 的伤害减免，持续秒。
 
 Tags: Mana, Damage Reduction.`,
 		id: 76,
@@ -1054,9 +1059,10 @@ Tags: Mana, Damage Reduction.`,
 		x: 836.363,
 		y: -77.321
 	},
-	"Protection": {
-		connections: [ "Align the Elements" ],
-		description: `Using a Cooldown grants {#}% of your Maximum Life ({#}) as a Barrier for {#} seconds.
+	"魔法防护": {
+		power_id: "Power_Sorcerer_Talent_07",
+		connections: [ "元素协调" ],
+		description: `使用有冷却时间的技能可以获得一层相当于生命上限 {#}% 的屏障，持续 {#} 秒。
 
 Tags: Barrier, Cooldown.`,
 		id: 77,
@@ -1068,27 +1074,27 @@ Tags: Barrier, Cooldown.`,
 };
 
 sorcererData["掌控"] = {
-	"Meteor": {
-		connections: [ "掌控", "Enhanced Meteor" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Summon a meteor that strikes the target location, dealing {#}% damage and Burning the ground for {#}% damage over {#} seconds.
+	"陨石术": {
+		connections: [ "掌控", "强化陨石术" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+召唤一颗陨石打击目标位置，造成 {#} 点伤害并使地面燃烧，在 {#} 秒内造成 {#} 点伤害。
 
 Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.
 
 — 附魔效果 —
-Lucky Hit: {#}% chance for a Meteor to fall on enemies.`,
+幸运一击：有 {#}% 几率对敌人施放陨石术。`,
 		id: 78,
 		maxPoints: 5,
-		values: [ "40", "40", "50", "35", "3" ],
+		values: [ "40", "40", "50", "3", "35" ],
 		extraValues: [ "3" ],
 		x: 601.53,
 		y: -220.475
 	},
-	"Enhanced Meteor": {
-		baseSkill: "Meteor",
-		connections: [ "Meteor", "Mage's Meteor", "Wizard's Meteor" ],
-		description: `If a cast of Meteor hits {#} or more enemies, there is a {#}% chance an additional Meteor falls on the same location.
+	"强化陨石术": {
+		baseSkill: "陨石术",
+		connections: [ "陨石术", "法师陨石术", "巫师陨石术" ],
+		description: `如果陨石术命中 {#} 名或更多敌人，有 {#}% 几率对同一位置额外施放一次陨石术。
 
 Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.`,
 		id: 79,
@@ -1097,10 +1103,10 @@ Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.`,
 		x: 915.055,
 		y: -337.375
 	},
-	"Mage's Meteor": {
-		baseSkill: "Meteor",
-		connections: [ "Enhanced Meteor" ],
-		description: `Meteor falls {#}% faster.
+	"法师陨石术": {
+		baseSkill: "陨石术",
+		connections: [ "强化陨石术" ],
+		description: `陨石术坠落速度加快 {#}%
 
 Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.`,
 		id: 80,
@@ -1109,10 +1115,10 @@ Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.`,
 		x: 1174.005,
 		y: -328.576
 	},
-	"Wizard's Meteor": {
-		baseSkill: "Meteor",
-		connections: [ "Enhanced Meteor" ],
-		description: `Meteor's impact Immobilizes enemies for {#} seconds.
+	"巫师陨石术": {
+		baseSkill: "陨石术",
+		connections: [ "强化陨石术" ],
+		description: `陨石术命中时会使敌人定身 {#} 秒。
 
 Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.`,
 		id: 81,
@@ -1121,27 +1127,27 @@ Tags: Mastery, Pyromancy, Damage, Fire, Mana, Burn.`,
 		x: 991.17,
 		y: -462.803
 	},
-	"Blizzard": {
-		connections: [ "掌控", "Enhanced Blizzard" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Summon a frigid blizzard that deals {#}% damage and continually Chills enemies for {#}% over {#} seconds.
+	"暴风雪": {
+		connections: [ "掌控", "强化暴风雪" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+召唤一阵冰冷的暴风雪，造成 {#} 点伤害并在 {#} 秒内持续冻伤敌人 {#}%
 
 Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.
 
 — 附魔效果 —
-Every {#} seconds, a Blizzard forms over you and follows you for {#} seconds.`,
+每过 {#} 秒，在头顶汇聚一阵暴风雪并跟随你移动，持续 {#} 秒。`,
 		id: 82,
 		maxPoints: 5,
-		values: [ "40", "33", "120", "18", "8" ],
+		values: [ "40", "33", "120", "8", "18" ],
 		extraValues: [ "15", "4" ],
 		x: 300.64,
 		y: -339.596
 	},
-	"Enhanced Blizzard": {
-		baseSkill: "Blizzard",
-		connections: [ "Blizzard", "Mage's Blizzard", "Wizard's Blizzard" ],
-		description: `Blizzard deals x{#}% increased damage to Frozen enemies.
+	"强化暴风雪": {
+		baseSkill: "暴风雪",
+		connections: [ "暴风雪", "法师暴风雪", "巫师暴风雪" ],
+		description: `暴风雪对被冻结敌人造成的伤害提高 {#}%
 
 Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.`,
 		id: 83,
@@ -1150,10 +1156,10 @@ Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.`,
 		x: 447.585,
 		y: -525.399
 	},
-	"Mage's Blizzard": {
-		baseSkill: "Blizzard",
-		connections: [ "Enhanced Blizzard" ],
-		description: `When cast above {#} Mana, Blizzard's duration is increased by {#} seconds.
+	"法师暴风雪": {
+		baseSkill: "暴风雪",
+		connections: [ "强化暴风雪" ],
+		description: `法力大于 {#} 点时，施放的暴风雪持续时间延长 {#} 秒。
 
 Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.`,
 		id: 84,
@@ -1162,10 +1168,10 @@ Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.`,
 		x: 402.595,
 		y: -654.156
 	},
-	"Wizard's Blizzard": {
-		baseSkill: "Blizzard",
-		connections: [ "Enhanced Blizzard" ],
-		description: `While you have an active Blizzard, your Core Skills cost {#}% less Mana.
+	"巫师暴风雪": {
+		baseSkill: "暴风雪",
+		connections: [ "强化暴风雪" ],
+		description: `当你有激活的暴风雪时，你的核心技能消耗的法力降低 {#}%
 
 Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.`,
 		id: 85,
@@ -1174,16 +1180,16 @@ Tags: Mastery, Frost, Chill, Damage, Cold, Mana, Crowd Control.`,
 		x: 675.015,
 		y: -585
 	},
-	"Ball Lightning": {
-		connections: [ "掌控", "Enhanced Ball Lightning" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Discharge a ball of lightning that slowly moves forward, continually zapping enemies for {#}% damage.
+	"球状闪电": {
+		connections: [ "掌控", "强化球状闪电" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+放出一个向前缓慢移动的闪电球持续电击敌人，造成 {#} 点伤害。
 
 Tags: Mastery, Shock, Damage, Lightning, Mana.
 
 — 附魔效果 —
-Lucky Hit: Critical Strikes have a {#}% chance to spawn a static Ball Lightning.`,
+幸运一击：暴击有 {#}% 的几率形成一团球状闪电。`,
 		id: 86,
 		maxPoints: 5,
 		values: [ "50", "20", "18" ],
@@ -1191,10 +1197,10 @@ Lucky Hit: Critical Strikes have a {#}% chance to spawn a static Ball Lightning.
 		x: 274.81,
 		y: 344.08
 	},
-	"Enhanced Ball Lightning": {
-		baseSkill: "Ball Lightning",
-		connections: [ "Ball Lightning", "Wizard's Ball Lightning", "Mage's Ball Lightning" ],
-		description: `Ball Lightning's damage rate is increased by {#}% of your Attack Speed Bonus.
+	"强化球状闪电": {
+		baseSkill: "球状闪电",
+		connections: [ "球状闪电", "巫师球状闪电", "法师球状闪电" ],
+		description: `球状闪电造成伤害的速度提高，程度相当于你攻击速度加成的 {#}%
 
 Tags: Mastery, Shock, Damage, Lightning, Mana.`,
 		id: 87,
@@ -1203,10 +1209,10 @@ Tags: Mastery, Shock, Damage, Lightning, Mana.`,
 		x: 431.875,
 		y: 536.465
 	},
-	"Wizard's Ball Lightning": {
-		baseSkill: "Ball Lightning",
-		connections: [ "Enhanced Ball Lightning" ],
-		description: `If an enemy is hit at least {#} times by a cast of Ball Lightning, a Crackling Energy is formed. Can only happen once per cast.
+	"巫师球状闪电": {
+		baseSkill: "球状闪电",
+		connections: [ "强化球状闪电" ],
+		description: `如果一名敌人被单次球状闪电命中至少 {#} 次，生成一个爆裂电花。该效果每次施法只能触发一次。
 
 Tags: Mastery, Shock, Damage, Lightning, Mana.`,
 		id: 88,
@@ -1215,10 +1221,10 @@ Tags: Mastery, Shock, Damage, Lightning, Mana.`,
 		x: 399.115,
 		y: 661.625
 	},
-	"Mage's Ball Lightning": {
-		baseSkill: "Ball Lightning",
-		connections: [ "Enhanced Ball Lightning" ],
-		description: `After hitting Close enemies {#} times with Ball Lightning, your next cast of it Stuns enemies hit for {#} seconds.
+	"法师球状闪电": {
+		baseSkill: "球状闪电",
+		connections: [ "强化球状闪电" ],
+		description: `球状闪电命中近距敌人 {#} 次后，你下一次施放会击晕其命中的敌人 {#} 秒。
 
 Tags: Mastery, Shock, Damage, Lightning, Mana.`,
 		id: 89,
@@ -1227,9 +1233,10 @@ Tags: Mastery, Shock, Damage, Lightning, Mana.`,
 		x: 656.41,
 		y: 586.43
 	},
-	"Inner Flames": {
-		connections: [ "掌控", "Crippling Flames", "Devouring Blaze" ],
-		description: `Your Pyromancy Skills deal x{#}% increased damage while you are Healthy.
+	"心灵之火": {
+		power_id: "Power_Sorcerer_Talent_Fire_T1_N2",
+		connections: [ "掌控", "致残烈焰", "吞噬烈焰" ],
+		description: `健康状态下，你的爆焰技能造成的伤害提高 {#}%
 
 Tags: Healthy, Pyromancy, Damage.`,
 		id: 90,
@@ -1238,9 +1245,10 @@ Tags: Healthy, Pyromancy, Damage.`,
 		x: 594.325,
 		y: 0.68
 	},
-	"Crippling Flames": {
-		connections: [ "Inner Flames" ],
-		description: `Lucky Hit: Your Pyromancy Skills have a {#}% chance to Immobilize enemies for {#} seconds. This chance is doubled while you are Healthy.
+	"致残烈焰": {
+		power_id: "Power_Sorcerer_Talent_08",
+		connections: [ "心灵之火" ],
+		description: `幸运一击：你的爆焰技能有 {#}% 几率使敌人定身 {#} 秒。该几率在你处于健康状态时翻倍。
 
 Tags: Healthy, Lucky Hit, Crowd Control, Pyromancy.`,
 		id: 132,
@@ -1249,9 +1257,10 @@ Tags: Healthy, Lucky Hit, Crowd Control, Pyromancy.`,
 		x: 884.67,
 		y: 83.63
 	},
-	"Devouring Blaze": {
-		connections: [ "Inner Flames" ],
-		description: `You deal x{#}% increased Critical Strike Damage against Burning enemies. If they are also Immobilized, this bonus is increased to x{#}%.
+	"吞噬烈焰": {
+		power_id: "Power_Sorcerer_Talent_Fire_T2_N3",
+		connections: [ "心灵之火" ],
+		description: `你对燃烧的敌人造成的暴击伤害提高 {#}%，如果该敌人还被定身，则该加成提高至 {#}%
 
 Tags: Damage, Burn, Critical Strikes, Crowd Control.`,
 		id: 133,
@@ -1260,9 +1269,10 @@ Tags: Damage, Burn, Critical Strikes, Crowd Control.`,
 		x: 882.995,
 		y: -75.715
 	},
-	"Static Discharge": {
-		connections: [ "Invigorating Conduit", "Shocking Impact", "掌控" ],
-		description: `Lucky Hit: Critical Strikes with Shock Skills have up to a {#}% chance to form a Crackling Energy.
+	"静电释能": {
+		power_id: "Power_Sorcerer_Talent_Lightning_T1_N2",
+		connections: [ "激发导体", "电冲震击", "掌控" ],
+		description: `幸运一击：电冲技能暴击时，有最高 {#}% 几率生成一个爆裂电花。
 
 Tags: Crackling Energy, Shock, Lucky Hit, Critical Strikes.`,
 		id: 94,
@@ -1271,9 +1281,10 @@ Tags: Crackling Energy, Shock, Lucky Hit, Critical Strikes.`,
 		x: -133.43,
 		y: 371.055
 	},
-	"Invigorating Conduit": {
-		connections: [ "Static Discharge" ],
-		description: `Upon absorbing Crackling Energy, you gain {#} Mana.
+	"激发导体": {
+		power_id: "Power_Sorcerer_Talent_09",
+		connections: [ "静电释能" ],
+		description: `吸收爆裂电花时，你会获得 {#} 点法力。
 
 Tags: Crackling Energy, Mana.`,
 		id: 134,
@@ -1282,9 +1293,10 @@ Tags: Crackling Energy, Mana.`,
 		x: 4.47,
 		y: 508.795
 	},
-	"Shocking Impact": {
-		connections: [ "Static Discharge" ],
-		description: `Every time you Stun an enemy, you deal {#}% Lightning damage to them.
+	"电冲震击": {
+		power_id: "Power_Sorcerer_Talent_Lightning_T2_N1",
+		connections: [ "静电释能" ],
+		description: `每次你击晕一名敌人，都会对其造成 {#} 点闪电伤害。
 
 Tags: Shock, Damage, Crowd Control, Lightning.`,
 		id: 95,
@@ -1293,9 +1305,10 @@ Tags: Shock, Damage, Crowd Control, Lightning.`,
 		x: -280.938,
 		y: 509
 	},
-	"Icy Veil": {
-		connections: [ "掌控", "Snap Freeze", "Cold Front" ],
-		description: `Your Barriers have a +{#}% increased duration.
+	"寒冰帷幕": {
+		power_id: "Power_Sorcerer_Talent_Cold_T1_N1",
+		connections: [ "掌控", "急速冻结", "冰冷之锋" ],
+		description: `你的屏障持续时间延长 {#}%
 
 Tags: Barrier.`,
 		id: 96,
@@ -1304,9 +1317,10 @@ Tags: Barrier.`,
 		x: -141.488,
 		y: -351.513
 	},
-	"Snap Freeze": {
-		connections: [ "Icy Veil" ],
-		description: `Lucky Hit: Frost Skills have a {#}% chance to instantly Freeze.
+	"急速冻结": {
+		power_id: "Power_Sorcerer_Talent_Cold_T1_N2",
+		connections: [ "寒冰帷幕" ],
+		description: `幸运一击：冰霜技能有 {#}% 几率立即冻结敌人。
 
 Tags: Frozen, Lucky Hit, Crowd Control, Frost.`,
 		id: 135,
@@ -1315,9 +1329,10 @@ Tags: Frozen, Lucky Hit, Crowd Control, Frost.`,
 		x: 2.725,
 		y: -507.73
 	},
-	"Cold Front": {
-		connections: [ "Icy Veil" ],
-		description: `While you have a Barrier active, you apply x{#}% more Chill.
+	"冰冷之锋": {
+		power_id: "Power_Sorcerer_Talent_Cold_T2_N1",
+		connections: [ "寒冰帷幕" ],
+		description: `当你有激活的屏障时，你施加的冻伤提高 {#}%
 
 Tags: Barrier, Chill, Crowd Control.`,
 		id: 98,
@@ -1326,27 +1341,27 @@ Tags: Barrier, Chill, Crowd Control.`,
 		x: -276.711,
 		y: -506.953
 	},
-	"Firewall": {
-		connections: [ "掌控", "Enhanced Firewall" ],
-		description: `Mana Cost: {#}
-Lucky Hit Chance: {#}%
-Create a wall of flames that Burns enemies for {#}% damage over {#} seconds.
+	"火墙": {
+		connections: [ "掌控", "强化火墙" ],
+		description: `法力消耗：{#}
+幸运一击几率：{#}%
+制造一道烈焰墙使敌人燃烧，在 {#} 秒内造成 {#} 点伤害。
 
 Tags: Mastery, Pyromancy, Damage, Burn, Mana.
 
 — 附魔效果 —
-Each time an enemy takes Burning damage, there's a {#}% chance to spawn 2 Firewalls underneath them for {#} seconds.`,
+每次敌人受到燃烧伤害时，都有 {#}% 几率在其脚下召唤2道火墙，持续 {#} 秒。`,
 		id: 99,
 		maxPoints: 5,
-		values: [ "30", "40", "160", "8" ],
+		values: [ "30", "40", "8", "160" ],
 		extraValues: [ "5", "3" ],
 		x: 592.435,
 		y: 224.3
 	},
-	"Enhanced Firewall": {
-		baseSkill: "Firewall",
-		connections: [ "Firewall", "Wizard's Firewall", "Mage's Firewall" ],
-		description: `Enemies take x{#}% increased Burning damage from you while standing in Firewall.
+	"强化火墙": {
+		baseSkill: "火墙",
+		connections: [ "火墙", "巫师火墙", "法师火墙" ],
+		description: `你对站在火墙内的敌人造成的火焰伤害提高 {#}%
 
 Tags: Mastery, Pyromancy, Damage, Burn, Mana.`,
 		id: 100,
@@ -1355,10 +1370,10 @@ Tags: Mastery, Pyromancy, Damage, Burn, Mana.`,
 		x: 905.955,
 		y: 347.945
 	},
-	"Wizard's Firewall": {
-		baseSkill: "Firewall",
-		connections: [ "Enhanced Firewall" ],
-		description: `You gain x{#}% increased Mana Regeneration per active Firewall, up to x{#}%.
+	"巫师火墙": {
+		baseSkill: "火墙",
+		connections: [ "强化火墙" ],
+		description: `每道激活的火墙都会使你的法力回复速度提高 {#}%，最多提高 {#}%
 
 Tags: Mastery, Pyromancy, Damage, Burn, Mana.`,
 		id: 101,
@@ -1367,10 +1382,10 @@ Tags: Mastery, Pyromancy, Damage, Burn, Mana.`,
 		x: 998.24,
 		y: 479.99
 	},
-	"Mage's Firewall": {
-		baseSkill: "Firewall",
-		connections: [ "Enhanced Firewall" ],
-		description: `Enemies continue Burning for {#} seconds after leaving Firewall.
+	"法师火墙": {
+		baseSkill: "火墙",
+		connections: [ "强化火墙" ],
+		description: `敌人离开火墙后会继续燃烧 {#} 秒。
 
 Tags: Mastery, Pyromancy, Damage, Burn, Mana.`,
 		id: 102,

@@ -2428,7 +2428,7 @@ let nodeValues = {
 			]
 		},
 		"召唤魔法": {
-			"Hydra": [
+			"多头蛇": [
 				"20",
 				"77",
 				"3",
@@ -2436,14 +2436,14 @@ let nodeValues = {
 				"30",
 				"1"
 			],
-			"Enhanced Hydra": [
+			"强化多头蛇": [
 				"1"
 			],
-			"Summoned Hydra": [
+			"召唤多头蛇": [
 				"12",
 				"6"
 			],
-			"Ice Blades": [
+			"冰刃": [
 				"12",
 				"71",
 				"6.0",
@@ -2451,43 +2451,43 @@ let nodeValues = {
 				"30",
 				"2"
 			],
-			"Enhanced Ice Blades": [
+			"强化冰刃": [
 				"1"
 			],
-			"Summoned Ice Blades": [
+			"召唤冰刃": [
 				"50"
 			],
-			"Invoked Ice Blades": [
+			"祈法冰刃": [
 				"10"
 			],
-			"Lightning Spear": [
+			"闪电矛": [
 				"20",
 				"35",
 				"6.0",
 				"15"
 			],
-			"Enhanced Lightning Spear": [
+			"强化闪电矛": [
 				"5"
 			],
-			"Invoked Lightning Spear": [
+			"祈法闪电矛": [
 				"2"
 			],
-			"Conjuration Mastery": [
+			"召唤魔法精通": [
 				"{1/2/3}"
 			],
-			"Precision Magic": [
+			"精准魔法": [
 				"{5/10/15}"
 			],
-			"Align the Elements": [
+			"元素协调": [
 				"{5/10/15}",
 				"50"
 			],
-			"Mana Shield": [
+			"法力护盾": [
 				"100",
 				"{5/10/15}",
 				"5"
 			],
-			"Protection": [
+			"魔法防护": [
 				"{10/20/30}",
 				"",
 				"5"
@@ -2503,107 +2503,107 @@ let nodeValues = {
 			"Lightning Spear — Enchantment": [
 				"10"
 			],
-			"Invoked Hydra": [
+			"祈法多头蛇": [
 				"30",
 				"3"
 			],
-			"Summoned Lightning Spear": [
+			"召唤闪电矛": [
 				"20",
 				"100"
 			]
 		},
 		"掌控": {
-			"Meteor": [
+			"陨石术": [
 				"40",
 				"40",
 				"50",
 				"35",
 				"3"
 			],
-			"Enhanced Meteor": [
+			"强化陨石术": [
 				"3",
 				"30"
 			],
-			"Mage's Meteor": [
+			"法师陨石术": [
 				"30"
 			],
-			"Wizard's Meteor": [
+			"巫师陨石术": [
 				"2"
 			],
-			"Blizzard": [
+			"暴风雪": [
 				"40",
 				"33",
 				"120",
 				"18",
 				"8"
 			],
-			"Enhanced Blizzard": [
+			"强化暴风雪": [
 				"25"
 			],
-			"Mage's Blizzard": [
+			"法师暴风雪": [
 				"50",
 				"4"
 			],
-			"Wizard's Blizzard": [
+			"巫师暴风雪": [
 				"10"
 			],
-			"Ball Lightning": [
+			"球状闪电": [
 				"50",
 				"20",
 				"18"
 			],
-			"Enhanced Ball Lightning": [
+			"强化球状闪电": [
 				"200"
 			],
-			"Wizard's Ball Lightning": [
+			"巫师球状闪电": [
 				"4"
 			],
-			"Mage's Ball Lightning": [
+			"法师球状闪电": [
 				"50",
 				"1"
 			],
-			"Inner Flames": [
+			"心灵之火": [
 				"{3/6/9}"
 			],
-			"Devouring Blaze": [
+			"吞噬烈焰": [
 				"10",
 				"25"
 			],
-			"Invigorating Conduit": [
+			"激发导体": [
 				"{4/8/12}"
 			],
-			"Static Discharge": [
+			"静电释能": [
 				"{5/10/15}"
 			],
-			"Shocking Impact": [
+			"电冲震击": [
 				"{15/30/45}"
 			],
-			"Icy Veil": [
+			"寒冰帷幕": [
 				"{5/10/15}"
 			],
-			"Snap Freeze": [
+			"急速冻结": [
 				"{3/6/9}"
 			],
-			"Cold Front": [
+			"冰冷之锋": [
 				"{8/16/24}"
 			],
-			"Firewall": [
+			"火墙": [
 				"30",
 				"40",
 				"160",
 				"8"
 			],
-			"Enhanced Firewall": [
+			"强化火墙": [
 				"25"
 			],
-			"Wizard's Firewall": [
+			"巫师火墙": [
 				"5",
 				"25"
 			],
-			"Mage's Firewall": [
+			"法师火墙": [
 				"3"
 			],
-			"Crippling Flames": [
+			"致残烈焰": [
 				"5",
 				"2"
 			],
